@@ -1,0 +1,14 @@
+table {
+  width: 100%;
+}
+
+.padding {
+  padding: 1em;
+  word-wrap: break-word;
+}
+
+.background-green {
+  border-style: solid;
+  border-width: 0.3em;
+  border-color: #3b8243;
+}

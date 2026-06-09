@@ -1,0 +1,3654 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "init-customers",
+        "author": "epi2000",
+        "changes": [
+          {
+            "insert": {
+              "columns": [
+                {
+                  "name": "name",
+                  "value": "Bundesagentur für Arbeit"
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "name": "name",
+                  "value": "Pro7Sat1"
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "name": "name",
+                  "value": "Trustcenter"
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "name": "name",
+                  "value": "Deutsche Flugsicherung"
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "name": "name",
+                  "value": "Deutsche Rentenversicherung"
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "name": "name",
+                  "value": "Atos (Cycos)"
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "name": "name",
+                  "value": "Atos (Cycos) - ITRION"
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "customer"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "init-technology-customers",
+        "author": "epi2000",
+        "changes": [
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1000"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Bundesagentur für Arbeit"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1000"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1001"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Trustcenter"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1000"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1002"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Deutsche Flugsicherung"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1000"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1003"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Deutsche Rentenversicherung"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1000"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1004"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1000"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1005"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos) - ITRION"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1000"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1006"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Bundesagentur für Arbeit"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1001"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1007"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1001"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1008"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos) - ITRION"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1001"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1009"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Bundesagentur für Arbeit"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1002"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1010"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1002"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1011"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos) - ITRION"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1002"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1012"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Bundesagentur für Arbeit"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1003"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1013"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Deutsche Flugsicherung"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1003"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1014"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1003"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1015"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Bundesagentur für Arbeit"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1004"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1016"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1004"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1017"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos) - ITRION"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1004"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1018"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Bundesagentur für Arbeit"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1005"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1019"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Deutsche Flugsicherung"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1005"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1020"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1005"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1021"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos) - ITRION"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1005"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1022"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Pro7Sat1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1006"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1023"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Deutsche Flugsicherung"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1006"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1024"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1006"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1025"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Bundesagentur für Arbeit"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1007"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1026"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1007"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1027"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos) - ITRION"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1007"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1028"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Bundesagentur für Arbeit"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1008"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1029"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1008"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1030"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos) - ITRION"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1008"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1031"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Bundesagentur für Arbeit"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1009"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1032"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1009"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1033"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos) - ITRION"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1009"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1034"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Pro7Sat1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1009"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1035"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Trustcenter"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1010"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1036"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Deutsche Flugsicherung"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1010"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1037"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Deutsche Rentenversicherung"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1010"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1038"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1010"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column":{
+                    "name": "id",
+                    "value": "1039"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Bundesagentur für Arbeit"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1011"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column":{
+                    "name": "id",
+                    "value": "1040"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Trustcenter"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1011"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column":{
+                    "name": "id",
+                    "value": "1041"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Deutsche Flugsicherung"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1011"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column":{
+                    "name": "id",
+                    "value": "1042"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Deutsche Rentenversicherung"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1011"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column":{
+                    "name": "id",
+                    "value": "1043"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1011"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column":{
+                    "name": "id",
+                    "value": "1044"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Bundesagentur für Arbeit"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1012"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column":{
+                    "name": "id",
+                    "value": "1045"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Deutsche Flugsicherung"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1012"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column":{
+                    "name": "id",
+                    "value": "1046"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Deutsche Rentenversicherung"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1012"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column":{
+                    "name": "id",
+                    "value": "1047"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1012"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column":{
+                    "name": "id",
+                    "value": "1048"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Trustcenter"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1013"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column":{
+                    "name": "id",
+                    "value": "1049"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Bundesagentur für Arbeit"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1013"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column":{
+                    "name": "id",
+                    "value": "1050"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Pro7Sat1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1013"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column":{
+                    "name": "id",
+                    "value": "1051"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1013"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column":{
+                    "name": "id",
+                    "value": "1052"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Pro7Sat1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1014"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column":{
+                    "name": "id",
+                    "value": "1053"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Bundesagentur für Arbeit"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1014"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column":{
+                    "name": "id",
+                    "value": "1054"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Bundesagentur für Arbeit"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1015"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column":{
+                    "name": "id",
+                    "value": "1055"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1015"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column":{
+                    "name": "id",
+                    "value": "1056"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Pro7Sat1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1016"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column":{
+                    "name": "id",
+                    "value": "1057"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Bundesagentur für Arbeit"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1014"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1058"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Bundesagentur für Arbeit"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1017"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1059"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Trustcenter"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1017"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1060"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Deutsche Flugsicherung"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1017"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1061"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Deutsche Rentenversicherung"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1017"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-2"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1062"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1017"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1063"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos) - ITRION"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1017"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1064"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Bundesagentur für Arbeit"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1018"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1065"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Pro7Sat1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1018"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1066"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Deutsche Flugsicherung"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1018"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1067"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1018"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1068"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Bundesagentur für Arbeit"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1019"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1069"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Deutsche Rentenversicherung"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1019"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1070"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Deutsche Flugsicherung"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1019"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1071"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1019"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1072"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Bundesagentur für Arbeit"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1020"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1073"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1020"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1074"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos) - ITRION"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1020"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1075"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Trustcenter"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1021"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1076"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Deutsche Rentenversicherung"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1021"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1077"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Trustcenter"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1022"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1078"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1022"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1079"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos) - ITRION"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1022"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1080"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Bundesagentur für Arbeit"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1023"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1081"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Trustcenter"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1023"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1082"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Deutsche Rentenversicherung"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1023"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1083"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1023"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1084"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos) - ITRION"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1023"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1085"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Pro7Sat1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1025"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1086"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Pro7Sat1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1026"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1087"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Bundesagentur für Arbeit"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1027"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1088"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Bundesagentur für Arbeit"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1028"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1089"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Trustcenter"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1028"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1090"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1028"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1091"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos) - ITRION"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1028"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1092"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1029"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1093"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos) - ITRION"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1029"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1094"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Bundesagentur für Arbeit"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1030"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1095"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Deutsche Flugsicherung"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1030"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1096"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1030"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1097"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Bundesagentur für Arbeit"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1031"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1098"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Deutsche Rentenversicherung"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1031"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1099"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1031"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1100"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Bundesagentur für Arbeit"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1032"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1101"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1032"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1102"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Bundesagentur für Arbeit"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1033"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1103"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Bundesagentur für Arbeit"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1034"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1104"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Trustcenter"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1034"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1105"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1034"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1106"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos) - ITRION"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1034"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1107"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1035"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1108"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Atos (Cycos) - ITRION"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1035"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1109"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_name",
+                    "value": "Bundesagentur für Arbeit"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1035"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-2"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_customer"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

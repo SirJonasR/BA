@@ -1,0 +1,74 @@
+<form [formGroup]="mainForm">
+  <div formArrayName="certificates">
+    <div
+      *ngFor="let cert of certificateFormArray.controls; let i = index"
+      [formGroupName]="i"
+    >
+      <mat-form-field appearance="fill" class="customer-field">
+        <input
+          matInput
+          formControlName="name"
+          placeholder="Zertifikatsname hinzufügen"
+          maxlength="60"
+          [readonly]="cert.value.readonly"
+        />
+        <mat-icon matSuffix color="primary" (click)="removeCertificate(i)"
+          >delete</mat-icon
+        >
+        <app-current-characters-counter
+          [maxCharacters]="maxCharactersName"
+          [currentCharacterCount]="getLengthOfCertificateName(cert.value)"
+        ></app-current-characters-counter>
+      </mat-form-field>
+
+      <md-editor
+        [mode]="'editor'"
+        maxlength="{{ maxCharactersDescription }}"
+        [height]="'250px'"
+        formControlName="description"
+        ngDefaultControl
+        required
+      >
+      </md-editor>
+      <app-current-characters-counter
+        [maxCharacters]="maxCharactersDescription"
+        [currentCharacterCount]="getLengthOfDescription(cert.value)"
+      ></app-current-characters-counter>
+
+      Empfohlene Vorgängerzertifikate
+      <app-certificate-searchfield
+        [selectedCertificateIds]="cert.value.prerequisites"
+        (selectedCertificatesOutput)="
+          handleData($event, i, '\n**Empfohlenes Vorgängerzertifikat:** ')
+        "
+        (removedCertificate)="
+          handleRemovedData(
+            $event,
+            i,
+            '\n**Empfohlenes Vorgängerzertifikat:** '
+          )
+        "
+      >
+      </app-certificate-searchfield>
+
+      Empfohlene Folgezertifikate
+      <app-certificate-searchfield
+        [selectedCertificateIds]="cert.value.followUps"
+        (selectedCertificatesOutput)="
+          handleData($event, i, '\n**Empfohlenes Folgezertifikat:** ')
+        "
+        (removedCertificate)="
+          handleRemovedData($event, i, '\n**Empfohlenes Folgezertifikat:** ')
+        "
+      ></app-certificate-searchfield>
+    </div>
+  </div>
+  <button
+    style="background: lightgrey"
+    mat-button
+    matTooltip="Neues Zertifikat anlegen"
+    (click)="addCertificate()"
+  >
+    Weiteres Zertifikat hinzufügen
+  </button>
+</form>

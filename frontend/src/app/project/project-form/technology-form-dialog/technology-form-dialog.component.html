@@ -1,0 +1,11 @@
+<mat-dialog-content class="dialog-content">
+  <h2>Technologie hinzufügen</h2>
+  <app-edit-form
+    [values]="values"
+    [isSubmitting]="isSubmitting"
+    (submitForm)="onSubmit()"
+    [hasError]="hasError"
+    [isAddingNewProjectAllowed]="false"
+    [potentialNewTechnologies]="listOfTechnologyNames"
+  ></app-edit-form>
+</mat-dialog-content>

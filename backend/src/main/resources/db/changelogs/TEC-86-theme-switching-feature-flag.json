@@ -1,0 +1,37 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "TEC-86-insert-theme-switching-feature-flag-v2",
+        "author": "leonklemmer",
+        "changes": [
+          {
+            "insert": {
+              "tableName": "feature_flags",
+              "columns": [
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "ENABLE_THEME_SWITCHING"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "enabled",
+                    "value": true
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Enables theme switching functionality. When disabled, forces light theme and hides theme toggle button."
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

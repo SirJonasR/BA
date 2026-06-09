@@ -1,0 +1,117 @@
+<div *ngIf="project && technologies && isLoaded">
+  <div class="header">
+    <h1>{{ project.name }}</h1>
+  </div>
+  <p class="properties">
+    <span>
+      <span class="label">Kontakt: </span>
+      <span *ngIf="project.contact && project.contact.length > 0">
+        <span *ngFor="let contact of project.contact; let last = last">
+          <span
+            >{{ contact.email
+            }}<span *ngIf="contact.role"> ({{ contact.role }})</span></span
+          ><span *ngIf="!last">, </span>
+        </span>
+      </span>
+      <span *ngIf="!project.contact || project.contact.length === 0"
+        >Keine Angabe</span
+      >
+    </span>
+  </p>
+  <p class="properties">
+    <span *ngIf="project.startDate">
+      <span class="label">Startdatum: </span>
+      {{ project.startDate | date: "dd.MM.yyyy" }}
+    </span>
+    <span *ngIf="project.endDate">
+      <span class="label">Enddatum: </span>
+      {{ project.endDate | date: "dd.MM.yyyy" }}
+    </span>
+    <span>
+      <span class="label">Zuletzt aktualisiert: </span>
+      {{ lastChangeDate ? (lastChangeDate | date: "dd.MM.yyyy") : "-" }}
+    </span>
+  </p>
+  <mat-divider></mat-divider>
+  <div class="content">
+    <span class="label">Beschreibung: </span>
+    <div class="field">
+      <p>{{ project.description }}</p>
+    </div>
+    <span *ngIf="project.info" class="label"
+      >Weitere Informationen / Links:</span
+    >
+    <div *ngIf="project.info" class="field">
+      <p>{{ project.info }}</p>
+    </div>
+    <span *ngIf="project.industrySpecificInformation" class="label"
+      >Branchenspezifische Informationen:
+    </span>
+    <div *ngIf="project.industrySpecificInformation" class="field">
+      <p>{{ project.industrySpecificInformation }}</p>
+    </div>
+    <span class="label">Sales Service Portal Link:</span>
+    <a
+      [href]="project.salesServiceLink"
+      *ngIf="project.salesServiceLink"
+      target="_blank"
+      class="external-link"
+      >{{ project.salesServiceLink }}
+    </a>
+    <div *ngIf="!project.salesServiceLink">Keine Angabe</div>
+    <div class="technologies">
+      <span class="label">Technologien: </span>
+      <div>
+        <ng-container *ngFor="let technology of technologyNames">
+          <pre class="chip pointercursor">
+            <a routerLink="/detail/{{ getTechnologyId(technology) }}">
+              <span>{{technology}}</span>
+           </a>
+          </pre>
+        </ng-container>
+      </div>
+    </div>
+    <div class="customers">
+      <span class="label">Kunden: </span>
+      <div>
+        <ng-container *ngFor="let customer of project.customers">
+          <pre class="chip defaultcursor"><span>{{ customer.name }}</span></pre>
+        </ng-container>
+      </div>
+    </div>
+    <div>
+      <span class="label">Branche: </span>
+      <div>
+        <ng-container>
+          <pre
+            class="chip defaultcursor"
+          ><span>{{ project.industry || "Nicht gesetzt"}}</span></pre>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="actions">
+    <a
+      mat-raised-button
+      routerLink="/project/{{ project.id }}/edit"
+      matTooltip="Bearbeiten"
+      ><mat-icon>edit</mat-icon></a
+    >
+    <a
+      mat-raised-button
+      routerLink="/project/{{ project.id }}/history"
+      matTooltip="Änderungshistorie"
+      ><mat-icon>history</mat-icon>
+    </a>
+    <button
+      mat-raised-button
+      *ngIf="isAdmin()"
+      mat-button
+      matTooltip="Löschen"
+      (click)="openDeleteDialog()"
+    >
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+</div>

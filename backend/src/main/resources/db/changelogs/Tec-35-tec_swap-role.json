@@ -1,0 +1,72 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "Tec-35-create-user-roles-table",
+        "author": "Fabi21300",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "user_roles",
+              "columns": [
+                {
+                  "column": {
+                    "name": "user_id",
+                    "type": "BIGINT",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "role",
+                    "type": "VARCHAR(255)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "baseColumnNames": "user_id",
+              "baseTableName": "user_roles",
+              "constraintName": "fk_user_roles_user",
+              "referencedColumnNames": "id",
+              "referencedTableName": "User",
+              "onDelete": "CASCADE"
+            }
+          },
+          {
+            "sql": {
+              "sql": "INSERT INTO user_roles (user_id, role) SELECT id, role FROM \"User\" WHERE role IS NOT NULL;"
+            }
+          },
+          {
+            "dropColumn": {
+              "tableName": "User",
+              "columnName": "role"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "Tec-35-2",
+        "author": "epi2000",
+        "changes": [
+          {
+            "sql": {
+              "dbms": "postgresql",
+              "sql": "grant select, insert, update, delete on table user_roles to ${APP_USER};"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

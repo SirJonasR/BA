@@ -1,0 +1,32 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "169-kurzbeschreibung-1",
+        "author": "ErikM02",
+        "changes": [
+          {
+            "addColumn": {
+              "column": {
+                "name": "short_description",
+                "type": "VARCHAR(300)"
+              },
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "addColumn": {
+              "column": {
+                "name": "short_description",
+                "type": "VARCHAR(300)"
+              },
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

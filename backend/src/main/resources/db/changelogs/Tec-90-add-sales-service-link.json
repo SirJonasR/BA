@@ -1,0 +1,46 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "Tec-90-add-sales-service-link",
+        "author": "timdangberg05",
+        "changes": [
+          {
+            "addColumn": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "sales_service_link",
+                    "type": "VARCHAR(1800)",
+                    "constraints": {
+                      "nullable": true
+                    }
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "project"
+            }
+          },
+          {
+            "addColumn": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "sales_service_link",
+                    "type": "VARCHAR(1800)",
+                    "constraints": {
+                      "nullable": true
+                    }
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "project_history"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

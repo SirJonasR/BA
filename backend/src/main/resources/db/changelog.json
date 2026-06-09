@@ -1,0 +1,330 @@
+{
+  "databaseChangeLog": [
+    {
+      "include": {
+        "file": "changelogs/changelog-tag-initial.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/169-kurzbeschreibung.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/172-technology-tags.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/167-bildupload.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/165-lifecycle-popup.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/162-kategorieansicht.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/185-kunden-anlegen.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/159-visualisierung-der-lifecycleaenderung.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/fixing-for-already-existing-technologies.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/adjust-spelling-for-descriptions.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/init-technologies.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/init-customers.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/init-technologies-short-description-and-tags.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/add-tags.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/tag-suche.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/change-category-text.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/174-contactform-anlegen.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/ihk-subscriptions.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/linienFeature.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/add-tags-2.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/change-lifecycle-text.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/add-user-roles.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/add-lifecycle-undefined.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/new-customer-project-relation.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/352-prio-flag.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/480-adjusting-project.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/503-update-zeichenlimits-project.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/476-zertifizierungspfad-einer-technologie.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/Tec-9-project_history.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/498-toggle-radaricons-in-farbe.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/Tec-14-certificate_prerequisites-and-follow_ups.json",
+        "relativeToChangeLogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/499-toggle-radaricons-ausblenden.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/Tec-38-expand_history.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/Tec-35-tec_swap-role.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/Tec-36-tec_swap-element.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/Tec-52-Add-deprecated-lifecycle.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/Tec-60-comments-and-tecswap-history.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/Tec-56-role-assignment-logging.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/Tec-70-end_date-for-project.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/Tec-73-remove-vote.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/Tec-45-feature-flags.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/Tec-90-add-sales-service-link.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/Tec-72-deep-expert-list.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/Tec-91-add-industries.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/Tec-95-legacy-legend-feature-flag.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/Tec-78-settings-menu-feature-flag.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/Tec-78-set-default-user-settings.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/TEC-86-theme-switching-feature-flag.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/TEC-86-add-theme-preference.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/TEC-86-theme-preference-uppercase-data.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/Tec-106-rename-industries.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/Tec-108-add-contact-persons.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/110-branchen-infos.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "include": {
+        "file": "changelogs/Tec-127-sbom-upload-feature-flag.json",
+        "relativeToChangelogFile": true
+      }
+    }
+  ]
+}
+
+

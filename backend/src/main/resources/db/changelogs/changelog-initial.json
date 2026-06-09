@@ -1,0 +1,805 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "1689672076845-1",
+        "author": "whabelitz (generated)",
+        "changes": [
+          {
+            "createSequence": {
+              "cacheSize": 50,
+              "cycle": false,
+              "dataType": "bigint",
+              "incrementBy": 1,
+              "maxValue": 9223372036854775807,
+              "minValue": 1,
+              "sequenceName": "hibernate_sequence",
+              "startValue": 1
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "changeSet": {
+        "id": "1689672076845-2",
+        "author": "whabelitz (generated)",
+        "preConditions": [
+          {
+            "onFail": "MARK_RAN",
+            "not": {
+              "tableExists": {
+                "tableName": "User"
+              }
+            }
+          }
+        ],
+        "changes": [
+          {
+            "createTable": {
+              "columns": [
+                {
+                  "column": {
+                    "constraints": {
+                      "nullable": false,
+                      "primaryKey": true,
+                      "primaryKeyName": "User_pkey"
+                    },
+                    "name": "id",
+                    "type": "BIGINT"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "username",
+                    "type": "VARCHAR(255)"
+                  }
+                }
+              ],
+              "tableName": "User"
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "changeSet": {
+        "id": "1689672076845-3",
+        "author": "whabelitz (generated)",
+        "preConditions": [
+          {
+            "onFail": "MARK_RAN",
+            "not": {
+              "tableExists": {
+                "tableName": "category"
+              }
+            }
+          }
+        ],
+        "changes": [
+          {
+            "createTable": {
+              "columns": [
+                {
+                  "column": {
+                    "constraints": {
+                      "nullable": false,
+                      "primaryKey": true,
+                      "primaryKeyName": "category_pkey"
+                    },
+                    "name": "id",
+                    "type": "BIGINT"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "type": "VARCHAR(255)"
+                  }
+                }
+              ],
+              "tableName": "category"
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "changeSet": {
+        "id": "1689672076845-4",
+        "author": "whabelitz (generated)",
+        "preConditions": [
+          {
+            "onFail": "MARK_RAN",
+            "not": {
+              "tableExists": {
+                "tableName": "history"
+              }
+            }
+          }
+        ],
+        "changes": [
+          {
+            "createTable": {
+              "columns": [
+                {
+                  "column": {
+                    "constraints": {
+                      "nullable": false,
+                      "primaryKey": true,
+                      "primaryKeyName": "history_pkey"
+                    },
+                    "name": "id",
+                    "type": "BIGINT"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "type": "VARCHAR(1800)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "type": "VARCHAR(255)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "type": "BIGINT"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "type": "BIGINT"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "type": "BIGINT"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "type": "BIGINT"
+                  }
+                }
+              ],
+              "tableName": "history"
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "changeSet": {
+        "id": "1689672076845-5",
+        "author": "whabelitz (generated)",
+        "preConditions": [
+          {
+            "onFail": "MARK_RAN",
+            "not": {
+              "tableExists": {
+                "tableName": "lifecycle"
+              }
+            }
+          }
+        ],
+        "changes": [
+          {
+            "createTable": {
+              "columns": [
+                {
+                  "column": {
+                    "constraints": {
+                      "nullable": false,
+                      "primaryKey": true,
+                      "primaryKeyName": "lifecycle_pkey"
+                    },
+                    "name": "id",
+                    "type": "BIGINT"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "type": "VARCHAR(255)"
+                  }
+                },
+                {
+                  "column": {
+                    "constraints": {
+                      "nullable": false
+                    },
+                    "name": "sort",
+                    "type": "INTEGER"
+                  }
+                }
+              ],
+              "tableName": "lifecycle"
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "changeSet": {
+        "id": "1689672076845-6",
+        "author": "whabelitz (generated)",
+        "preConditions": [
+          {
+            "onFail": "MARK_RAN",
+            "not": {
+              "tableExists": {
+                "tableName": "technology"
+              }
+            }
+          }
+        ],
+        "changes": [
+          {
+            "createTable": {
+              "columns": [
+                {
+                  "column": {
+                    "constraints": {
+                      "nullable": false,
+                      "primaryKey": true,
+                      "primaryKeyName": "technology_pkey"
+                    },
+                    "name": "id",
+                    "type": "BIGINT"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "type": "VARCHAR(1800)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "type": "VARCHAR(255)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "type": "BIGINT"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "type": "BIGINT"
+                  }
+                }
+              ],
+              "tableName": "technology"
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "changeSet": {
+        "id": "1689672076845-7",
+        "author": "whabelitz (generated)",
+        "preConditions": [
+          {
+            "onFail": "MARK_RAN",
+            "not": {
+              "tableExists": {
+                "tableName": "vote"
+              }
+            }
+          }
+        ],
+        "changes": [
+          {
+            "createTable": {
+              "columns": [
+                {
+                  "column": {
+                    "constraints": {
+                      "nullable": false,
+                      "primaryKey": true,
+                      "primaryKeyName": "vote_pkey"
+                    },
+                    "name": "id",
+                    "type": "BIGINT"
+                  }
+                },
+                {
+                  "column": {
+                    "constraints": {
+                      "nullable": false
+                    },
+                    "name": "isupvote",
+                    "type": "BOOLEAN"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "type": "BIGINT"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "type": "BIGINT"
+                  }
+                }
+              ],
+              "tableName": "vote"
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "changeSet": {
+        "id": "1689672076845-8",
+        "author": "whabelitz (generated)",
+        "preConditions": [
+          {
+            "onFail": "MARK_RAN",
+            "not": {
+              "foreignKeyConstraintExists": {
+                "foreignKeyName": "history_category_fk",
+                "foreignKeyTableName": "history"
+              }
+            }
+          }
+        ],
+        "changes": [
+          {
+            "addForeignKeyConstraint": {
+              "baseColumnNames": "category_id",
+              "baseTableName": "history",
+              "constraintName": "history_category_fk",
+              "deferrable": false,
+              "initiallyDeferred": false,
+              "onDelete": "NO ACTION",
+              "onUpdate": "NO ACTION",
+              "referencedColumnNames": "id",
+              "referencedTableName": "category",
+              "validate": true
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "changeSet": {
+        "id": "1689672076845-9",
+        "author": "whabelitz (generated)",
+        "preConditions": [
+          {
+            "onFail": "MARK_RAN",
+            "not": {
+              "foreignKeyConstraintExists": {
+                "foreignKeyName": "history_lifecycle_fk",
+                "foreignKeyTableName": "history"
+              }
+            }
+          }
+        ],
+        "changes": [
+          {
+            "addForeignKeyConstraint": {
+              "baseColumnNames": "lifecycle_id",
+              "baseTableName": "history",
+              "constraintName": "history_lifecycle_fk",
+              "deferrable": false,
+              "initiallyDeferred": false,
+              "onDelete": "NO ACTION",
+              "onUpdate": "NO ACTION",
+              "referencedColumnNames": "id",
+              "referencedTableName": "lifecycle",
+              "validate": true
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "changeSet": {
+        "id": "1689672076845-10",
+        "author": "whabelitz (generated)",
+        "preConditions": [
+          {
+            "onFail": "MARK_RAN",
+            "not": {
+              "foreignKeyConstraintExists": {
+                "foreignKeyName": "history_technology_fk",
+                "foreignKeyTableName": "history"
+              }
+            }
+          }
+        ],
+        "changes": [
+          {
+            "addForeignKeyConstraint": {
+              "baseColumnNames": "technology_id",
+              "baseTableName": "history",
+              "constraintName": "history_technology_fk",
+              "deferrable": false,
+              "initiallyDeferred": false,
+              "onDelete": "NO ACTION",
+              "onUpdate": "NO ACTION",
+              "referencedColumnNames": "id",
+              "referencedTableName": "technology",
+              "validate": true
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "changeSet": {
+        "id": "1689672076845-11",
+        "author": "whabelitz (generated)",
+        "preConditions": [
+          {
+            "onFail": "MARK_RAN",
+            "not": {
+              "foreignKeyConstraintExists": {
+                "foreignKeyName": "history_user_fk",
+                "foreignKeyTableName": "history"
+              }
+            }
+          }
+        ],
+        "changes": [
+          {
+            "addForeignKeyConstraint": {
+              "baseColumnNames": "user_id",
+              "baseTableName": "history",
+              "constraintName": "history_user_fk",
+              "deferrable": false,
+              "initiallyDeferred": false,
+              "onDelete": "NO ACTION",
+              "onUpdate": "NO ACTION",
+              "referencedColumnNames": "id",
+              "referencedTableName": "User",
+              "validate": true
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "changeSet": {
+        "id": "1689672076845-12",
+        "author": "whabelitz (generated)",
+        "preConditions": [
+          {
+            "onFail": "MARK_RAN",
+            "not": {
+              "foreignKeyConstraintExists": {
+                "foreignKeyName": "technology_category_fk",
+                "foreignKeyTableName": "technology"
+              }
+            }
+          }
+        ],
+        "changes": [
+          {
+            "addForeignKeyConstraint": {
+              "baseColumnNames": "category_id",
+              "baseTableName": "technology",
+              "constraintName": "technology_category_fk",
+              "deferrable": false,
+              "initiallyDeferred": false,
+              "onDelete": "NO ACTION",
+              "onUpdate": "NO ACTION",
+              "referencedColumnNames": "id",
+              "referencedTableName": "category",
+              "validate": true
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "changeSet": {
+        "id": "1689672076845-13",
+        "author": "whabelitz (generated)",
+        "preConditions": [
+          {
+            "onFail": "MARK_RAN",
+            "not": {
+              "foreignKeyConstraintExists": {
+                "foreignKeyName": "technology_lifecycle_fk",
+                "foreignKeyTableName": "technology"
+              }
+            }
+          }
+        ],
+        "changes": [
+          {
+            "addForeignKeyConstraint": {
+              "baseColumnNames": "lifecycle_id",
+              "baseTableName": "technology",
+              "constraintName": "technology_lifecycle_fk",
+              "deferrable": false,
+              "initiallyDeferred": false,
+              "onDelete": "NO ACTION",
+              "onUpdate": "NO ACTION",
+              "referencedColumnNames": "id",
+              "referencedTableName": "lifecycle",
+              "validate": true
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "changeSet": {
+        "id": "1689672076845-14",
+        "author": "whabelitz (generated)",
+        "preConditions": [
+          {
+            "onFail": "MARK_RAN",
+            "not": {
+              "foreignKeyConstraintExists": {
+                "foreignKeyName": "vote_technology_fk",
+                "foreignKeyTableName": "vote"
+              }
+            }
+          }
+        ],
+        "changes": [
+          {
+            "addForeignKeyConstraint": {
+              "baseColumnNames": "technology_id",
+              "baseTableName": "vote",
+              "constraintName": "vote_technology_fk",
+              "deferrable": false,
+              "initiallyDeferred": false,
+              "onDelete": "NO ACTION",
+              "onUpdate": "NO ACTION",
+              "referencedColumnNames": "id",
+              "referencedTableName": "technology",
+              "validate": true
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "changeSet": {
+        "id": "1689672076845-15",
+        "author": "whabelitz (generated)",
+        "preConditions": [
+          {
+            "onFail": "MARK_RAN",
+            "not": {
+              "foreignKeyConstraintExists": {
+                "foreignKeyName": "vote_user_fk",
+                "foreignKeyTableName": "vote"
+              }
+            }
+          }
+        ],
+        "changes": [
+          {
+            "addForeignKeyConstraint": {
+              "baseColumnNames": "user_id",
+              "baseTableName": "vote",
+              "constraintName": "vote_user_fk",
+              "deferrable": false,
+              "initiallyDeferred": false,
+              "onDelete": "NO ACTION",
+              "onUpdate": "NO ACTION",
+              "referencedColumnNames": "id",
+              "referencedTableName": "User",
+              "validate": true
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "changeSet": {
+        "id": "initial-data-1",
+        "author": "whabelitz",
+        "preConditions": [
+          {
+            "onFail": "MARK_RAN",
+            "rowCount": { "tableName": "category", "expectedRows": 0 }
+          }
+        ],
+        "changes": [
+          {
+            "insert": {
+              "tableName": "category",
+              "columns": [
+                {
+                  "column": { "name": "id", "value": "-1" }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Languages & Frameworks"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "insert": {
+              "tableName": "category",
+              "columns": [
+                {
+                  "column": { "name": "id", "value": "-2" }
+                },
+                {
+                  "column": { "name": "name", "value": "Tools" }
+                }
+              ]
+            }
+          },
+          {
+            "insert": {
+              "tableName": "category",
+              "columns": [
+                {
+                  "column": { "name": "id", "value": "-3" }
+                },
+                {
+                  "column": { "name": "name", "value": "Platforms" }
+                }
+              ]
+            }
+          },
+          {
+            "insert": {
+              "tableName": "category",
+              "columns": [
+                {
+                  "column": { "name": "id", "value": "-4" }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Techniques & Methodologies"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "changeSet": {
+        "id": "initial-data-2",
+        "author": "whabelitz",
+        "preConditions": [
+          {
+            "onFail": "MARK_RAN",
+            "rowCount": { "tableName": "lifecycle", "expectedRows": 0 }
+          }
+        ],
+        "changes": [
+          {
+            "insert": {
+              "tableName": "lifecycle",
+              "columns": [
+                {
+                  "column": { "name": "id", "value": "-4" }
+                },
+                {
+                  "column": { "name": "name", "value": "Maintain" }
+                },
+                {
+                  "column": { "name": "sort", "value": "1" }
+                }
+              ]
+            }
+          },
+          {
+            "insert": {
+              "tableName": "lifecycle",
+              "columns": [
+                {
+                  "column": { "name": "id", "value": "-3" }
+                },
+                {
+                  "column": { "name": "name", "value": "Adopt" }
+                },
+                {
+                  "column": { "name": "sort", "value": "2" }
+                }
+              ]
+            }
+          },
+          {
+            "insert": {
+              "tableName": "lifecycle",
+              "columns": [
+                {
+                  "column": { "name": "id", "value": "-2" }
+                },
+                {
+                  "column": { "name": "name", "value": "Assess" }
+                },
+                {
+                  "column": { "name": "sort", "value": "3" }
+                }
+              ]
+            }
+          },
+          {
+            "insert": {
+              "tableName": "lifecycle",
+              "columns": [
+                {
+                  "column": { "name": "id", "value": "-1" }
+                },
+                {
+                  "column": { "name": "name", "value": "Monitor" }
+                },
+                {
+                  "column": { "name": "sort", "value": "4" }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "changeSet": {
+        "id": "grant-1",
+        "author": "whabelitz",
+        "changes": [
+          {
+            "sql": {
+              "dbms": "postgresql",
+              "sql": "grant select, insert, update, delete on table category, history, lifecycle, technology, \"User\", vote to ${APP_USER};"
+            }
+          },
+          {
+            "sql": {
+              "dbms": "postgresql",
+              "sql": "grant usage on sequence hibernate_sequence to ${APP_USER};"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

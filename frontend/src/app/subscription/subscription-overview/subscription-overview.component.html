@@ -1,0 +1,68 @@
+<div class="header">
+  <div class="left">
+    <h1>Abonnements Verwalten</h1>
+  </div>
+  <div class="right">
+    <button routerLink="/subscription" mat-fab color="primary">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</div>
+<div>
+  <mat-table class="table" [dataSource]="dataSource">
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+      <mat-cell *matCellDef="let subscription">
+        {{ subscription.name }}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="items">
+      <mat-header-cell *matHeaderCellDef>Abonnierte Elemente</mat-header-cell>
+      <mat-cell *matCellDef="let subscription">
+        <span class="subscribedItems">
+          <span *ngFor="let itemName of subscription.subscribedItemsName"
+            >{{ itemName }}<br
+          /></span>
+        </span>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="timespan">
+      <mat-header-cell *matHeaderCellDef>Zeitraum</mat-header-cell>
+      <mat-cell *matCellDef="let subscription">
+        <span *ngIf="subscription.timespan === 0">Bei jeder Änderung</span>
+        <span *ngIf="subscription.timespan === 7">Wöchentlich</span>
+        <span *ngIf="subscription.timespan === 30">Monatlich</span>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef>E-Mail</mat-header-cell>
+      <mat-cell *matCellDef="let subscription">
+        {{ subscription.email }}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef>Aktionen</mat-header-cell>
+      <mat-cell *matCellDef="let subscription">
+        <button
+          mat-icon-button
+          routerLink="/subscription/{{ subscription.id }}/edit"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button
+          mat-icon-button
+          (click)="openDeleteConfirmationDialog(subscription)"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+</div>

@@ -1,0 +1,13 @@
+<div
+  *ngIf="technology"
+  class="mat-elevation-z8"
+  (click)="navigate()"
+  [class.hoveredTile]="hovering"
+  (mouseenter)="sendHoveredTile(id)"
+  (mouseleave)="sendHoveredTile(undefined)"
+  tabindex="0"
+  (keydown.enter)="navigate()"
+>
+  <img [src]="pictureUrl" alt="Logo" class="logo" />
+  <span class="name"> {{ technology.name }} </span>
+</div>

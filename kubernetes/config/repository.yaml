@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: repository-tecradar
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  proxy: http://proxy.ips.my-it-infra.net:8080
+  url: "https://github.com/DE-AMS-AD-TECUNIVERS/tecradar.git"
+  type: git
+  project: tecradar

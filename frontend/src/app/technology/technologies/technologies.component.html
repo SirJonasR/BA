@@ -1,0 +1,454 @@
+<app-filter-group
+  tooltip="Filtern und Sortieren"
+  panelTitle="Technologien filtern"
+  resetButtonText="Filter zurücksetzen"
+  (resetClicked)="resetFilter()"
+>
+  <!-- ── Filter panel ──────────────────────────────────────────────────── -->
+  <div filter-panel>
+    <!-- Sortierung -->
+    <div class="filter-card">
+      <div
+        class="card-header"
+        (click)="toggleCardExpanded('sort')"
+        (keydown.enter)="toggleCardExpanded('sort')"
+        (keydown.space)="toggleCardExpanded('sort'); $event.preventDefault()"
+        tabindex="0"
+        role="button"
+        [attr.aria-expanded]="isCardExpanded('sort')"
+      >
+        <div class="card-title">
+          <mat-icon class="card-icon">sort</mat-icon>
+          <span>Sortierung</span>
+        </div>
+        <mat-icon class="expand-icon" [class.expanded]="isCardExpanded('sort')"
+          >expand_more</mat-icon
+        >
+      </div>
+      <div class="card-content" [class.expanded]="isCardExpanded('sort')">
+        <div class="content-wrapper">
+          <mat-radio-group
+            [(ngModel)]="selectedSortOption"
+            (change)="onSortChange()"
+            class="checkbox-group"
+          >
+            <div class="checkbox-option" *ngFor="let option of sortOptions">
+              <mat-radio-button color="primary" [value]="option">{{
+                option
+              }}</mat-radio-button>
+            </div>
+          </mat-radio-group>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kategorien -->
+    <div
+      class="filter-card"
+      [class.has-selections]="selectedCategories.length < categories.length"
+    >
+      <div
+        class="card-header"
+        (click)="toggleCardExpanded('categories')"
+        (keydown.enter)="toggleCardExpanded('categories')"
+        (keydown.space)="
+          toggleCardExpanded('categories'); $event.preventDefault()
+        "
+        tabindex="0"
+        role="button"
+        [attr.aria-expanded]="isCardExpanded('categories')"
+      >
+        <div class="card-title">
+          <mat-icon class="card-icon">category</mat-icon>
+          <span>Kategorien</span>
+          <span
+            class="selection-badge"
+            *ngIf="selectedCategories.length < categories.length"
+            >{{ selectedCategories.length }}/{{ categories.length }}</span
+          >
+        </div>
+        <mat-icon
+          class="expand-icon"
+          [class.expanded]="isCardExpanded('categories')"
+          >expand_more</mat-icon
+        >
+      </div>
+      <div class="card-content" [class.expanded]="isCardExpanded('categories')">
+        <div class="content-wrapper">
+          <div class="checkbox-group">
+            <div class="checkbox-option">
+              <mat-checkbox
+                color="primary"
+                [checked]="selectedCategories.length === categories.length"
+                [indeterminate]="
+                  selectedCategories.length > 0 &&
+                  selectedCategories.length < categories.length
+                "
+                (change)="checkUncheckAllCategories()"
+              >
+                Alle Kategorien
+              </mat-checkbox>
+            </div>
+            <div class="checkbox-option" *ngFor="let category of categories">
+              <mat-checkbox
+                color="primary"
+                [checked]="isCheckedCategory(category)"
+                (change)="addOrRemoveCategory(category)"
+              >
+                {{ category.name }}
+              </mat-checkbox>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lebenszyklen -->
+    <div
+      class="filter-card"
+      [class.has-selections]="selectedLifecycles.length < lifecycles.length"
+    >
+      <div
+        class="card-header"
+        (click)="toggleCardExpanded('lifecycles')"
+        (keydown.enter)="toggleCardExpanded('lifecycles')"
+        (keydown.space)="
+          toggleCardExpanded('lifecycles'); $event.preventDefault()
+        "
+        tabindex="0"
+        role="button"
+        [attr.aria-expanded]="isCardExpanded('lifecycles')"
+      >
+        <div class="card-title">
+          <mat-icon class="card-icon">cycle</mat-icon>
+          <span>Lebenszyklen</span>
+          <span
+            class="selection-badge"
+            *ngIf="selectedLifecycles.length < lifecycles.length"
+            >{{ selectedLifecycles.length }}/{{ lifecycles.length }}</span
+          >
+        </div>
+        <mat-icon
+          class="expand-icon"
+          [class.expanded]="isCardExpanded('lifecycles')"
+          >expand_more</mat-icon
+        >
+      </div>
+      <div class="card-content" [class.expanded]="isCardExpanded('lifecycles')">
+        <div class="content-wrapper">
+          <div class="checkbox-group">
+            <div class="checkbox-option">
+              <mat-checkbox
+                color="primary"
+                [checked]="selectedLifecycles.length === lifecycles.length"
+                [indeterminate]="
+                  selectedLifecycles.length > 0 &&
+                  selectedLifecycles.length < lifecycles.length
+                "
+                (change)="checkUncheckAllLifecycles()"
+              >
+                Alle Lebenszyklen
+              </mat-checkbox>
+            </div>
+            <div class="checkbox-option" *ngFor="let lifecycle of lifecycles">
+              <mat-checkbox
+                color="primary"
+                [checked]="isCheckedLifecycle(lifecycle)"
+                (change)="addOrRemoveLifecycle(lifecycle)"
+              >
+                {{ lifecycle.name }}
+              </mat-checkbox>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tags -->
+    <div class="filter-card" [class.has-selections]="selectedTags.length > 0">
+      <div
+        class="card-header"
+        (click)="toggleCardExpanded('tags')"
+        (keydown.enter)="toggleCardExpanded('tags')"
+        (keydown.space)="toggleCardExpanded('tags'); $event.preventDefault()"
+        tabindex="0"
+        role="button"
+        [attr.aria-expanded]="isCardExpanded('tags')"
+      >
+        <div class="card-title">
+          <mat-icon class="card-icon">label</mat-icon>
+          <span>Tags</span>
+          <span class="selection-badge" *ngIf="selectedTags.length > 0">{{
+            selectedTags.length
+          }}</span>
+        </div>
+        <mat-icon class="expand-icon" [class.expanded]="isCardExpanded('tags')"
+          >expand_more</mat-icon
+        >
+      </div>
+      <div class="card-content" [class.expanded]="isCardExpanded('tags')">
+        <div class="content-wrapper">
+          <div class="selected-items" *ngIf="selectedTags.length > 0">
+            <mat-chip-set>
+              <mat-chip
+                *ngFor="let tag of selectedTags"
+                (removed)="removeTagChip(tag)"
+              >
+                {{ tag }}
+                <button matChipRemove>
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip>
+            </mat-chip-set>
+          </div>
+          <div class="checkbox-group">
+            <div class="checkbox-option">
+              <mat-checkbox
+                color="primary"
+                [checked]="allTagsSelected"
+                [indeterminate]="selectedTags.length > 0 && !allTagsSelected"
+                (change)="toggleAllTags($event.checked)"
+              >
+                Alle Tags
+              </mat-checkbox>
+            </div>
+            <div class="checkbox-option" *ngFor="let tag of tags">
+              <mat-checkbox
+                color="primary"
+                [checked]="selectedTags.includes(tag)"
+                (change)="toggleTag(tag, $event.checked)"
+              >
+                {{ tag }}
+              </mat-checkbox>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kunden -->
+    <div
+      class="filter-card"
+      [class.has-selections]="selectedCustomers.length > 0"
+    >
+      <div
+        class="card-header"
+        (click)="toggleCardExpanded('customers')"
+        (keydown.enter)="toggleCardExpanded('customers')"
+        (keydown.space)="
+          toggleCardExpanded('customers'); $event.preventDefault()
+        "
+        tabindex="0"
+        role="button"
+        [attr.aria-expanded]="isCardExpanded('customers')"
+      >
+        <div class="card-title">
+          <mat-icon class="card-icon">business</mat-icon>
+          <span>Kunden / Auftraggeber</span>
+          <span class="selection-badge" *ngIf="selectedCustomers.length > 0">{{
+            selectedCustomers.length
+          }}</span>
+        </div>
+        <mat-icon
+          class="expand-icon"
+          [class.expanded]="isCardExpanded('customers')"
+          >expand_more</mat-icon
+        >
+      </div>
+      <div class="card-content" [class.expanded]="isCardExpanded('customers')">
+        <div class="content-wrapper">
+          <div class="selected-items" *ngIf="selectedCustomers.length > 0">
+            <mat-chip-set>
+              <mat-chip
+                *ngFor="let customer of selectedCustomers"
+                (removed)="removeCustomerChip(customer.name)"
+              >
+                {{ customer.name }}
+                <button matChipRemove>
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip>
+            </mat-chip-set>
+          </div>
+          <div class="checkbox-group">
+            <div class="checkbox-option">
+              <mat-checkbox
+                color="primary"
+                [checked]="allCustomersSelected"
+                [indeterminate]="
+                  selectedCustomers.length > 0 && !allCustomersSelected
+                "
+                (change)="toggleAllCustomers($event.checked)"
+              >
+                Alle Kunden
+              </mat-checkbox>
+            </div>
+            <div class="checkbox-option" *ngFor="let customer of customers">
+              <mat-checkbox
+                color="primary"
+                [checked]="isCustomerSelected(customer)"
+                (change)="toggleCustomer(customer, $event.checked)"
+              >
+                {{ customer.name }}
+              </mat-checkbox>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projekte -->
+    <div
+      class="filter-card"
+      [class.has-selections]="selectedProjects.length > 0"
+    >
+      <div
+        class="card-header"
+        (click)="toggleCardExpanded('projects')"
+        (keydown.enter)="toggleCardExpanded('projects')"
+        (keydown.space)="
+          toggleCardExpanded('projects'); $event.preventDefault()
+        "
+        tabindex="0"
+        role="button"
+        [attr.aria-expanded]="isCardExpanded('projects')"
+      >
+        <div class="card-title">
+          <mat-icon class="card-icon">work</mat-icon>
+          <span>Projekte</span>
+          <span class="selection-badge" *ngIf="selectedProjects.length > 0">{{
+            selectedProjects.length
+          }}</span>
+        </div>
+        <mat-icon
+          class="expand-icon"
+          [class.expanded]="isCardExpanded('projects')"
+          >expand_more</mat-icon
+        >
+      </div>
+      <div class="card-content" [class.expanded]="isCardExpanded('projects')">
+        <div class="content-wrapper">
+          <div class="selected-items" *ngIf="selectedProjects.length > 0">
+            <mat-chip-set>
+              <mat-chip
+                *ngFor="let project of selectedProjects"
+                (removed)="removeProjectChip(project.name)"
+              >
+                {{ project.name }}
+                <button matChipRemove>
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip>
+            </mat-chip-set>
+          </div>
+          <div class="checkbox-group">
+            <div class="checkbox-option">
+              <mat-checkbox
+                color="primary"
+                [checked]="allProjectsSelected"
+                [indeterminate]="
+                  selectedProjects.length > 0 && !allProjectsSelected
+                "
+                (change)="toggleAllProjects($event.checked)"
+              >
+                Alle Projekte
+              </mat-checkbox>
+            </div>
+            <div class="checkbox-option" *ngFor="let project of projects">
+              <mat-checkbox
+                color="primary"
+                [checked]="isProjectSelected(project)"
+                (change)="toggleProject(project, $event.checked)"
+              >
+                {{ project.name }}
+              </mat-checkbox>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Weitere Filter (onlyPrio + mostClicked) -->
+    <div
+      class="filter-card toggle-card"
+      [class.has-selections]="onlyPrio || selectedMostClickedOption !== ''"
+    >
+      <div class="card-header">
+        <div class="card-title">
+          <mat-icon class="card-icon">tune</mat-icon>
+          <span>Weitere Filter</span>
+        </div>
+      </div>
+      <div class="card-content expanded">
+        <div class="content-wrapper">
+          <div class="checkbox-option">
+            <mat-slide-toggle
+              color="primary"
+              [checked]="onlyPrio"
+              (change)="onlyPrio = $event.checked; onOnlyPrioChange()"
+            >
+              Nur Technologien mit Prio
+            </mat-slide-toggle>
+          </div>
+
+          <div class="most-clicked-group">
+            <div
+              class="checkbox-option"
+              *ngFor="let option of mostClickedOptions"
+            >
+              <mat-radio-button
+                color="primary"
+                class="mostClickedRadioButton"
+                [value]="option"
+                [checked]="selectedMostClickedOption === option"
+                (click)="onRadioClick(option)"
+              >
+                {{ option }}
+              </mat-radio-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Page header ────────────────────────────────────────────────────── -->
+  <div class="header">
+    <div class="left">
+      <h1>Technologien</h1>
+      <button
+        class="addButton"
+        mat-fab
+        color="primary"
+        matTooltip="Neue Technologie hinzufügen"
+        routerLink="/technologies/add"
+      >
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <div class="right">
+      <button
+        (click)="toggleSearch()"
+        class="search-button"
+        mat-mini-fab
+        matTooltip="Suchen"
+        aria-label="Suchfeld öffnen"
+      >
+        <mat-icon class="filter-search-icon">search</mat-icon>
+      </button>
+      <input
+        #searchInput
+        type="text"
+        class="search-input"
+        [class.visible]="isSearchVisible"
+        placeholder="Suchen..."
+        [(ngModel)]="searchText"
+        (input)="onSearchInput()"
+      />
+    </div>
+  </div>
+
+  <!-- ── Technology tiles ───────────────────────────────────────────────── -->
+  <app-tool-list *ngIf="technologies" [technologies]="filteredTechnologies_">
+  </app-tool-list>
+</app-filter-group>

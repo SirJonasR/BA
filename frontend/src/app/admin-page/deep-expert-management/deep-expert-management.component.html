@@ -1,0 +1,68 @@
+<div class="expert-management-container">
+  <!-- Header -->
+  <div class="page-header">
+    <div class="header-content">
+      <mat-icon class="page-icon">engineering</mat-icon>
+      <div class="header-text">
+        <h1>Deep Expert Management</h1>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button mat-stroked-button (click)="fileInput.click()">
+        <mat-icon>upload</mat-icon>
+        Liste importieren
+      </button>
+      <input
+        #fileInput
+        type="file"
+        accept=".csv"
+        (change)="onFileSelected($event)"
+        style="display: none"
+      />
+    </div>
+  </div>
+
+  <div *ngIf="success === null" class="info-container">
+    <mat-icon>info_outline</mat-icon>
+    <span
+      >{{ messages.USAGE_INSTRUCTION_PRE_LINK }}
+      <a href="{{ messages.USAGE_INSTRUCTION_LINK_URL }}" target="_blank">{{
+        messages.USAGE_INSTRICTION_LINK_TEXT
+      }}</a
+      >{{ messages.USAGE_INSTRUCTION_POST_LINK }}</span
+    >
+  </div>
+  <div *ngIf="error" class="error-container">
+    <mat-icon color="warn">error_outline</mat-icon>
+    <span>{{ error }}</span>
+  </div>
+  <div *ngIf="success !== null && error === null" class="success-container">
+    <mat-icon>info_outline</mat-icon>
+    <span>{{ success }}</span>
+  </div>
+  <div *ngIf="expertList.length > 0 && error === null">
+    <h3>{{ success !== null ? "Preview" : "Aktuelle Liste" }}</h3>
+    <br />
+    <div class="preview-box">
+      <app-deep-expert-table
+        [deepExpertList]="expertList"
+      ></app-deep-expert-table>
+    </div>
+    <div class="progress-bar-container">
+      <mat-progress-bar
+        mode="indeterminate"
+        *ngIf="isLoading"
+      ></mat-progress-bar>
+    </div>
+    <div class="action-buttons">
+      <button mat-stroked-button (click)="resetState()">
+        <mat-icon>cancel</mat-icon>
+        Verwerfen
+      </button>
+      <button mat-raised-button color="primary" (click)="saveExperts()">
+        <mat-icon>save</mat-icon>
+        Speichern
+      </button>
+    </div>
+  </div>
+</div>

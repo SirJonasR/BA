@@ -1,0 +1,171 @@
+<app-filter-group tooltip="Filtern" (resetClicked)="resetFilter()">
+  <div filter-panel class="side-nav">
+    <div class="filter-header">
+      <div class="filterHead">Filter</div>
+    </div>
+    <mat-divider></mat-divider>
+
+    <div
+      class="filter-card"
+      [class.has-selections]="selectedUserRoles.length > 0"
+    >
+      <div
+        class="card-header"
+        (click)="toggleCardExpanded('roles')"
+        (keydown.enter)="toggleCardExpanded('roles')"
+        (keydown.space)="toggleCardExpanded('roles'); $event.preventDefault()"
+        tabindex="0"
+        role="button"
+        [attr.aria-expanded]="isCardExpanded('roles')"
+      >
+        <div class="card-title">
+          <mat-icon class="card-icon">admin_panel_settings</mat-icon>
+          <span>Userrollen</span>
+          <span class="selection-badge" *ngIf="selectedUserRoles.length > 0">{{
+            selectedUserRoles.length
+          }}</span>
+        </div>
+        <mat-icon class="expand-icon" [class.expanded]="isCardExpanded('roles')"
+          >expand_more</mat-icon
+        >
+      </div>
+
+      <div class="card-content" [class.expanded]="isCardExpanded('roles')">
+        <div class="content-wrapper">
+          <div class="selected-items" *ngIf="selectedUserRoles.length > 0">
+            <mat-chip-set>
+              <mat-chip
+                *ngFor="let role of selectedUserRoles"
+                (removed)="removeChip(role)"
+              >
+                {{ role }}
+                <button matChipRemove>
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip>
+            </mat-chip-set>
+          </div>
+
+          <div class="checkbox-group">
+            <div class="checkbox-option">
+              <mat-checkbox
+                color="primary"
+                [checked]="allRolesSelected"
+                [indeterminate]="
+                  selectedUserRoles.length > 0 && !allRolesSelected
+                "
+                (change)="toggleAllRoles($event.checked)"
+              >
+                Alle Userrollen
+              </mat-checkbox>
+            </div>
+
+            <div class="checkbox-option" *ngFor="let role of possibleRoles">
+              <mat-checkbox
+                color="primary"
+                [checked]="selectedUserRoles.includes(role)"
+                (change)="toggleRole(role, $event.checked)"
+              >
+                {{ role }}
+              </mat-checkbox>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="header">
+    <div class="left">
+      <div class="page-title">User Management</div>
+    </div>
+    <div class="right">
+      <button (click)="toggleSearch()" class="search-button" mat-mini-fab>
+        <mat-icon class="filter-search-icon">search</mat-icon>
+      </button>
+      <input
+        #searchInput
+        type="text"
+        class="search-input"
+        [class.visible]="isSearchVisible"
+        placeholder="Suchen..."
+        [(ngModel)]="searchText"
+        (input)="startFilter()"
+      />
+    </div>
+  </div>
+
+  <div class="mat-elevation-z8">
+    <table
+      mat-table
+      [dataSource]="dataSource"
+      matSort
+      data-test-id="user-list"
+      class="mat-elevation-z8"
+    >
+      <ng-container matColumnDef="userName">
+        <th
+          class="display-username"
+          mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header
+          sortActionDescription="Sort by name"
+        >
+          Username
+        </th>
+        <td class="column-field" mat-cell *matCellDef="let user">
+          <span>{{ user.userName }}</span>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="roles">
+        <th
+          class="display-roles"
+          mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header
+          sortActionDescription="Sory by roles"
+        >
+          Userrollen
+        </th>
+        <td mat-cell *matCellDef="let user">
+          <mat-form-field appearance="fill" class="roles">
+            <mat-select
+              [(ngModel)]="user.roles"
+              (selectionChange)="onRolesChange(user)"
+              multiple
+            >
+              <mat-option *ngFor="let role of possibleRoles" [value]="role">
+                {{ role }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="confirm">
+        <th mat-header-cell *matHeaderCellDef class="confirm-field"></th>
+        <td mat-cell *matCellDef="let user">
+          <button
+            class="confirm-button"
+            *ngIf="shouldConfirmButton(user)"
+            mat-mini-fab
+            (click)="confirmChanges(user)"
+            aria-label="confirm changes"
+          >
+            <mat-icon>save</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr
+        class="row1"
+        mat-row
+        *matRowDef="let row; columns: displayedColumns"
+      ></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[10, 25, 100]" showFirstLastButtons>
+    </mat-paginator>
+  </div>
+</app-filter-group>

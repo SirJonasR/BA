@@ -1,0 +1,144 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "fixing-schema-for-already-existing-technologies-3",
+        "author": "epi2000",
+        "changes": [
+          {
+            "update": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "name='Quarkus'"
+            }
+          },
+          {
+            "update": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "name='Quarkus'"
+            }
+          },
+          {
+            "update": {
+              "columns": [
+                {
+                  "column": {
+                  "name": "status",
+                  "value": "4"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "name='DevExtreme'"
+            }
+          },
+          {
+            "update": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "name='DevExtreme'"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "fixing-schema-for-already-existing-test-technologies",
+        "author": "epi2000",
+        "changes": [
+          {
+            "update": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-10-24 00:00:00",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "name='TestTechnologie'"
+            }
+          },
+          {
+            "update": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "1"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "name='TestTechnologie'"
+            }
+          },
+          {
+            "update": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-10-24 00:00:00",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "name='TestTechnologie 1'"
+            }
+          },
+          {
+            "update": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "1"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "name='TestTechnologie 1'"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

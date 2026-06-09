@@ -1,0 +1,129 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "Tec-45-feature-flags",
+        "author": "mircoboettcher",
+        "preConditions": {
+          "onFail": "MARK_RAN",
+          "not": {
+            "tableExists": {
+              "tableName": "feature_flags"
+            }
+          }
+        },
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "feature_flags",
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "type": "BIGINT",
+                    "autoIncrement": true,
+                    "constraints": {
+                      "nullable": false,
+                      "primaryKey": true
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "type": "VARCHAR(100)",
+                    "constraints": {
+                      "nullable": false,
+                      "unique": true
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "enabled",
+                    "type": "BOOLEAN",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "type": "VARCHAR(500)",
+                    "constraints": {
+                      "nullable": true
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "Tec-45-permissions",
+        "author": "mircoboettcher",
+        "preConditions": {
+          "onFail": "MARK_RAN",
+          "not": {
+            "tableExists": {
+              "tableName": "feature_flags"
+            }
+          }
+        },
+        "changes": [
+          {
+            "sql": {
+              "dbms": "postgresql",
+              "sql": "grant select, insert, update, delete on table feature_flags to ${APP_USER};"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "Tec-45-insert-settings-feature-flag",
+        "author": "mircoboettcher",
+        "preConditions": {
+          "onFail": "MARK_RAN",
+          "not": {
+            "tableExists": {
+              "tableName": "feature_flags"
+            }
+          }
+        },
+        "changes": [
+          {
+            "insert": {
+              "tableName": "feature_flags",
+              "columns": [
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "SHOW_SETTINGS_ICON"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "enabled",
+                    "value": false
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Zeigt das Einstellungen-Symbol in der Navigationsleiste an."
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

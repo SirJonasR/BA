@@ -1,0 +1,56 @@
+<div class="radar-container-layout" *ngIf="hasLoaded">
+  <!-- Container for Full Mode -->
+  <div class="full-radar-mode">
+    <!-- Radar Legend -->
+    <app-radar-legend></app-radar-legend>
+
+    <!-- Enhanced Controls with integrated sidenav -->
+    <app-radar-controls
+      [tags]="tags"
+      [customers]="customers"
+      [projects]="projects"
+      [lifecycles]="lifecycles"
+      [filterState]="filterState"
+      (filtersChanged)="onFiltersChanged($event)"
+      (filterReset)="onFilterReset()"
+      (settingsChanged)="onDisplaySettingsChanged($event)"
+    >
+      <!-- Radar Visualization as projected content -->
+      <div class="radar-visualization-container">
+        <!-- Empty State Message -->
+        <div
+          *ngIf="filteredTechnologies.length === 0 && technologies.length > 0"
+          class="empty-filter-state"
+        >
+          <div class="empty-state-content">
+            <mat-icon>filter_list_off</mat-icon>
+            <h3>Keine Technologien entsprechen den aktuellen Filtern</h3>
+            <p>
+              Versuchen Sie, Ihre Filterkriterien anzupassen oder alle Filter
+              zurückzusetzen, um alle Technologien zu sehen.
+            </p>
+            <button mat-button color="primary" (click)="onFilterReset()">
+              Filter zurücksetzen
+            </button>
+          </div>
+        </div>
+
+        <!-- Radar Visualization -->
+        <app-radar-visualization
+          *ngIf="filteredTechnologies.length > 0"
+          [technologies]="filteredTechnologies"
+          [categories]="categories"
+          [lifecycles]="lifecycles"
+          [settings]="radarSettings"
+        >
+        </app-radar-visualization>
+      </div>
+    </app-radar-controls>
+  </div>
+</div>
+
+<!-- Loading State -->
+<div *ngIf="!hasLoaded" class="loading-container">
+  <mat-spinner></mat-spinner>
+  <p>Radar-Daten werden geladen...</p>
+</div>

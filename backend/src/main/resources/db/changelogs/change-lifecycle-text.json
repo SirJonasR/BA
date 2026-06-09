@@ -1,0 +1,48 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "change-lifecycle-text",
+        "author": "epi2000",
+        "changes": [
+          {
+            "update": {
+              "column": {
+                "name": "description",
+                "value": "Diese Technologien befinden sich in der Evaluierungsphase, wobei ihr Einsatz in spezifischen, dafür geeigneten Projekten in Betracht gezogen wird. Ziel ist es, ihre Eignung, Leistungsfähigkeit und den Mehrwert für das Projekt sorgfältig zu prüfen, bevor eine breitere Implementierung empfohlen wird."
+
+              },
+              "schemaName": "public",
+              "tableName": "lifecycle",
+              "where": "id=-2"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "description",
+                "value": "Dieser Lebenszyklus umfasst Technologien, die als branchenführend angesehen werden und deren Übernahme empfohlen wird. An geeigneter Stelle verwenden wir die Technologien bei unseren Projekten."
+
+              },
+              "schemaName": "public",
+              "tableName": "lifecycle",
+              "where": "id=-3"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "description",
+                "value": "Diese Technologien werden für den breiten Einsatz empfohlen und gelten als etablierte Lösungen, nachdem sie sich in verschiedenen Projekten und Teams als zuverlässig und nützlich erwiesen haben."
+
+              },
+              "schemaName": "public",
+              "tableName": "lifecycle",
+              "where": "id=-4"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

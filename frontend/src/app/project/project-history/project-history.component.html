@@ -1,0 +1,164 @@
+<h1>Änderungshistorie</h1>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="changeDate">
+    <th class="padding" mat-header-cell *matHeaderCellDef>Datum</th>
+    <td class="padding" mat-cell *matCellDef="let projectHistory">
+      {{ projectHistory.changeDate | date: "dd.MM.yyyy HH:mm" }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="username">
+    <th class="padding" mat-header-cell *matHeaderCellDef>Bearbeiter:in</th>
+    <td class="padding" mat-cell *matCellDef="let projectHistory">
+      {{ projectHistory.username }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th class="padding" mat-header-cell *matHeaderCellDef>Name</th>
+    <td
+      class="padding"
+      [ngClass]="projectHistory.isChanged.name ? 'background-green' : ''"
+      mat-cell
+      *matCellDef="let projectHistory"
+    >
+      {{ projectHistory.name }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="contact">
+    <th class="padding" mat-header-cell *matHeaderCellDef>Kontakt</th>
+    <td
+      class="padding"
+      [ngClass]="projectHistory.isChanged.contact ? 'background-green' : ''"
+      mat-cell
+      *matCellDef="let projectHistory"
+    >
+      <ng-container
+        *ngFor="let contact of projectHistory.contact; let last = last"
+      >
+        {{ contact.email }}
+        <span *ngIf="contact.role">({{ contact.role }})</span
+        ><span *ngIf="!last">, </span>
+      </ng-container>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <th class="padding" mat-header-cell *matHeaderCellDef>Beschreibung</th>
+    <td
+      class="padding"
+      [ngClass]="projectHistory.isChanged.description ? 'background-green' : ''"
+      mat-cell
+      *matCellDef="let projectHistory"
+    >
+      {{ projectHistory.description }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="salesServiceLink">
+    <th class="padding" mat-header-cell *matHeaderCellDef>
+      Sales Service Portal Link
+    </th>
+    <td
+      class="padding"
+      [ngClass]="
+        projectHistory.isChanged.salesServiceLink ? 'background-green' : ''
+      "
+      mat-cell
+      *matCellDef="let projectHistory"
+    >
+      {{ projectHistory.salesServiceLink }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="info">
+    <th class="padding" mat-header-cell *matHeaderCellDef>Weitere Infos</th>
+    <td
+      class="padding"
+      [ngClass]="projectHistory.isChanged.info ? 'background-green' : ''"
+      mat-cell
+      *matCellDef="let projectHistory"
+    >
+      {{ projectHistory.info }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="industrySpecificInformation">
+    <th class="padding" mat-header-cell *matHeaderCellDef>
+      Industriespezifische Informationen
+    </th>
+    <td
+      class="padding"
+      [ngClass]="
+        projectHistory.isChanged.industrySpecificInformation
+          ? 'background-green'
+          : ''
+      "
+      mat-cell
+      *matCellDef="let projectHistory"
+    >
+      {{ projectHistory.industrySpecificInformation }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="startDate">
+    <th class="padding" mat-header-cell *matHeaderCellDef>Startdatum</th>
+    <td
+      class="padding"
+      [ngClass]="projectHistory.isChanged.startDate ? 'background-green' : ''"
+      mat-cell
+      *matCellDef="let projectHistory"
+    >
+      {{ projectHistory.startDate | date: "dd.MM.yyyy" }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="endDate">
+    <th class="padding" mat-header-cell *matHeaderCellDef>Enddatum</th>
+    <td
+      class="padding"
+      [ngClass]="projectHistory.isChanged.endDate ? 'background-green' : ''"
+      mat-cell
+      *matCellDef="let projectHistory"
+    >
+      {{ projectHistory.endDate | date: "dd.MM.yyyy" }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="customerNames">
+    <th class="padding" mat-header-cell *matHeaderCellDef>Kunden</th>
+    <td
+      class="padding"
+      [ngClass]="
+        projectHistory.isChanged.customerNames ? 'background-green' : ''
+      "
+      mat-cell
+      *matCellDef="let projectHistory"
+    >
+      {{ projectHistory.customerNames.join(", ") }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="technologyNames">
+    <th class="padding" mat-header-cell *matHeaderCellDef>Technologien</th>
+    <td
+      class="padding"
+      [ngClass]="
+        projectHistory.isChanged.technologyIds ? 'background-green' : ''
+      "
+      mat-cell
+      *matCellDef="let projectHistory"
+    >
+      {{ projectHistory.technologyNames.join(", ") }}
+    </td>
+  </ng-container>
+
+  <tr class="padding" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr
+    class="padding"
+    mat-row
+    *matRowDef="let row; columns: displayedColumns"
+  ></tr>
+</table>

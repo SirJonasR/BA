@@ -1,0 +1,41 @@
+<form>
+  <mat-form-field>
+    <input matInput [formControl]="control" [matAutocomplete]="auto" />
+    <mat-label>Zertifikat wählen</mat-label>
+    <mat-autocomplete
+      autoActiveFirstOption
+      #auto="matAutocomplete"
+      (optionSelected)="emit($event)"
+      [displayWith]="displayCertificate"
+    >
+      <mat-option
+        *ngFor="let certificate of filteredCertificates | async"
+        [value]="certificate"
+        data-test-id="search-option"
+      >
+        <div>
+          <div>{{ certificate.name }}</div>
+        </div>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <p
+    *ngIf="selectedCertificates.length > 0"
+    style="color: grey; margin-bottom: 0"
+  >
+    Ausgewählte Zertifikate:
+  </p>
+  <div
+    *ngFor="let certificate of selectedCertificates"
+    class="selected-item-container"
+  >
+    <span class="item-text">{{ certificate.name }}</span>
+    <button
+      mat-icon-button
+      (click)="removeItem(certificate)"
+      style="margin-top: 5px"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+</form>

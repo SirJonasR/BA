@@ -1,0 +1,127 @@
+<form
+  #subscriptionForm="ngForm"
+  (ngSubmit)="onFormSubmit()"
+  class="form"
+  data-test-id="subscription-form"
+>
+  <mat-error *ngIf="hasError">
+    Beim Speichern des Abonnements ist ein unerwarteter Fehler aufgetreten.
+  </mat-error>
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <div>
+      <input
+        matInput
+        required
+        maxlength="64"
+        name="name"
+        [(ngModel)]="values.name"
+        #name="ngModel"
+        data-test-id="subscription-name-input"
+      />
+    </div>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Was soll abonniert werden?</mat-label>
+    <mat-select
+      name="optionSelected"
+      [(ngModel)]="optionSelected"
+      data-test-id="subcription-option-select"
+    >
+      <mat-option [value]="0"> Technologien </mat-option>
+      <mat-option [value]="1"> Kategorien </mat-option>
+      <mat-option [value]="2"> Lebenszyklen </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <app-searchbar
+    *ngIf="optionSelected === 0"
+    (selectTechnology)="onSelect($event)"
+    style="margin-left: -150px"
+  ></app-searchbar>
+  <mat-form-field *ngIf="optionSelected === 1" appearance="fill">
+    <mat-label>Kategorien</mat-label>
+    <mat-select name="categoryId" (selectionChange)="onSelectCategory($event)">
+      <mat-option *ngFor="let category of categories" [value]="category.id">
+        {{ category.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field *ngIf="optionSelected === 2" appearance="fill">
+    <mat-label>Lebenszyklus</mat-label>
+    <mat-select
+      name="lifecycleId"
+      (selectionChange)="onSelectLifecycle($event)"
+    >
+      <mat-option *ngFor="let lifecycle of lifecycles" [value]="lifecycle.id">
+        {{ lifecycle.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div
+    *ngFor="let item of values.selectedItems"
+    class="selected-item-container"
+  >
+    <span class="item-text">
+      {{ item.values?.name }}
+    </span>
+    <button mat-icon-button (click)="removeItem(item)" style="margin-top: 5px">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Zeitraum</mat-label>
+    <mat-select
+      name="timespan"
+      required
+      [(ngModel)]="values.timespan"
+      #timespan="ngModel"
+      data-test-id="subscription-timespan-select"
+    >
+      <mat-option [value]="0"> Bei jeder Änderung </mat-option>
+      <mat-option [value]="7"> Wöchentlich </mat-option>
+      <mat-option [value]="30"> Monatlich </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <span *ngIf="userEmail !== ''; else noEmail">
+    <span class="label">Email: </span>
+    <span>{{ userEmail }}</span>
+  </span>
+
+  <ng-template #noEmail>
+    <mat-form-field appearance="fill">
+      <mat-label>E-Mail</mat-label>
+      <div>
+        <input
+          name="email"
+          type="email"
+          matInput
+          required
+          email
+          [(ngModel)]="values.email"
+          #email="ngModel"
+          data-test-id="subscription-email-input"
+        />
+      </div>
+      <mat-hint
+        style="color: red"
+        *ngIf="email.touched && email.errors?.['email']"
+      >
+        Bitte gib eine gültige E-Mail ein.
+      </mat-hint>
+    </mat-form-field>
+  </ng-template>
+
+  <button
+    mat-raised-button
+    type="submit"
+    color="primary"
+    [disabled]="isSubmitting"
+    data-test-id="form-submit-button"
+  >
+    Bestätigen
+  </button>
+</form>

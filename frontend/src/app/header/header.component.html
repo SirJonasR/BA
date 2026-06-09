@@ -1,0 +1,32 @@
+<mat-toolbar color="primary" class="header">
+  <div class="left">
+    <app-navigation></app-navigation>
+    <a
+      mat-button
+      routerLink="/"
+      class="logo"
+      aria-label="Zurück zur Startseite"
+    >
+      TecRadar <span *ngIf="!isProd">Dev</span></a
+    >
+  </div>
+  <app-searchbar
+    (selectTechnology)="onSelect($event)"
+    aria-label="Suchleiste, in der nach einer Technologie gesucht werden kann"
+  ></app-searchbar>
+  <div class="right">
+    <button mat-button [matMenuTriggerFor]="beforeMenu" class="user-menu">
+      <mat-icon>account_circle</mat-icon>
+      <span data-test-id="user-name" class="user-name">{{ userName }}</span>
+    </button>
+    <mat-menu #beforeMenu="matMenu" xPosition="before">
+      <button mat-menu-item (click)="navigateToSubscriptions()">
+        Abonnements
+      </button>
+      <button mat-menu-item (click)="logout()">Logout</button>
+    </mat-menu>
+    <span *ngIf="getIsAdmin()" data-test-id="text-admin"
+      ><mat-card-subtitle>Admin</mat-card-subtitle></span
+    >
+  </div>
+</mat-toolbar>

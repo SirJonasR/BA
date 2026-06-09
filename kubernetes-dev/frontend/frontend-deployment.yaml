@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/name: tecradar-dev-frontend
+  name: tecradar-dev-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: tecradar-dev-frontend
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: tecradar-dev-frontend
+    spec:
+      containers:
+        - name: tecradar-frontend
+          envFrom:
+            - configMapRef:
+                name: proxy
+          image: ghcr.io/de-ams-ad-tecunivers/tecradar-frontend:dev
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+              name: http
+              protocol: TCP
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "200m"
+              memory: "256Mi"
+      imagePullSecrets:
+        - name: github-pull

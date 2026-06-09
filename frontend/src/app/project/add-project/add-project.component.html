@@ -1,0 +1,8 @@
+<h1>Projekt hinzufügen</h1>
+<app-project-form
+  [values]="values"
+  [isSubmitting]="isSubmitting"
+  (submitForm)="onSubmit()"
+  [hasError]="hasError"
+  editContext="create-new-project"
+></app-project-form>

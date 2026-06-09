@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.3.final using JasperReports Library version 6.21.3-4a3078d20785ebe464f18037d738d12fc98c13cf  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TechLifecycleDevelopmentComparisonReport" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="eac77ea0-bf97-4475-a60b-85ddd19bb33f">
+	<import value="com.eviden.tecradar.model.GantSeries"/>
+	<field name="pagecountStart" class="java.lang.Integer"/>
+	<field name="task0" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[0].task]]></fieldDescription>
+	</field>
+	<field name="subtask0" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[0].subtask]]></fieldDescription>
+	</field>
+	<field name="startDate0" class="java.util.Date">
+		<fieldDescription><![CDATA[ganttSeriesList[0].startDate]]></fieldDescription>
+	</field>
+	<field name="endDate0" class="java.util.Date">
+		<fieldDescription><![CDATA[ganttSeriesList[0].endDate]]></fieldDescription>
+	</field>
+	<field name="series0" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[0].series]]></fieldDescription>
+	</field>
+	<field name="task1" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[1].task]]></fieldDescription>
+	</field>
+	<field name="subtask1" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[1].subtask]]></fieldDescription>
+	</field>
+	<field name="startDate1" class="java.util.Date">
+		<fieldDescription><![CDATA[ganttSeriesList[1].startDate]]></fieldDescription>
+	</field>
+	<field name="endDate1" class="java.util.Date">
+		<fieldDescription><![CDATA[ganttSeriesList[1].endDate]]></fieldDescription>
+	</field>
+	<field name="series1" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[1].series]]></fieldDescription>
+	</field>
+	<field name="task2" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[2].task]]></fieldDescription>
+	</field>
+	<field name="subtask2" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[2].subtask]]></fieldDescription>
+	</field>
+	<field name="startDate2" class="java.util.Date">
+		<fieldDescription><![CDATA[ganttSeriesList[2].startDate]]></fieldDescription>
+	</field>
+	<field name="endDate2" class="java.util.Date">
+		<fieldDescription><![CDATA[ganttSeriesList[2].endDate]]></fieldDescription>
+	</field>
+	<field name="series2" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[2].series]]></fieldDescription>
+	</field>
+	<field name="task3" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[3].task]]></fieldDescription>
+	</field>
+	<field name="subtask3" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[3].subtask]]></fieldDescription>
+	</field>
+	<field name="startDate3" class="java.util.Date">
+		<fieldDescription><![CDATA[ganttSeriesList[3].startDate]]></fieldDescription>
+	</field>
+	<field name="endDate3" class="java.util.Date">
+		<fieldDescription><![CDATA[ganttSeriesList[3].endDate]]></fieldDescription>
+	</field>
+	<field name="series3" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[3].series]]></fieldDescription>
+	</field>
+	<field name="task4" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[4].task]]></fieldDescription>
+	</field>
+	<field name="subtask4" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[4].subtask]]></fieldDescription>
+	</field>
+	<field name="startDate4" class="java.util.Date">
+		<fieldDescription><![CDATA[ganttSeriesList[4].startDate]]></fieldDescription>
+	</field>
+	<field name="endDate4" class="java.util.Date">
+		<fieldDescription><![CDATA[ganttSeriesList[4].endDate]]></fieldDescription>
+	</field>
+	<field name="series4" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[4].series]]></fieldDescription>
+	</field>
+	<field name="task5" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[5].task]]></fieldDescription>
+	</field>
+	<field name="subtask5" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[5].subtask]]></fieldDescription>
+	</field>
+	<field name="startDate5" class="java.util.Date">
+		<fieldDescription><![CDATA[ganttSeriesList[5].startDate]]></fieldDescription>
+	</field>
+	<field name="endDate5" class="java.util.Date">
+		<fieldDescription><![CDATA[ganttSeriesList[5].endDate]]></fieldDescription>
+	</field>
+	<field name="series5" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[5].series]]></fieldDescription>
+	</field>
+	<field name="task6" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[6].task]]></fieldDescription>
+	</field>
+	<field name="subtask6" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[6].subtask]]></fieldDescription>
+	</field>
+	<field name="startDate6" class="java.util.Date">
+		<fieldDescription><![CDATA[ganttSeriesList[6].startDate]]></fieldDescription>
+	</field>
+	<field name="endDate6" class="java.util.Date">
+		<fieldDescription><![CDATA[ganttSeriesList[6].endDate]]></fieldDescription>
+	</field>
+	<field name="series6" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[6].series]]></fieldDescription>
+	</field>
+	<field name="task7" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[7].task]]></fieldDescription>
+	</field>
+	<field name="subtask7" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[7].subtask]]></fieldDescription>
+	</field>
+	<field name="startDate7" class="java.util.Date">
+		<fieldDescription><![CDATA[ganttSeriesList[7].startDate]]></fieldDescription>
+	</field>
+	<field name="endDate7" class="java.util.Date">
+		<fieldDescription><![CDATA[ganttSeriesList[7].endDate]]></fieldDescription>
+	</field>
+	<field name="series7" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[7].series]]></fieldDescription>
+	</field>
+	<field name="task8" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[8].task]]></fieldDescription>
+	</field>
+	<field name="subtask8" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[8].subtask]]></fieldDescription>
+	</field>
+	<field name="startDate8" class="java.util.Date">
+		<fieldDescription><![CDATA[ganttSeriesList[8].startDate]]></fieldDescription>
+	</field>
+	<field name="endDate8" class="java.util.Date">
+		<fieldDescription><![CDATA[ganttSeriesList[8].endDate]]></fieldDescription>
+	</field>
+	<field name="series8" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[8].series]]></fieldDescription>
+	</field>
+	<field name="task9" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[9].task]]></fieldDescription>
+	</field>
+	<field name="subtask9" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[9].subtask]]></fieldDescription>
+	</field>
+	<field name="startDate9" class="java.util.Date">
+		<fieldDescription><![CDATA[ganttSeriesList[9].startDate]]></fieldDescription>
+	</field>
+	<field name="endDate9" class="java.util.Date">
+		<fieldDescription><![CDATA[ganttSeriesList[9].endDate]]></fieldDescription>
+	</field>
+	<field name="series9" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[9].series]]></fieldDescription>
+	</field>
+	<field name="task10" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[10].task]]></fieldDescription>
+	</field>
+	<field name="subtask10" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[10].subtask]]></fieldDescription>
+	</field>
+	<field name="startDate10" class="java.util.Date">
+		<fieldDescription><![CDATA[ganttSeriesList[10].startDate]]></fieldDescription>
+	</field>
+	<field name="endDate10" class="java.util.Date">
+		<fieldDescription><![CDATA[ganttSeriesList[10].endDate]]></fieldDescription>
+	</field>
+	<field name="series10" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[10].series]]></fieldDescription>
+	</field>
+	<field name="task11" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[11].task]]></fieldDescription>
+	</field>
+	<field name="subtask11" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[11].subtask]]></fieldDescription>
+	</field>
+	<field name="startDate11" class="java.util.Date">
+		<fieldDescription><![CDATA[ganttSeriesList[11].startDate]]></fieldDescription>
+	</field>
+	<field name="endDate11" class="java.util.Date">
+		<fieldDescription><![CDATA[ganttSeriesList[11].endDate]]></fieldDescription>
+	</field>
+	<field name="series11" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[11].series]]></fieldDescription>
+	</field>
+	<field name="task12" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[12].task]]></fieldDescription>
+	</field>
+	<field name="subtask12" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[12].subtask]]></fieldDescription>
+	</field>
+	<field name="startDate12" class="java.util.Date">
+		<fieldDescription><![CDATA[ganttSeriesList[12].startDate]]></fieldDescription>
+	</field>
+	<field name="endDate12" class="java.util.Date">
+		<fieldDescription><![CDATA[ganttSeriesList[12].endDate]]></fieldDescription>
+	</field>
+	<field name="series12" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[12].series]]></fieldDescription>
+	</field>
+	<field name="task13" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[13].task]]></fieldDescription>
+	</field>
+	<field name="subtask13" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[13].subtask]]></fieldDescription>
+	</field>
+	<field name="startDate13" class="java.util.Date">
+		<fieldDescription><![CDATA[ganttSeriesList[13].startDate]]></fieldDescription>
+	</field>
+	<field name="endDate13" class="java.util.Date">
+		<fieldDescription><![CDATA[ganttSeriesList[13].endDate]]></fieldDescription>
+	</field>
+	<field name="series13" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[13].series]]></fieldDescription>
+	</field>
+	<field name="series14" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[14].series]]></fieldDescription>
+	</field>
+	<field name="task14" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[14].task]]></fieldDescription>
+	</field>
+	<field name="subtask14" class="java.lang.String">
+		<fieldDescription><![CDATA[ganttSeriesList[14].subtask]]></fieldDescription>
+	</field>
+	<field name="startDate14" class="java.util.Date">
+		<fieldDescription><![CDATA[ganttSeriesList[14].startDate]]></fieldDescription>
+	</field>
+	<field name="endDate14" class="java.util.Date">
+		<fieldDescription><![CDATA[ganttSeriesList[14].endDate]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<lastPageFooter>
+		<band height="22">
+			<textField pattern="dd.MM.yyyy">
+				<reportElement x="0" y="4" width="120" height="13" uuid="22e27901-17d1-424e-a951-93ab9f108b9a"/>
+				<textElement>
+					<font fontName="DejaVu Sans Condensed"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd.MM.yyyy">
+				<reportElement x="213" y="4" width="207" height="13" uuid="adad7a5e-07ac-4214-90fe-e879fcbd0bae">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans Condensed"/>
+				</textElement>
+				<textFieldExpression><![CDATA["© Eviden – For internal use"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="480" y="4" width="75" height="13" uuid="742891c6-b843-4b21-8980-9536935dcec6"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans Condensed"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Seite " + ($V{PAGE_NUMBER}.intValue() + $F{pagecountStart}.intValue())]]></textFieldExpression>
+			</textField>
+		</band>
+	</lastPageFooter>
+	<summary>
+		<band height="457">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<frame>
+				<reportElement positionType="Float" x="0" y="7" width="560" height="410" uuid="1404fc62-de2a-4dd6-8a9f-4022a4420511">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<ganttChart>
+					<chart isShowLegend="true" evaluationTime="Report">
+						<reportElement x="0" y="50" width="545" height="360" uuid="c4cfd972-167c-4fe4-98bb-019c018b80c4">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						</reportElement>
+						<chartTitle/>
+						<chartSubtitle/>
+						<chartLegend textColor="#000000"/>
+					</chart>
+					<ganttDataset>
+						<ganttSeries>
+							<seriesExpression><![CDATA[$F{series0}]]></seriesExpression>
+							<taskExpression><![CDATA[$F{task0}]]></taskExpression>
+							<subtaskExpression><![CDATA[$F{subtask0}]]></subtaskExpression>
+							<startDateExpression><![CDATA[$F{startDate0}]]></startDateExpression>
+							<endDateExpression><![CDATA[$F{endDate0}]]></endDateExpression>
+						</ganttSeries>
+						<ganttSeries>
+							<seriesExpression><![CDATA[$F{series1}]]></seriesExpression>
+							<taskExpression><![CDATA[$F{task1}]]></taskExpression>
+							<subtaskExpression><![CDATA[$F{subtask1}]]></subtaskExpression>
+							<startDateExpression><![CDATA[$F{startDate1}]]></startDateExpression>
+							<endDateExpression><![CDATA[$F{endDate1}]]></endDateExpression>
+						</ganttSeries>
+						<ganttSeries>
+							<seriesExpression><![CDATA[$F{series2}]]></seriesExpression>
+							<taskExpression><![CDATA[$F{task2}]]></taskExpression>
+							<subtaskExpression><![CDATA[$F{subtask2}]]></subtaskExpression>
+							<startDateExpression><![CDATA[$F{startDate2}]]></startDateExpression>
+							<endDateExpression><![CDATA[$F{endDate2}]]></endDateExpression>
+						</ganttSeries>
+						<ganttSeries>
+							<seriesExpression><![CDATA[$F{series3}]]></seriesExpression>
+							<taskExpression><![CDATA[$F{task3}]]></taskExpression>
+							<subtaskExpression><![CDATA[$F{subtask3}]]></subtaskExpression>
+							<startDateExpression><![CDATA[$F{startDate3}]]></startDateExpression>
+							<endDateExpression><![CDATA[$F{endDate3}]]></endDateExpression>
+						</ganttSeries>
+						<ganttSeries>
+							<seriesExpression><![CDATA[$F{series4}]]></seriesExpression>
+							<taskExpression><![CDATA[$F{task4}]]></taskExpression>
+							<subtaskExpression><![CDATA[$F{subtask4}]]></subtaskExpression>
+							<startDateExpression><![CDATA[$F{startDate4}]]></startDateExpression>
+							<endDateExpression><![CDATA[$F{endDate4}]]></endDateExpression>
+						</ganttSeries>
+						<ganttSeries>
+							<seriesExpression><![CDATA[$F{series5}]]></seriesExpression>
+							<taskExpression><![CDATA[$F{task5}]]></taskExpression>
+							<subtaskExpression><![CDATA[$F{subtask5}]]></subtaskExpression>
+							<startDateExpression><![CDATA[$F{startDate5}]]></startDateExpression>
+							<endDateExpression><![CDATA[$F{endDate5}]]></endDateExpression>
+						</ganttSeries>
+						<ganttSeries>
+							<seriesExpression><![CDATA[$F{series6}]]></seriesExpression>
+							<taskExpression><![CDATA[$F{task6}]]></taskExpression>
+							<subtaskExpression><![CDATA[$F{subtask6}]]></subtaskExpression>
+							<startDateExpression><![CDATA[$F{startDate6}]]></startDateExpression>
+							<endDateExpression><![CDATA[$F{endDate6}]]></endDateExpression>
+						</ganttSeries>
+						<ganttSeries>
+							<seriesExpression><![CDATA[$F{series7}]]></seriesExpression>
+							<taskExpression><![CDATA[$F{task7}]]></taskExpression>
+							<subtaskExpression><![CDATA[$F{subtask7}]]></subtaskExpression>
+							<startDateExpression><![CDATA[$F{startDate7}]]></startDateExpression>
+							<endDateExpression><![CDATA[$F{endDate7}]]></endDateExpression>
+						</ganttSeries>
+						<ganttSeries>
+							<seriesExpression><![CDATA[$F{series8}]]></seriesExpression>
+							<taskExpression><![CDATA[$F{task8}]]></taskExpression>
+							<subtaskExpression><![CDATA[$F{subtask8}]]></subtaskExpression>
+							<startDateExpression><![CDATA[$F{startDate8}]]></startDateExpression>
+							<endDateExpression><![CDATA[$F{endDate8}]]></endDateExpression>
+						</ganttSeries>
+						<ganttSeries>
+							<seriesExpression><![CDATA[$F{series9}]]></seriesExpression>
+							<taskExpression><![CDATA[$F{task9}]]></taskExpression>
+							<subtaskExpression><![CDATA[$F{subtask9}]]></subtaskExpression>
+							<startDateExpression><![CDATA[$F{startDate9}]]></startDateExpression>
+							<endDateExpression><![CDATA[$F{endDate9}]]></endDateExpression>
+						</ganttSeries>
+						<ganttSeries>
+							<seriesExpression><![CDATA[$F{series10}]]></seriesExpression>
+							<taskExpression><![CDATA[$F{task10}]]></taskExpression>
+							<subtaskExpression><![CDATA[$F{subtask10}]]></subtaskExpression>
+							<startDateExpression><![CDATA[$F{startDate10}]]></startDateExpression>
+							<endDateExpression><![CDATA[$F{endDate10}]]></endDateExpression>
+						</ganttSeries>
+						<ganttSeries>
+							<seriesExpression><![CDATA[$F{series11}]]></seriesExpression>
+							<taskExpression><![CDATA[$F{task11}]]></taskExpression>
+							<subtaskExpression><![CDATA[$F{subtask11}]]></subtaskExpression>
+							<startDateExpression><![CDATA[$F{startDate11}]]></startDateExpression>
+							<endDateExpression><![CDATA[$F{endDate11}]]></endDateExpression>
+						</ganttSeries>
+						<ganttSeries>
+							<seriesExpression><![CDATA[$F{series12}]]></seriesExpression>
+							<taskExpression><![CDATA[$F{task12}]]></taskExpression>
+							<subtaskExpression><![CDATA[$F{subtask12}]]></subtaskExpression>
+							<startDateExpression><![CDATA[$F{startDate12}]]></startDateExpression>
+							<endDateExpression><![CDATA[$F{endDate12}]]></endDateExpression>
+						</ganttSeries>
+						<ganttSeries>
+							<seriesExpression><![CDATA[$F{series13}]]></seriesExpression>
+							<taskExpression><![CDATA[$F{task13}]]></taskExpression>
+							<subtaskExpression><![CDATA[$F{subtask13}]]></subtaskExpression>
+							<startDateExpression><![CDATA[$F{startDate13}]]></startDateExpression>
+							<endDateExpression><![CDATA[$F{endDate13}]]></endDateExpression>
+						</ganttSeries>
+						<ganttSeries>
+							<seriesExpression><![CDATA[$F{series14}]]></seriesExpression>
+							<taskExpression><![CDATA[$F{task14}]]></taskExpression>
+							<subtaskExpression><![CDATA[$F{subtask14}]]></subtaskExpression>
+							<startDateExpression><![CDATA[$F{startDate14}]]></startDateExpression>
+							<endDateExpression><![CDATA[$F{endDate14}]]></endDateExpression>
+						</ganttSeries>
+					</ganttDataset>
+					<barPlot>
+						<plot backgroundAlpha="1.0" foregroundAlpha="1.0"/>
+						<itemLabel/>
+						<categoryAxisFormat>
+							<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+						</categoryAxisFormat>
+						<valueAxisFormat>
+							<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+						</valueAxisFormat>
+					</barPlot>
+				</ganttChart>
+				<staticText>
+					<reportElement positionType="Float" x="11" y="10" width="389" height="26" forecolor="#050505" uuid="22e73d17-9699-44ad-9a97-277e82a15651"/>
+					<textElement>
+						<font fontName="DejaVu Sans Condensed" size="15"/>
+					</textElement>
+					<text><![CDATA[Lebenszyklusentwicklung im Vergleich]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</summary>
+</jasperReport>

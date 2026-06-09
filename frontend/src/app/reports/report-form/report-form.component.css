@@ -1,0 +1,62 @@
+mat-form-field {
+  width: 65%;
+  min-width: 350px;
+  max-width: 650px;
+}
+
+.frame {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.custom-mat-option {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.period-detail {
+  color: grey;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.period-name {
+  color: black;
+  text-align: left;
+}
+
+::ng-deep .mdc-list-item__primary-text {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Hintergrundfarbe mit Transparenz für Overlay-Effekt */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Stellen Sie sicher, dass der Ladebildschirm über anderen Inhalten liegt */
+}
+
+.searchbar {
+  margin-bottom: 10px;
+}
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  min-width: 350px;
+  max-width: 650px;
+}

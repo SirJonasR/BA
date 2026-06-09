@@ -1,0 +1,74 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: db-init
+data:
+  10_create_database_and_user.sh: |
+    #!/bin/bash
+    set -e
+    psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-EOSQL1
+        create database $APP_DB;
+        create user $APP_USER;
+        alter role $APP_USER with password '$APP_PASSWORD'
+    EOSQL1
+    psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$APP_DB" -f /docker-entrypoint-initdb.d/20_initDb.psql;
+    psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USERNAME" --dbname "$APP_DB" <<-EOSQL2
+        grant select, insert, update, delete on all tables in schema public to $APP_USER;
+        grant usage on sequence hibernate_sequence to $APP_USER;
+    EOSQL2
+  20_initDb.psql: |
+    create table if not exists "User" (
+        id       bigint primary key,
+        username varchar(255)
+    );
+    create table if not exists category (
+        id   bigint primary key,
+        name varchar(255)
+    );
+    create table if not exists lifecycle (
+        id   bigint primary key,
+        name varchar(255),
+        sort integer not null
+    );
+    create table if not exists technology (
+        id           bigint primary key,
+        description  varchar(1800),
+        name         varchar(255),
+        category_id  bigint
+            constraint technology_category_fk references category,
+        lifecycle_id bigint
+            constraint technology_lifecycle_fk references lifecycle
+    );
+    create table if not exists history (
+        id            bigint primary key,
+        changedate    timestamp,
+        description   varchar(1800),
+        name          varchar(255),
+        category_id   bigint
+            constraint history_category_fk references category,
+        lifecycle_id  bigint
+            constraint history_lifecycle_fk references lifecycle,
+        technology_id bigint
+            constraint history_technology_fk references technology,
+        user_id       bigint
+            constraint history_user_fk references "User"
+    );
+    create table if not exists vote (
+        id            bigint primary key,
+        isupvote      boolean not null,
+        technology_id bigint
+            constraint vote_technology_fk references technology,
+        user_id       bigint
+            constraint vote_user_fk references "User"
+    );
+    create sequence if not exists hibernate_sequence;
+    insert into category (id, name)
+    values (-1, 'Languages & Frameworks'),
+           (-2, 'Tools'),
+           (-3, 'Platforms'),
+           (-4, 'Techniques & Methodologies');
+    insert into lifecycle (id, name, sort)
+    values (-4, 'Maintain', 1),
+           (-3, 'Adopt', 2),
+           (-2, 'Assess', 3),
+           (-1, 'Monitor', 4);

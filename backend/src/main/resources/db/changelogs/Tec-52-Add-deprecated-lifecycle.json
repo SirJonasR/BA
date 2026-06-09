@@ -1,0 +1,44 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "add-lifecycle-deprecated",
+        "author": "mircoboettcher",
+        "changes": [
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "-6"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Deprecated"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "sort",
+                    "value": "6"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Diese Technologien werden als veraltet angesehen und ihr Einsatz wird nicht empfohlen."
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "lifecycle"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

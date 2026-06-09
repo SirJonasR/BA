@@ -1,0 +1,17 @@
+mat-form-field {
+  padding: 0;
+  width: 65%;
+  min-width: 350px;
+  max-width: 650px;
+}
+
+.selected-item-container {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 8px;
+}
+.item-text {
+  margin-top: 4px;
+  font-size: 16px;
+  margin-right: 0;
+}

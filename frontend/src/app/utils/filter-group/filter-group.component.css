@@ -1,0 +1,430 @@
+/* Sidenav Container */
+:host {
+  --fg-sidenav-width: max(360px, min(520px, calc(100vw - 40px)));
+  --fg-button-right: 20px;
+}
+
+:host .mat-drawer-container {
+  position: static;
+  background-color: transparent;
+  overflow: visible;
+}
+
+:host .mat-drawer-content {
+  position: unset;
+  overflow: visible;
+}
+
+/* Sidenav styling */
+:host ::ng-deep mat-sidenav {
+  width: min(520px, calc(100vw - 40px)) !important;
+  max-width: 520px !important;
+  min-width: 360px !important;
+  margin-top: 64px;
+  height: calc(100vh - 64px);
+  padding: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+:host ::ng-deep mat-sidenav-content {
+  overflow: visible;
+}
+
+:host ::ng-deep mat-sidenav .mat-drawer-inner-container {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.fg-template-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  background: var(--app-background-primary);
+}
+
+.fg-template-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  padding: 8px 16px 0;
+}
+
+.fg-template-title {
+  margin: 0;
+  font-size: clamp(18px, 4vw, 24px);
+  font-weight: 600;
+  color: var(--app-text-primary);
+}
+
+.fg-active-counter {
+  background: var(--app-info, #1976d2);
+  color: var(--app-text-inverse, white);
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid var(--app-info, #1976d2);
+  box-shadow: var(--app-shadow-sm, 0 1px 4px rgba(0, 0, 0, 0.12));
+}
+
+.fg-template-content {
+  height: 100%;
+  overflow: hidden;
+}
+
+.fg-template-actions {
+  padding: 8px 16px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.fg-template-actions .reset-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  margin: 0 auto;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.fg-template-actions .reset-button mat-icon {
+  font-size: 18px;
+}
+
+/* Shared projected filter-panel styles for all pages using app-filter-group */
+:host ::ng-deep [filter-panel] {
+  display: block;
+  padding: clamp(0.95rem, 2.2vw, 1.25rem) clamp(0.95rem, 2.2vw, 1.25rem)
+    clamp(1.2rem, 2.6vw, 1.5rem);
+  height: 100%;
+  min-height: 0;
+  box-sizing: border-box;
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-size: 12px;
+}
+
+:host ::ng-deep [filter-panel] .filter-header,
+:host ::ng-deep [filter-panel] .filterHead {
+  display: none !important;
+}
+
+:host ::ng-deep [filter-panel] mat-divider {
+  border-top-color: var(--app-border-light, #e5e7eb);
+}
+
+:host ::ng-deep [filter-panel] .filter-card {
+  margin-top: 0.9rem;
+  border-radius: 14px;
+  border: 1px solid var(--app-border-light, #e5e7eb);
+  background: color-mix(
+    in srgb,
+    var(--app-surface-elevated, #ffffff) 92%,
+    var(--app-info-subtle, #eef2ff) 8%
+  );
+  box-shadow: var(--app-shadow-sm, 0 2px 6px rgb(0 0 0 / 8%));
+  transition: box-shadow 0.2s ease, border-color 0.2s ease,
+    transform 0.2s ease;
+  overflow: hidden;
+  padding: 0;
+}
+
+:host ::ng-deep [filter-panel] .filter-card:hover {
+  border-color: color-mix(
+    in srgb,
+    var(--app-info, #2563eb) 35%,
+    var(--app-border-light, #e5e7eb) 65%
+  );
+  box-shadow: var(--app-shadow-md, 0 10px 20px rgb(0 0 0 / 10%));
+  transform: translateY(-1px);
+}
+
+:host ::ng-deep [filter-panel] .filter-card.has-selections {
+  border-color: color-mix(
+    in srgb,
+    var(--app-info, #2563eb) 36%,
+    var(--app-border-light, #e5e7eb) 64%
+  );
+  background: color-mix(
+    in srgb,
+    var(--app-info-subtle, #eef2ff) 52%,
+    var(--app-surface-elevated, #ffffff) 48%
+  );
+}
+
+:host ::ng-deep [filter-panel] .filter-card p {
+  margin: 0;
+}
+
+:host ::ng-deep [filter-panel] .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(10px, 1.6vw, 13px) clamp(14px, 2.2vw, 16px);
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease;
+  min-height: 44px;
+}
+
+:host ::ng-deep [filter-panel] .card-header:hover {
+  background: var(--app-hover-bg, rgba(0, 0, 0, 0.04));
+}
+
+:host ::ng-deep [filter-panel] .toggle-card .card-header {
+  cursor: default;
+}
+
+:host ::ng-deep [filter-panel] .card-title {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1.5vw, 12px);
+  font-weight: 500;
+  color: var(--app-text-primary);
+  font-size: clamp(13px, 2.5vw, 14px);
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+:host ::ng-deep [filter-panel] .card-title span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  min-width: 0;
+}
+
+:host ::ng-deep [filter-panel] .card-icon {
+  color: var(--app-text-secondary);
+  font-size: 20px;
+}
+
+:host ::ng-deep [filter-panel] .filter-card.has-selections .card-icon {
+  color: var(--app-info, #2563eb);
+}
+
+:host ::ng-deep [filter-panel] .selection-badge {
+  background: var(--app-info, #2563eb);
+  color: var(--app-text-inverse, #fff);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  min-width: 20px;
+  text-align: center;
+}
+
+:host ::ng-deep [filter-panel] .expand-icon {
+  color: var(--app-text-secondary);
+  transition: transform 0.3s ease;
+  font-size: 20px;
+}
+
+:host ::ng-deep [filter-panel] .expand-icon.expanded {
+  transform: rotate(180deg);
+}
+
+:host ::ng-deep [filter-panel] .card-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    padding 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--app-surface, #f8fafc);
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+:host ::ng-deep [filter-panel] .card-content.expanded {
+  grid-template-rows: 1fr;
+  padding: 0 clamp(12px, 2vw, 20px) clamp(12px, 2vw, 20px)
+    clamp(12px, 2vw, 20px);
+  max-height: min(62vh, 700px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+:host ::ng-deep [filter-panel] .content-wrapper {
+  overflow: hidden;
+  min-height: 0;
+}
+
+:host ::ng-deep [filter-panel] .card-content.expanded .content-wrapper {
+  overflow: visible;
+  padding-top: clamp(12px, 2vw, 16px);
+}
+
+:host ::ng-deep [filter-panel] .selected-items {
+  margin-bottom: clamp(12px, 2vw, 16px);
+  width: 100%;
+}
+
+:host ::ng-deep [filter-panel] .selected-items mat-chip-set {
+  margin: 0;
+  width: 100%;
+  flex-wrap: wrap;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  gap: 0;
+}
+
+:host ::ng-deep [filter-panel] .selected-items mat-chip {
+  margin: 4px;
+  background: var(--app-info-light, rgba(37, 99, 235, 0.14));
+  color: var(--app-info, #2563eb);
+  border: 1px solid var(--app-border-color, rgba(0, 0, 0, 0.12));
+}
+
+:host ::ng-deep [filter-panel] .checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+:host ::ng-deep [filter-panel] .checkbox-option {
+  display: flex;
+  align-items: center;
+}
+
+:host ::ng-deep [filter-panel] .filter-card mat-form-field {
+  width: 100%;
+}
+
+:host
+  ::ng-deep
+  [filter-panel]
+  .filter-card
+  mat-form-field
+  .mdc-text-field--filled {
+  background: transparent;
+}
+
+:host
+  ::ng-deep
+  [filter-panel]
+  .filter-card
+  mat-form-field
+  .mdc-line-ripple::before,
+:host
+  ::ng-deep
+  [filter-panel]
+  .filter-card
+  mat-form-field
+  .mdc-line-ripple::after {
+  border-bottom-width: 0;
+}
+
+:host ::ng-deep [filter-panel] .mat-mdc-text-field-wrapper {
+  background: transparent !important;
+  border-radius: 0 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding-left: 0;
+  padding-right: 0;
+  transition: none;
+}
+
+:host ::ng-deep [filter-panel] .mat-mdc-form-field-subscript-wrapper {
+  display: none;
+}
+
+:host ::ng-deep [filter-panel] mat-chip-listbox,
+:host ::ng-deep [filter-panel] mat-chip-set {
+  display: block;
+  margin-bottom: 8px;
+}
+
+:host ::ng-deep [filter-panel] mat-chip-option,
+:host ::ng-deep [filter-panel] mat-chip {
+  margin: 4px;
+}
+
+:host ::ng-deep [filter-panel] .mat-mdc-form-field .mdc-floating-label,
+:host ::ng-deep [filter-panel] .mat-mdc-select-value-text,
+:host ::ng-deep [filter-panel] .mat-mdc-select-placeholder {
+  color: var(--app-text-primary);
+}
+
+:host ::ng-deep [filter-panel] .mat-mdc-form-field:hover .mat-mdc-text-field-wrapper {
+  box-shadow: none !important;
+}
+
+:host ::ng-deep [filter-panel] .mat-mdc-form-field.mat-focused .mat-mdc-text-field-wrapper {
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+:host ::ng-deep [filter-panel] .mat-mdc-form-field.mat-focused {
+  border-color: var(--app-info, #1976d2);
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2),
+    var(--app-shadow-md, 0 4px 10px rgba(0, 0, 0, 0.14));
+}
+
+:host ::ng-deep [filter-panel] .mat-mdc-form-field-infix {
+  min-height: 44px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+:host ::ng-deep [filter-panel] .mat-mdc-select-trigger {
+  min-height: 24px;
+  align-items: center;
+}
+
+:host ::ng-deep [filter-panel] .mdc-line-ripple,
+:host ::ng-deep [filter-panel] .mat-mdc-form-field-focus-overlay {
+  display: none;
+}
+
+:host ::ng-deep [filter-panel] .hide-checkbox .mat-pseudo-checkbox {
+  display: none;
+}
+
+.filterButton {
+  position: fixed;
+  top: 90px;
+  right: var(--fg-button-right);
+  z-index: 1000;
+  transition: right 0.25s ease, top 0.2s ease, box-shadow 0.2s ease,
+    border-color 0.2s ease;
+  --mdc-fab-container-color: rgba(0, 0, 0, 0.125);
+  --mdc-fab-label-text-color: black;
+}
+
+.button-icon {
+  color: black !important;
+}
+
+.filterButton.active {
+  right: calc(var(--fg-sidenav-width) + var(--fg-button-right));
+  border: 3px solid #d32f2f !important;
+  box-shadow: 0 0 0 2px rgba(211, 47, 47, 0.2);
+}
+
+@media (max-width: 768px) {
+  :host {
+    --fg-sidenav-width: max(280px, min(520px, calc(100vw - 40px)));
+    --fg-button-right: 16px;
+  }
+
+  .filterButton {
+    top: 20px;
+  }
+
+  :host ::ng-deep mat-sidenav {
+    min-width: 280px !important;
+  }
+}

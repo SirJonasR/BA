@@ -1,0 +1,37 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "Tec-95-insert-legacy-legend-feature-flag",
+        "author": "mircoboettcher",
+        "changes": [
+          {
+            "insert": {
+              "tableName": "feature_flags",
+              "columns": [
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "SHOW_LEGACY_RADAR_LEGEND"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "enabled",
+                    "value": false
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Zeigt die Legacy-Legende auf der Radar-Startseite an."
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

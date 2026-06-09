@@ -1,0 +1,19 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "Tec-73-remove-vote",
+        "author": "epi2000",
+        "changes": [
+          {
+            "dropTable": {
+              "cascadeConstraints": true,
+              "schemaName": "public",
+              "tableName": "vote"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

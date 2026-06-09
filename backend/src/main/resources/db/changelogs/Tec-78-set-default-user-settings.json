@@ -1,0 +1,38 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "Tec-78-set-default-radar-settings",
+        "author": "mircoboettcher",
+        "changes": [
+          {
+            "update": {
+              "tableName": "User",
+              "columns": [
+                {
+                  "column": {
+                    "name": "colour_display",
+                    "valueBoolean": false
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "update": {
+              "tableName": "User",
+              "columns": [
+                {
+                  "column": {
+                    "name": "icon_display",
+                    "valueBoolean": true
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+<mat-form-field appearance="fill" class="tag-field">
+  <mat-label>Tags*</mat-label>
+
+  <input
+    #tagInput
+    matInput
+    name="tagInput"
+    placeholder="Tag eingeben"
+    [(ngModel)]="newTag"
+    (keydown)="onKeyDown($event)"
+    (blur)="onBlur()"
+    [attr.aria-invalid]="tagsExceeded"
+    [matAutocomplete]="auto"
+    autocomplete="off"
+  />
+
+  <!-- Autocomplete mit Vorschlägen -->
+  <mat-autocomplete
+    #auto="matAutocomplete"
+    (optionSelected)="onOptionSelected($event)"
+    autoActiveFirstOption
+  >
+    <mat-option
+      *ngFor="let option of filteredSuggestions; trackBy: trackByValue"
+      [value]="option"
+    >
+      {{ option }}
+    </mat-option>
+
+    <ng-container *ngIf="filteredSuggestions.length === 0 && newTag">
+      <mat-option disabled>Keine passenden Vorschläge</mat-option>
+    </ng-container>
+  </mat-autocomplete>
+
+  <mat-hint align="start">Max. {{ maxTags }} Tags</mat-hint>
+  <mat-error *ngIf="tagsExceeded"
+    >Maximal {{ maxTags }} Tags erlaubt.</mat-error
+  >
+</mat-form-field>
+
+<div class="tag-list">
+  <span class="tag-pill" *ngFor="let tag of tags; trackBy: trackByValue">
+    <span class="tag-text">{{ tag }}</span>
+    <button
+      type="button"
+      class="tag-remove"
+      (click)="removeTag(tag)"
+      aria-label="Tag entfernen"
+      mat-icon-button
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </span>
+</div>

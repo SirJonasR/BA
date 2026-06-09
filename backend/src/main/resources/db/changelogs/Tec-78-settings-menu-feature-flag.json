@@ -1,0 +1,44 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "Tec-78-add-show-settings-icon-feature-flag",
+        "author": "mircoboettcher",
+        "preConditions": {
+          "onFail": "MARK_RAN",
+          "sqlCheck": {
+            "expectedResult": "0",
+            "sql": "SELECT COUNT(*) FROM feature_flags WHERE name = 'SHOW_SETTINGS_ICON'"
+          }
+        },
+        "changes": [
+          {
+            "insert": {
+              "tableName": "feature_flags",
+              "columns": [
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "SHOW_SETTINGS_ICON"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "enabled",
+                    "value": false
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Zeigt das Einstellungen-Symbol in der Navigationsleiste an."
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+.tiles {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.tile {
+  margin: 10px;
+}

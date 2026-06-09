@@ -1,0 +1,35 @@
+div {
+  display: flex;
+  flex-direction: column;
+  width: 120px;
+  height: 150px;
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.name {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  display: block;
+  width: 100px;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.logo {
+  width: 90px;
+  height: 90px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.hoveredTile {
+  background-color: lightgrey;
+}

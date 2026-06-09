@@ -1,0 +1,776 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "add-tags-2",
+        "author": "epi2000",
+        "changes": [
+          {
+            "insert": {
+              "columns": [
+                {
+                  "name": "name",
+                  "value": "DevOps"
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "name": "name",
+                  "value": "Monitoring"
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "name": "name",
+                  "value": "Dashboard"
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "name": "name",
+                  "value": "Data Visualization"
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "name": "name",
+                  "value": "SQL"
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "name": "name",
+                  "value": "API Design"
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "name": "name",
+                  "value": "Dokumentation"
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "name": "name",
+                  "value": "Projektmanagement"
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "tag"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "add-technology-tag-2",
+        "author": "epi2000",
+        "changes": [
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                      "name": "tags_name",
+                      "value": "DevOps"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technologies_id",
+                    "value": "1020"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "tags_name",
+                    "value": "DevOps"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technologies_id",
+                    "value": "1021"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "tags_name",
+                    "value": "DevOps"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technologies_id",
+                    "value": "1023"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "tags_name",
+                    "value": "Monitoring"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technologies_id",
+                    "value": "1025"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "tags_name",
+                    "value": "Data Visualization"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technologies_id",
+                    "value": "1025"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "tags_name",
+                    "value": "DevOps"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technologies_id",
+                    "value": "1022"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "tags_name",
+                    "value": "DevOps"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technologies_id",
+                    "value": "1019"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "tags_name",
+                    "value": "API Design"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technologies_id",
+                    "value": "1027"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "tags_name",
+                    "value": "Dokumentation"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technologies_id",
+                    "value": "1027"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "tags_name",
+                    "value": "Dokumentation"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technologies_id",
+                    "value": "1024"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "tags_name",
+                    "value": "Data Visualization"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technologies_id",
+                    "value": "1026"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "tags_name",
+                    "value": "Monitoring"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technologies_id",
+                    "value": "1026"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "tags_name",
+                    "value": "SQL"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technologies_id",
+                    "value": "1016"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "tags_name",
+                    "value": "Monitoring"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technologies_id",
+                    "value": "1014"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "tags_name",
+                    "value": "Data Visualization"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technologies_id",
+                    "value": "1014"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "tags_name",
+                    "value": "DevOps"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technologies_id",
+                    "value": "1008"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "tags_name",
+                    "value": "SQL"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technologies_id",
+                    "value": "1013"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "tags_name",
+                    "value": "DevOps"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technologies_id",
+                    "value": "1007"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "tags_name",
+                    "value": "DevOps"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technologies_id",
+                    "value": "1012"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "tags_name",
+                    "value": "DevOps"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technologies_id",
+                    "value": "1015"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "tags_name",
+                    "value": "Projektmanagement"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technologies_id",
+                    "value": "1030"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "tags_name",
+                    "value": "Dokumentation"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technologies_id",
+                    "value": "1030"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "tags_name",
+                    "value": "DevOps"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technologies_id",
+                    "value": "1034"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "tags_name",
+                    "value": "Dokumentation"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technologies_id",
+                    "value": "1031"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "tags_name",
+                    "value": "Projektmanagement"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technologies_id",
+                    "value": "1031"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "tags_name",
+                    "value": "Projektmanagement"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technologies_id",
+                    "value": "1033"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "tags_name",
+                    "value": "Dokumentation"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technologies_id",
+                    "value": "1033"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "tags_name",
+                    "value": "DevOps"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technologies_id",
+                    "value": "1032"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "tags_name",
+                    "value": "API Design"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technologies_id",
+                    "value": "1028"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "tags_name",
+                    "value": "Dokumentation"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technologies_id",
+                    "value": "1029"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "tags_name",
+                    "value": "API Design"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technologies_id",
+                    "value": "1029"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "tags_name",
+                    "value": "DevOps"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technologies_id",
+                    "value": "1018"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_tag"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "tags_name",
+                    "value": "DevOps"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technologies_id",
+                    "value": "1017"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology_tag"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

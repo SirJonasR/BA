@@ -1,0 +1,53 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "adjust-spelling-for-descriptions",
+        "author": "epi200",
+        "changes": [
+          {
+            "update": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Wir sind davon überzeugt, dass die Industrie diese Technologien übernehmen soll. An geeigneter Stelle verwenden wir die Technologien bei unseren eigenen Projekten."
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "lifecycle",
+              "where": "name='Adopt'"
+            }
+          },
+          {
+            "update": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Diese Technologien sind es wert näher untersucht zu werden. Sie sollten in Projekten verwendet werden mit dem Ziel den Nutzen zu bewerten."
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "lifecycle",
+              "where": "name='Assess'"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "description",
+                "value": "In der Kategorie 'Tools' stehen die Softwareanwendungen und Plattformen im Fokus, die bei der Entwicklung, Bereitstellung und Verwaltung von Softwarelösungen verwendet werden. Dies beinhaltet Programmierumgebungen, Testframeworks und andere Hilfsmittel, die Entwickler bei ihrer Arbeit unterstützen."
+              },
+              "schemaName": "public",
+              "tableName": "category",
+              "where": "id=-2"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

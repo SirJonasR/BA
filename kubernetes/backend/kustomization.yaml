@@ -1,0 +1,4 @@
+resources:
+  - backend-deployment.yaml
+  - backend-svc.yaml
+  - tec-radar-cm.yaml

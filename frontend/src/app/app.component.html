@@ -1,0 +1,7 @@
+<app-header *ngIf="isInitialized"></app-header>
+<main>
+  <router-outlet *ngIf="isInitialized"></router-outlet>
+  <div *ngIf="!isInitialized" class="spinner-container">
+    <mat-spinner></mat-spinner>
+  </div>
+</main>

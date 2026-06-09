@@ -1,0 +1,42 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.picture {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  height: 65px;
+  width: 65px;
+}
+
+.form-fields-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.form-field-container {
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.mat-form-field {
+  margin: 0;
+}
+
+.mat-icon {
+  position: absolute;
+  top: 60%;
+  right: 0;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+.button-container button {
+  width: 40%;
+}

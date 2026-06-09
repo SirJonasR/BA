@@ -1,0 +1,9 @@
+<h1>Abonnement bearbeiten</h1>
+<ng-container *ngIf="values">
+  <app-subscription-form
+    [values]="values"
+    [isSubmitting]="isSubmitting"
+    (submitForm)="onSubmit()"
+    [hasError]="hasError"
+  ></app-subscription-form>
+</ng-container>

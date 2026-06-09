@@ -1,0 +1,37 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "Tec-127-sbom-upload-feature-flag",
+        "author": "timdangberg05",
+        "changes": [
+          {
+            "insert": {
+              "tableName": "feature_flags",
+              "columns": [
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "ENABLE_SBOM_UPLOAD"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "enabled",
+                    "value": false
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Aktiviert den SBOM-Dateiupload im Projektformular."
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

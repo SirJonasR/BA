@@ -1,0 +1,8 @@
+resources:
+  - postgres-deployment.yaml
+  - postgres-svc.yaml
+  - postgres-pvc.yaml
+  - proxy-cm.yaml
+  - db-init-cm.yaml
+  - role.yaml
+  - role-binding.yaml

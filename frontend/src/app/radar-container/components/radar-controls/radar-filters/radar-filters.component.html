@@ -1,0 +1,541 @@
+<div class="side-nav">
+  <div class="filter-header">
+    <h1>Filter</h1>
+    <div class="filter-counter">
+      <span class="active-filters-count"
+        >{{ getActiveFiltersCount() }} aktiv</span
+      >
+    </div>
+  </div>
+
+  <!-- Tag Filter Card -->
+  <div
+    class="filter-card"
+    [class.has-selections]="selectedTags_.length > 0"
+    [class.has-expanded-search]="hasExpandedSearch('tags')"
+  >
+    <div
+      class="card-header"
+      (click)="toggleCardExpanded('tags')"
+      (keydown.enter)="toggleCardExpanded('tags')"
+      (keydown.space)="toggleCardExpanded('tags'); $event.preventDefault()"
+      tabindex="0"
+      role="button"
+      [attr.aria-expanded]="isCardExpanded('tags')"
+    >
+      <div class="card-title">
+        <mat-icon class="card-icon">local_offer</mat-icon>
+        <span>Tags</span>
+        <span class="selection-badge" *ngIf="selectedTags_.length > 0">{{
+          selectedTags_.length
+        }}</span>
+      </div>
+      <mat-icon class="expand-icon" [class.expanded]="isCardExpanded('tags')"
+        >expand_more</mat-icon
+      >
+    </div>
+
+    <div class="card-content" [class.expanded]="isCardExpanded('tags')">
+      <div class="content-wrapper">
+        <!-- Selected Tags Display -->
+        <div class="selected-items" *ngIf="selectedTags_.length > 0">
+          <mat-chip-set>
+            <mat-chip
+              *ngFor="let tag of selectedTags_; trackBy: trackByTag"
+              (removed)="removeTag(tag)"
+            >
+              {{ tag }}
+              <button matChipRemove>
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip>
+          </mat-chip-set>
+        </div>
+
+        <!-- Expandable Search Bar -->
+        <div
+          class="expandable-search-container"
+          [class]="getSearchContainerClasses('tags')"
+        >
+          <div
+            class="search-bar"
+            (click)="toggleSearchExpanded('tags')"
+            (keydown.enter)="toggleSearchExpanded('tags')"
+            (keydown.space)="
+              toggleSearchExpanded('tags'); $event.preventDefault()
+            "
+            [class.expanded]="isSearchExpanded('tags')"
+            tabindex="0"
+            role="button"
+            [attr.aria-expanded]="isSearchExpanded('tags')"
+          >
+            <mat-icon class="search-icon">sell</mat-icon>
+            <input
+              id="tagsSearchInput"
+              #tagSearchInput
+              class="search-input"
+              [(ngModel)]="tagSearchTerm"
+              (input)="filterTags()"
+              (click)="$event.stopPropagation(); expandSearch('tags')"
+              (blur)="onSearchBlur('tags')"
+              placeholder="Tags durchsuchen und auswählen..."
+              [readonly]="!isSearchExpanded('tags')"
+            />
+            <button
+              class="clear-button"
+              *ngIf="tagSearchTerm && isSearchExpanded('tags')"
+              (click)="clearTagSearch(); $event.stopPropagation()"
+            >
+              <mat-icon>clear</mat-icon>
+            </button>
+            <mat-icon
+              class="expand-indicator"
+              [class.rotated]="isSearchExpanded('tags')"
+              >expand_more</mat-icon
+            >
+          </div>
+
+          <div
+            class="search-dropdown"
+            [class.expanded]="isSearchExpanded('tags')"
+            *ngIf="filteredTags.length > 0"
+          >
+            <div class="dropdown-options">
+              <div
+                class="option"
+                *ngFor="let tag of filteredTags; trackBy: trackByTag"
+                [class.selected]="isTagSelected(tag)"
+                (click)="toggleTagSelection(tag)"
+                (keydown.enter)="toggleTagSelection(tag)"
+                (keydown.space)="
+                  toggleTagSelection(tag); $event.preventDefault()
+                "
+                tabindex="0"
+                role="option"
+                [attr.aria-selected]="isTagSelected(tag)"
+              >
+                <mat-icon class="check-icon" *ngIf="isTagSelected(tag)"
+                  >check</mat-icon
+                >
+                <span class="option-text">{{ tag }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Customer Filter Card -->
+  <div
+    class="filter-card"
+    [class.has-selections]="selectedCustomers_.length > 0"
+    [class.has-expanded-search]="hasExpandedSearch('customers')"
+  >
+    <div
+      class="card-header"
+      (click)="toggleCardExpanded('customers')"
+      (keydown.enter)="toggleCardExpanded('customers')"
+      (keydown.space)="toggleCardExpanded('customers'); $event.preventDefault()"
+      tabindex="0"
+      role="button"
+      [attr.aria-expanded]="isCardExpanded('customers')"
+    >
+      <div class="card-title">
+        <mat-icon class="card-icon">business</mat-icon>
+        <span>Kunden</span>
+        <span class="selection-badge" *ngIf="selectedCustomers_.length > 0">{{
+          selectedCustomers_.length
+        }}</span>
+      </div>
+      <mat-icon
+        class="expand-icon"
+        [class.expanded]="isCardExpanded('customers')"
+        >expand_more</mat-icon
+      >
+    </div>
+
+    <div class="card-content" [class.expanded]="isCardExpanded('customers')">
+      <div class="content-wrapper">
+        <!-- Selected Customers Display -->
+        <div class="selected-items" *ngIf="selectedCustomers_.length > 0">
+          <mat-chip-set>
+            <mat-chip
+              *ngFor="
+                let customer of selectedCustomers_;
+                trackBy: trackByCustomer
+              "
+              (removed)="removeCustomer(customer)"
+            >
+              {{ customer.name }}
+              <button matChipRemove>
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip>
+          </mat-chip-set>
+        </div>
+
+        <!-- Expandable Search Bar -->
+        <div
+          class="expandable-search-container"
+          [class]="getSearchContainerClasses('customers')"
+        >
+          <div
+            class="search-bar"
+            (click)="toggleSearchExpanded('customers')"
+            (keydown.enter)="toggleSearchExpanded('customers')"
+            (keydown.space)="
+              toggleSearchExpanded('customers'); $event.preventDefault()
+            "
+            [class.expanded]="isSearchExpanded('customers')"
+            tabindex="0"
+            role="button"
+            [attr.aria-expanded]="isSearchExpanded('customers')"
+          >
+            <mat-icon class="search-icon">business</mat-icon>
+            <input
+              id="customersSearchInput"
+              #customerSearchInput
+              class="search-input"
+              [(ngModel)]="customerSearchTerm"
+              (input)="filterCustomers()"
+              (click)="$event.stopPropagation(); expandSearch('customers')"
+              (blur)="onSearchBlur('customers')"
+              placeholder="Kunden durchsuchen und auswählen..."
+              [readonly]="!isSearchExpanded('customers')"
+            />
+            <button
+              class="clear-button"
+              *ngIf="customerSearchTerm && isSearchExpanded('customers')"
+              (click)="clearCustomerSearch(); $event.stopPropagation()"
+            >
+              <mat-icon>clear</mat-icon>
+            </button>
+            <mat-icon
+              class="expand-indicator"
+              [class.rotated]="isSearchExpanded('customers')"
+              >expand_more</mat-icon
+            >
+          </div>
+
+          <div
+            class="search-dropdown"
+            [class.expanded]="isSearchExpanded('customers')"
+            *ngIf="filteredCustomers.length > 0"
+          >
+            <div class="dropdown-options">
+              <div
+                class="option"
+                *ngFor="
+                  let customer of filteredCustomers;
+                  trackBy: trackByCustomer
+                "
+                [class.selected]="isCustomerSelected(customer)"
+                (click)="toggleCustomerSelection(customer)"
+                (keydown.enter)="toggleCustomerSelection(customer)"
+                (keydown.space)="
+                  toggleCustomerSelection(customer); $event.preventDefault()
+                "
+                tabindex="0"
+                role="option"
+                [attr.aria-selected]="isCustomerSelected(customer)"
+              >
+                <mat-icon
+                  class="check-icon"
+                  *ngIf="isCustomerSelected(customer)"
+                  >check</mat-icon
+                >
+                <span class="option-text">{{ customer.name }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project Filter Card -->
+  <div
+    class="filter-card"
+    [class.has-selections]="selectedProjects_.length > 0"
+    [class.has-expanded-search]="hasExpandedSearch('projects')"
+  >
+    <div
+      class="card-header"
+      (click)="toggleCardExpanded('projects')"
+      (keydown.enter)="toggleCardExpanded('projects')"
+      (keydown.space)="toggleCardExpanded('projects'); $event.preventDefault()"
+      tabindex="0"
+      role="button"
+      [attr.aria-expanded]="isCardExpanded('projects')"
+    >
+      <div class="card-title">
+        <mat-icon class="card-icon">folder</mat-icon>
+        <span>Projekte</span>
+        <span class="selection-badge" *ngIf="selectedProjects_.length > 0">{{
+          selectedProjects_.length
+        }}</span>
+      </div>
+      <mat-icon
+        class="expand-icon"
+        [class.expanded]="isCardExpanded('projects')"
+        >expand_more</mat-icon
+      >
+    </div>
+
+    <div class="card-content" [class.expanded]="isCardExpanded('projects')">
+      <div class="content-wrapper">
+        <!-- Selected Projects Display -->
+        <div class="selected-items" *ngIf="selectedProjects_.length > 0">
+          <mat-chip-set>
+            <mat-chip
+              *ngFor="let project of selectedProjects_; trackBy: trackByProject"
+              (removed)="removeProject(project)"
+            >
+              {{ project.name }}
+              <button matChipRemove>
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip>
+          </mat-chip-set>
+        </div>
+
+        <!-- Expandable Search Bar -->
+        <div
+          class="expandable-search-container"
+          [class]="getSearchContainerClasses('projects')"
+        >
+          <div
+            class="search-bar"
+            (click)="toggleSearchExpanded('projects')"
+            (keydown.enter)="toggleSearchExpanded('projects')"
+            (keydown.space)="
+              toggleSearchExpanded('projects'); $event.preventDefault()
+            "
+            [class.expanded]="isSearchExpanded('projects')"
+            tabindex="0"
+            role="button"
+            [attr.aria-expanded]="isSearchExpanded('projects')"
+          >
+            <mat-icon class="search-icon">folder</mat-icon>
+            <input
+              id="projectsSearchInput"
+              #projectSearchInput
+              class="search-input"
+              [(ngModel)]="projectSearchTerm"
+              (input)="filterProjects()"
+              (click)="$event.stopPropagation(); expandSearch('projects')"
+              (blur)="onSearchBlur('projects')"
+              placeholder="Projekte durchsuchen und auswählen..."
+              [readonly]="!isSearchExpanded('projects')"
+            />
+            <button
+              class="clear-button"
+              *ngIf="projectSearchTerm && isSearchExpanded('projects')"
+              (click)="clearProjectSearch(); $event.stopPropagation()"
+            >
+              <mat-icon>clear</mat-icon>
+            </button>
+            <mat-icon
+              class="expand-indicator"
+              [class.rotated]="isSearchExpanded('projects')"
+              >expand_more</mat-icon
+            >
+          </div>
+
+          <div
+            class="search-dropdown"
+            [class.expanded]="isSearchExpanded('projects')"
+            *ngIf="filteredProjects.length > 0"
+          >
+            <div class="dropdown-options">
+              <div
+                class="option"
+                *ngFor="
+                  let project of filteredProjects;
+                  trackBy: trackByProject
+                "
+                [class.selected]="isProjectSelected(project)"
+                (click)="toggleProjectSelection(project)"
+                (keydown.enter)="toggleProjectSelection(project)"
+                (keydown.space)="
+                  toggleProjectSelection(project); $event.preventDefault()
+                "
+                tabindex="0"
+                role="option"
+                [attr.aria-selected]="isProjectSelected(project)"
+              >
+                <mat-icon class="check-icon" *ngIf="isProjectSelected(project)"
+                  >check</mat-icon
+                >
+                <span class="option-text">{{ project.name }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Priority Toggle Card -->
+  <div
+    class="filter-card toggle-card"
+    [class.has-selections]="filterState.onlyPrio"
+  >
+    <div class="card-header">
+      <div class="card-title">
+        <mat-icon class="card-icon">star</mat-icon>
+        <span>Nur Prioritäten</span>
+      </div>
+      <mat-slide-toggle
+        [checked]="filterState.onlyPrio"
+        (change)="onPriorityToggle($event.checked)"
+        color="primary"
+      ></mat-slide-toggle>
+    </div>
+  </div>
+
+  <!-- Most Clicked Options Card -->
+  <div
+    class="filter-card"
+    [class.has-selections]="filterState.selectedMostClickedOption"
+  >
+    <div
+      class="card-header"
+      (click)="toggleCardExpanded('mostClicked')"
+      (keydown.enter)="toggleCardExpanded('mostClicked')"
+      (keydown.space)="
+        toggleCardExpanded('mostClicked'); $event.preventDefault()
+      "
+      tabindex="0"
+      role="button"
+      [attr.aria-expanded]="isCardExpanded('mostClicked')"
+    >
+      <div class="card-title">
+        <mat-icon class="card-icon">trending_up</mat-icon>
+        <span>Beliebteste</span>
+        <span
+          class="selection-badge"
+          *ngIf="filterState.selectedMostClickedOption"
+          >1</span
+        >
+      </div>
+      <mat-icon
+        class="expand-icon"
+        [class.expanded]="isCardExpanded('mostClicked')"
+        >expand_more</mat-icon
+      >
+    </div>
+
+    <div class="card-content" [class.expanded]="isCardExpanded('mostClicked')">
+      <div class="content-wrapper">
+        <div class="radio-group">
+          <div *ngFor="let option of mostClickedOptions" class="radio-option">
+            <div
+              class="custom-radio-button"
+              [class.selected]="
+                filterState.selectedMostClickedOption === option
+              "
+              (click)="onMostClickedOptionToggle(option)"
+              (keydown.enter)="onMostClickedOptionToggle(option)"
+              (keydown.space)="
+                onMostClickedOptionToggle(option); $event.preventDefault()
+              "
+              tabindex="0"
+              role="radio"
+              [attr.aria-checked]="
+                filterState.selectedMostClickedOption === option
+              "
+            >
+              <div class="radio-circle">
+                <div
+                  class="radio-inner"
+                  [class.checked]="
+                    filterState.selectedMostClickedOption === option
+                  "
+                ></div>
+              </div>
+              <span class="radio-label">{{ option }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lifecycle Filter Card -->
+  <div
+    class="filter-card"
+    [class.has-selections]="selectedLifecycles_.length > 0"
+  >
+    <div
+      class="card-header"
+      (click)="toggleCardExpanded('lifecycles')"
+      (keydown.enter)="toggleCardExpanded('lifecycles')"
+      (keydown.space)="
+        toggleCardExpanded('lifecycles'); $event.preventDefault()
+      "
+      tabindex="0"
+      role="button"
+      [attr.aria-expanded]="isCardExpanded('lifecycles')"
+    >
+      <div class="card-title">
+        <mat-icon class="card-icon">cycle</mat-icon>
+        <span>Lebenszyklus</span>
+        <span class="selection-badge" *ngIf="selectedLifecycles_.length > 0">{{
+          selectedLifecycles_.length
+        }}</span>
+      </div>
+      <mat-icon
+        class="expand-icon"
+        [class.expanded]="isCardExpanded('lifecycles')"
+        >expand_more</mat-icon
+      >
+    </div>
+
+    <div class="card-content" [class.expanded]="isCardExpanded('lifecycles')">
+      <div class="content-wrapper">
+        <div class="checkbox-group">
+          <div class="checkbox-option">
+            <mat-checkbox
+              color="primary"
+              (change)="checkUncheckAllLifecycles()"
+              [checked]="allLifecyclesSelected"
+              [indeterminate]="
+                selectedLifecycles_.length > 0 && !allLifecyclesSelected
+              "
+            >
+              Alle Lebenszyklen
+            </mat-checkbox>
+          </div>
+          <div
+            *ngFor="let lifecycle of filteredLifecycles"
+            class="checkbox-option"
+          >
+            <mat-checkbox
+              color="primary"
+              (change)="addOrRemoveLifecycle(lifecycle)"
+              [checked]="isCheckedLifecycle(lifecycle)"
+            >
+              {{ lifecycle.name }}
+            </mat-checkbox>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Action Card -->
+  <div class="action-card">
+    <button
+      mat-raised-button
+      type="button"
+      color="warn"
+      (click)="resetFilters()"
+      class="reset-button"
+    >
+      <mat-icon>clear_all</mat-icon>
+      Filter zurücksetzen
+    </button>
+  </div>
+</div>

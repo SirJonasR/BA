@@ -1,0 +1,41 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "TEC-86-theme-preference-uppercase-data",
+        "author": "timdangberg05",
+        "changes": [
+          {
+            "update": {
+              "tableName": "User",
+              "columns": [
+                { "column": { "name": "theme_preference", "value": "LIGHT" } }
+              ],
+              "where": "theme_preference = 'light'"
+            }
+          },
+          {
+            "update": {
+              "tableName": "User",
+              "columns": [
+                { "column": { "name": "theme_preference", "value": "DARK" } }
+              ],
+              "where": "theme_preference = 'dark'"
+            }
+          },
+          {
+            "update": {
+              "tableName": "User",
+              "columns": [
+                { "column": { "name": "theme_preference", "value": "NIGHT_SKY" } }
+              ],
+              "where": "theme_preference = 'night-sky'"
+            }
+          },
+          { "dropDefaultValue": { "schemaName": "public", "tableName": "User", "columnName": "theme_preference" } },
+          { "addDefaultValue": { "schemaName": "public", "tableName": "User", "columnName": "theme_preference", "defaultValue": "LIGHT" } }
+        ]
+      }
+    }
+  ]
+}

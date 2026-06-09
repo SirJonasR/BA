@@ -1,0 +1,104 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "167-bildupload-1",
+        "author": "epi2000",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "picture",
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "type": "BIGINT",
+                    "constraints": {
+                      "nullable": false,
+                      "primaryKey": true,
+                      "primaryKeyName": "picture_pkey"
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "data",
+                    "type": "bytea"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "createSequence": {
+              "cacheSize": 10,
+              "cycle": false,
+              "dataType": "bigint",
+              "incrementBy": 1,
+              "minValue": 1,
+              "sequenceName": "picture_id_seq",
+              "startValue": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "167-bildupload-2",
+        "author": "epi2000",
+        "changes": [
+          {
+            "addColumn": {
+              "column": {
+                "name": "picture_id",
+                "type": "BIGINT"
+              },
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "167-bildupload-3",
+        "author": "epi2000",
+        "changes": [
+          {
+            "addColumn": {
+              "column": {
+                "name": "picture_id",
+                "type": "BIGINT"
+              },
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "changeSet": {
+        "id": "167-bildupload-grant-1",
+        "author": "whabelitz",
+        "changes": [
+          {
+            "sql": {
+              "dbms": "postgresql",
+              "sql": "grant select, insert, update, delete on table picture to ${APP_USER};"
+            }
+          },
+          {
+            "sql": {
+              "dbms": "postgresql",
+              "sql": "grant usage on sequence picture_id_seq to ${APP_USER};"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

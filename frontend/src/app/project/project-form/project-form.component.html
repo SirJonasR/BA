@@ -1,0 +1,369 @@
+<form
+  #projectForm="ngForm"
+  (ngSubmit)="onFormSubmit(); checkIfSubmitted = true"
+  class="form"
+  data-test-id="project-form"
+>
+  <mat-error *ngIf="hasError">
+    Beim Speichern des Projekts ist ein unerwarteter Fehler aufgetreten.
+  </mat-error>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Projektname</mat-label>
+    <input
+      matInput
+      required
+      name="projectName"
+      maxlength="{{ maxCharacterProjectName }}"
+      [formControl]="controlProjectName"
+      [(ngModel)]="this.values.projectName"
+    />
+
+    <mat-hint align="end">
+      <app-current-characters-counter
+        [maxCharacters]="maxCharacterProjectName"
+        [currentCharacterCount]="controlProjectName.value?.length ?? 0"
+      ></app-current-characters-counter>
+    </mat-hint>
+
+    <mat-hint
+      *ngIf="
+        (controlProjectName.touched || controlProjectName.dirty) &&
+        (controlProjectName.invalid ||
+          checkNoWhitespace(controlProjectName.value))
+      "
+      >Bitte gib einen gültigen Projektnamen ein</mat-hint
+    >
+
+    <mat-hint
+      *ngIf="doesProjectNameAlreadyExists() && controlProjectName.enabled"
+    >
+      Der Projektnamen existiert bereits
+    </mat-hint>
+  </mat-form-field>
+
+  <div *ngFor="let controlCustomer of controlCustomerNames; let i = index">
+    <mat-form-field class="customer-field">
+      <mat-label>Kunde / Auftraggeber</mat-label>
+      <input
+        matInput
+        required
+        [name]="'customerName' + i"
+        maxlength="{{ maxCharacterCustomerName }}"
+        [matAutocomplete]="auto"
+        [formControl]="controlCustomer"
+      />
+
+      <mat-icon
+        matSuffix
+        color="primary"
+        (click)="removeCustomerNameField(i)"
+        [hidden]="checkRemoveButtonHidden()"
+        >delete</mat-icon
+      >
+
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option
+          *ngFor="
+            let customerName of of(
+              getFilteredCustomerNames(controlCustomer.value)
+            ) | async
+          "
+          [value]="customerName"
+        >
+          {{ customerName }}
+        </mat-option>
+      </mat-autocomplete>
+
+      <mat-hint align="end">
+        <app-current-characters-counter
+          [maxCharacters]="maxCharacterCustomerName"
+          [currentCharacterCount]="controlCustomer.value?.length ?? 0"
+        ></app-current-characters-counter>
+      </mat-hint>
+
+      <mat-hint
+        *ngIf="
+          (controlCustomer.dirty || controlCustomer.touched) &&
+          (controlCustomer.invalid || checkNoWhitespace(controlCustomer.value))
+        "
+        >Bitte gib einen gültigen Kundennamen ein</mat-hint
+      >
+
+      <mat-hint *ngIf="checkCustomerName(controlCustomer.value)">
+        Den Kundennamen gibt es bereits
+      </mat-hint>
+    </mat-form-field>
+
+    <button
+      mat-icon-button
+      matTooltip="Weiteren Kunden hinzufügen"
+      type="button"
+      (click)="addCustomerNameField()"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+
+  <mat-form-field>
+    <mat-label>Beschreibung</mat-label>
+    <input
+      matInput
+      required
+      name="description"
+      maxlength="{{ maxCharacterDescription }}"
+      [formControl]="controlProjectDescription"
+      [(ngModel)]="this.values.description"
+    />
+
+    <mat-hint align="end">
+      <app-current-characters-counter
+        [maxCharacters]="maxCharacterDescription"
+        [currentCharacterCount]="controlProjectDescription.value?.length ?? 0"
+      ></app-current-characters-counter>
+    </mat-hint>
+
+    <mat-hint
+      *ngIf="
+        (controlProjectDescription.dirty ||
+          controlProjectDescription.touched) &&
+        controlProjectDescription.invalid
+      "
+      >Bitte gib eine gültige Beschreibung ein</mat-hint
+    >
+  </mat-form-field>
+
+  <mat-form-field class="industry-select" appearance="fill">
+    <mat-label>Branche</mat-label>
+    <mat-select
+      [formControl]="controlProjectIndustry"
+      [(ngModel)]="values.industry"
+      required
+    >
+      <mat-option
+        *ngFor="let industry of allIndustries"
+        [value]="industry.name"
+      >
+        {{ industry.name }}
+      </mat-option>
+    </mat-select>
+    <mat-error
+      *ngIf="controlProjectIndustry.invalid && controlProjectIndustry.touched"
+    >
+      Bitte wählen Sie eine Branche aus
+    </mat-error>
+  </mat-form-field>
+
+  <div *ngFor="let contact of contactControls; let i = index">
+    <div class="contact-row">
+      <mat-form-field class="contact-field">
+        <mat-label>Kontakt Email</mat-label>
+        <input
+          matInput
+          [name]="'contactEmail' + i"
+          [formControl]="contact.email"
+          [required]="i === 0"
+        />
+        <mat-hint
+          *ngIf="
+            (contact.email.dirty || contact.email.touched) &&
+            contact.email.invalid
+          "
+          >Bitte gib eine gültige Email-Adresse ein</mat-hint
+        >
+      </mat-form-field>
+
+      <mat-form-field class="contact-field">
+        <mat-label>Rolle</mat-label>
+        <input
+          matInput
+          [name]="'contactRole' + i"
+          [formControl]="contact.role"
+        />
+      </mat-form-field>
+
+      <button
+        mat-icon-button
+        type="button"
+        color="warn"
+        (click)="removeContact(i)"
+        [disabled]="checkRemoveContactButtonHidden()"
+        class="contact-delete-button"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+  <mat-hint *ngIf="hasDuplicateContactEmails()" class="warning-text"
+    >Es dürfen keine Kontakte mit der gleichen Email vorhanden sein.</mat-hint
+  >
+  <button
+    mat-raised-button
+    type="button"
+    (click)="addContact()"
+    class="contact-add-button"
+  >
+    <mat-icon>add</mat-icon>
+    Kontakt hinzufügen
+  </button>
+
+  <mat-form-field>
+    <mat-label>Sales Service Portal Link</mat-label>
+    <input
+      matInput
+      name="salesServiceLink"
+      maxlength="{{ maxCharacterSalesServiceLink }}"
+      [formControl]="controlProjectSalesServiceLink"
+      [(ngModel)]="this.values.salesServiceLink"
+    />
+
+    <mat-hint align="end">
+      <app-current-characters-counter
+        [maxCharacters]="maxCharacterSalesServiceLink"
+        [currentCharacterCount]="
+          controlProjectSalesServiceLink.value?.length ?? 0
+        "
+      ></app-current-characters-counter>
+    </mat-hint>
+
+    <mat-hint
+      *ngIf="
+        controlProjectSalesServiceLink.invalid ||
+        checkNoWhitespace(controlProjectSalesServiceLink.value)
+      "
+      >Bitte gib einen gültigen Service Link ein</mat-hint
+    >
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Weitere Informationen / Links</mat-label>
+    <input
+      matInput
+      name="info"
+      maxlength="{{ maxCharacterInfo }}"
+      [formControl]="controlProjectInfo"
+      [(ngModel)]="this.values.info"
+    />
+
+    <mat-hint align="end">
+      <app-current-characters-counter
+        [maxCharacters]="maxCharacterInfo"
+        [currentCharacterCount]="controlProjectInfo.value?.length ?? 0"
+      ></app-current-characters-counter>
+    </mat-hint>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Branchenspezifische Informationen</mat-label>
+    <div>
+      <input
+        matInput
+        name="industrySpecificInformation"
+        [maxlength]="maxCharacterIndustrySpecificInformation"
+        [formControl]="controlProjectIndustrySpecificInformation"
+        [(ngModel)]="values.industrySpecificInformation"
+        placeholder="Branchenspezifische Standards, Technologien oder Dateiformate"
+      />
+      <app-current-characters-counter
+        [maxCharacters]="maxCharacterIndustrySpecificInformation"
+        [currentCharacterCount]="
+          controlProjectIndustrySpecificInformation.value?.length ?? 0
+        "
+      ></app-current-characters-counter>
+    </div>
+  </mat-form-field>
+  <mat-form-field class="dates">
+    <mat-label>Start Datum</mat-label>
+    <input
+      matInput
+      [matDatepicker]="picker"
+      name="startDate"
+      [readonly]="true"
+      [formControl]="controlProjectStartDate"
+      [(ngModel)]="this.values.startDate"
+    />
+    <mat-hint class="hint-muted">MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field class="dates">
+    <mat-label>End Datum</mat-label>
+    <input
+      matInput
+      [matDatepicker]="picker2"
+      name="endDate"
+      [readonly]="true"
+      [formControl]="controlProjectEndDate"
+      [(ngModel)]="this.values.endDate"
+    />
+    <mat-hint class="hint-muted">MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle
+      matIconSuffix
+      [for]="picker2"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #picker2></mat-datepicker>
+
+    <mat-error *ngIf="!checkEndDateAfterStartDate()">
+      Enddatum ist vor dem Startdatum!
+    </mat-error>
+  </mat-form-field>
+
+  <div class="technology-field">
+    <div>
+      <app-tech-searchbar
+        [searchFieldPlaceholder]="'Technologie wählen*'"
+        [multipleSelect]="true"
+        [selectedItems]="this.values.selectedTechnologies"
+        (value)="receiveSearchValue($event)"
+      ></app-tech-searchbar>
+    </div>
+    <div>
+      <button
+        mat-raised-button
+        type="button"
+        color="secondary"
+        (click)="showPopup()"
+      >
+        Neue Technologie anlegen
+      </button>
+      <p *ngIf="newTechnologies.length > 0" class="newTechnologyText">
+        Neue Technologien
+      </p>
+      <div *ngFor="let technology of newTechnologies; let i = index">
+        <span>{{ technology.name }}</span>
+        <button type="button" mat-icon-button (click)="editNewTechnology(i)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button type="button" mat-icon-button (click)="removeNewTechnology(i)">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <mat-error
+    *ngIf="checkIfSubmitted && !checkIfAtLeastOneTechnology()"
+    class="tech-error"
+  >
+    Bitte gib mindestens eine Technologie an
+  </mat-error>
+  <div class="button-container">
+    <button
+      mat-raised-button
+      type="submit"
+      color="primary"
+      data-test-id="form-submit-button"
+    >
+      Speichern
+    </button>
+    <button
+      mat-raised-button
+      type="button"
+      color="secondary"
+      data-test-id="form-cancel-button"
+      (click)="goBackToPrevPage()"
+    >
+      Abbrechen
+    </button>
+  </div>
+</form>

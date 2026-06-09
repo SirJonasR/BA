@@ -1,0 +1,108 @@
+<h1>Änderungshistorie</h1>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="date">
+    <th class="padding" mat-header-cell *matHeaderCellDef>Datum</th>
+    <td class="padding" mat-cell *matCellDef="let element">
+      {{ element.date | date: "dd.MM.yyyy HH:mm" }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="username">
+    <th class="padding" mat-header-cell *matHeaderCellDef>Bearbeiter:in</th>
+    <td class="padding" mat-cell *matCellDef="let element">
+      {{ element.username }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th class="padding" mat-header-cell *matHeaderCellDef>Name</th>
+    <td
+      class="padding"
+      [ngClass]="element.isChanged.name ? 'background-green' : ''"
+      mat-cell
+      *matCellDef="let element"
+    >
+      {{ element.name }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="categoryName">
+    <th class="padding" mat-header-cell *matHeaderCellDef>Kategorie</th>
+    <td
+      class="padding"
+      [ngClass]="element.isChanged.category ? 'background-green' : ''"
+      mat-cell
+      *matCellDef="let element"
+    >
+      {{ element.categoryName }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="lifecycleName">
+    <th class="padding" mat-header-cell *matHeaderCellDef>Lebenszyklus</th>
+    <td
+      class="padding"
+      [ngClass]="element.isChanged.lifecycle ? 'background-green' : ''"
+      mat-cell
+      *matCellDef="let element"
+    >
+      {{ element.lifecycleName }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <th class="padding" mat-header-cell *matHeaderCellDef>Beschreibung</th>
+    <td
+      class="padding"
+      [ngClass]="element.isChanged.description ? 'background-green' : ''"
+      mat-cell
+      *matCellDef="let element"
+    >
+      {{ element.description }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="shortDescription">
+    <th class="padding" mat-header-cell *matHeaderCellDef>Kurzbeschreibung</th>
+    <td
+      class="padding"
+      [ngClass]="element.isChanged.shortDescription ? 'background-green' : ''"
+      mat-cell
+      *matCellDef="let element"
+    >
+      {{ element.shortDescription }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="picture">
+    <th class="padding" mat-header-cell *matHeaderCellDef>Logo</th>
+    <td
+      class="padding"
+      [ngClass]="element.isChanged.picture ? 'background-green' : ''"
+      mat-cell
+      *matCellDef="let element"
+    >
+      {{ element.pictureId }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="priority">
+    <th class="padding" mat-header-cell *matHeaderCellDef>Priorität</th>
+    <td
+      class="padding"
+      [ngClass]="element.isChanged.priority ? 'background-green' : ''"
+      mat-cell
+      *matCellDef="let element"
+    >
+      {{ element.priority }}
+    </td>
+  </ng-container>
+
+  <tr class="padding" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr
+    class="padding"
+    mat-row
+    *matRowDef="let row; columns: displayedColumns"
+  ></tr>
+</table>

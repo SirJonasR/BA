@@ -1,0 +1,27 @@
+mat-form-field {
+  padding: 0;
+  width: 65%;
+  min-width: 350px;
+  max-width: 650px;
+  margin-bottom: -25px;
+}
+
+.selected-item-container {
+  display: flex;
+  align-items: center;
+}
+
+.selected-projects-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.item-text {
+  display: inline-flex;
+  margin-right: 10px;
+  margin-top: 4px;
+  font-size: 16px;
+}

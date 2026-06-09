@@ -1,0 +1,91 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "add-user-role-1",
+        "author": "ErikM02",
+        "changes": [
+          {
+            "addColumn": {
+              "column": {
+                "name": "role",
+                "type": "VARCHAR(255)",
+                "defaultValue": "USER"
+              },
+              "schemaName": "public",
+              "tableName": "User"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "update-user-role-1",
+        "author": "ERIKM02",
+        "changes": [
+          {
+            "update": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "role",
+                    "value": "ADMIN"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "User",
+              "where": "username='a798247'"
+            }
+          },
+          {
+            "update": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "role",
+                    "value": "ADMIN"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "User",
+              "where": "username='a838944'"
+            }
+          },
+          {
+            "update": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "role",
+                    "value": "ADMIN"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "User",
+              "where": "username='a776468'"
+            }
+          },
+          {
+            "update": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "role",
+                    "value": "ADMIN"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "User",
+              "where": "username='a869327'"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

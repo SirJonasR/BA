@@ -1,0 +1,27 @@
+<h1>Dashboard</h1>
+<div class="tile-container">
+  <button
+    mat-card
+    [routerLink]="['/admin/user-management']"
+    class="tile-button"
+  >
+    <mat-icon class="tile-icon">people</mat-icon>
+    <div class="tile-label">Benutzerverwaltung</div>
+  </button>
+  <button
+    mat-card
+    [routerLink]="['/admin/feature-flag-management']"
+    class="tile-button"
+  >
+    <mat-icon class="tile-icon">flag</mat-icon>
+    <div class="tile-label">Feature-Flag-Verwaltung</div>
+  </button>
+  <button
+    mat-card
+    [routerLink]="['/admin/deep-expert-management']"
+    class="tile-button"
+  >
+    <mat-icon class="tile-icon">psychology</mat-icon>
+    <div class="tile-label">Deep Expert Management</div>
+  </button>
+</div>

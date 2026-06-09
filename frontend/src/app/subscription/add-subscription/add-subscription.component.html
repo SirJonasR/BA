@@ -1,0 +1,8 @@
+<h1>Abonnieren</h1>
+<mat-divider></mat-divider>
+<app-subscription-form
+  [values]="values"
+  [isSubmitting]="isSubmitting"
+  (submitForm)="onSubmit()"
+  [hasError]="hasError"
+></app-subscription-form>

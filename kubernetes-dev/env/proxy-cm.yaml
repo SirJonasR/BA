@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: proxy
+data:
+  HTTPS_PROXY: http://proxy.ips.my-it-infra.net:8080
+  HTTP_PROXY: http://proxy.ips.my-it-infra.net:8080
+  http_proxy: http://proxy.ips.my-it-infra.net:8080
+  https_proxy: http://proxy.ips.my-it-infra.net:8080
+  NO_PROXY: .ips.my-it-infra.net,.atos.net,localhost,192.168.49.2
+  no_proxy: .ips.my-it-infra.net,.atos.net,localhost,192.168.49.2

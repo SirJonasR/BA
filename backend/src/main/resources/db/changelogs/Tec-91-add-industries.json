@@ -1,0 +1,149 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "Tec-91-create-industry-table",
+        "author": "driemtax",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "industry",
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "type": "BIGINT",
+                    "autoIncrement": true,
+                    "constraints": {
+                      "primaryKey": true,
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "type": "VARCHAR(255)",
+                    "constraints": {
+                      "nullable": false,
+                      "unique": true
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "grant-permissions-industry",
+        "author": "driemtax",
+        "changes": [
+          {
+            "sql": {
+              "dbms": "postgresql",
+              "sql": "GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE industry TO ${APP_USER};"
+            }
+          },
+          {
+            "sql": {
+              "dbms": "postgresql", 
+              "sql": "GRANT USAGE, SELECT, UPDATE ON SEQUENCE industry_id_seq TO ${APP_USER};"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "add-industry-reference-to-project",
+        "author": "driemtax",
+        "changes": [
+          {
+            "addColumn": {
+              "tableName": "project",
+              "columns": [
+                {
+                  "column": {
+                    "name": "industry_id",
+                    "type": "BIGINT",
+                    "constraints": {
+                      "nullable": true,
+                      "foreignKeyName": "fk_project_industry",
+                      "referencedTableName": "industry",
+                      "referencedColumnNames": "id"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "init-industries-data",
+        "author": "driemtax",
+        "changes": [
+          {
+            "insert": {
+              "tableName": "industry",
+              "columns": [
+                { "column": { "name": "id", "value": "-1" }},
+                { "column": { "name": "name", "value": "Automotive" }}
+              ]
+            }
+          },
+          {
+            "insert": {
+              "tableName": "industry",
+              "columns": [
+                { "column": { "name": "id", "value": "-2" }},
+                { "column": { "name": "name", "value": "Financial Services" }}
+              ]
+            }
+          },
+          {
+            "insert": {
+              "tableName": "industry",
+              "columns": [
+                { "column": { "name": "id", "value": "-3" }},
+                { "column": { "name": "name", "value": "Manufacturing" }}
+              ]
+            }
+          },
+          {
+            "insert": {
+              "tableName": "industry",
+              "columns": [
+                { "column": { "name": "id", "value": "-4" }},
+                { "column": { "name": "name", "value": "Healthcare" }}
+              ]
+            }
+          },
+          {
+            "insert": {
+              "tableName": "industry",
+              "columns": [
+                { "column": { "name": "id", "value": "-5" }},
+                { "column": { "name": "name", "value": "Technology" }}
+              ]
+            }
+          },
+          {
+            "insert": {
+              "tableName": "industry",
+              "columns": [
+                { "column": { "name": "id", "value": "-6" }},
+                { "column": { "name": "name", "value": "Energy" }}
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+<form
+  #featureRequestForm="ngForm"
+  (ngSubmit)="onFormSubmit(featureRequestForm); checkIfSubmitted = true"
+  class="form"
+  data-test-id="feature-request-form"
+>
+  <mat-error *ngIf="hasError"
+    >Beim Senden des Feedbacks ist ein unerwarteter Fehler aufgetreten.
+    {{ errorText }}</mat-error
+  >
+  <mat-form-field appearance="fill">
+    <mat-label>Feature</mat-label>
+    <div>
+      <textarea
+        matInput
+        name="description"
+        maxlength="{{ maxCharactersFeatureDescription }}"
+        placeholder="Bitte beschreibe das Feature"
+        cdkTextareaAutosize
+        cdkAutosizeMinRows="3"
+        cdkAutosizeMaxRows="3"
+        [(ngModel)]="values.description"
+        #description="ngModel"
+        data-test-id="kontakt-feature-request-textarea"
+      ></textarea>
+      <app-current-characters-counter
+        [maxCharacters]="maxCharactersFeatureDescription"
+        [currentCharacterCount]="values.description?.length ?? 0"
+      ></app-current-characters-counter>
+    </div>
+    <mat-error *ngIf="description.invalid">
+      Bitte gebe eine Beschreibung an.
+    </mat-error>
+  </mat-form-field>
+
+  <span style="color: grey">Anhänge</span>
+  <div>
+    <input
+      type="file"
+      (change)="onFileSelected($event)"
+      accept=".png, .jpg, .jpeg"
+      multiple
+    />
+  </div>
+
+  <div class="button-container">
+    <button
+      mat-raised-button
+      type="submit"
+      color="primary"
+      [disabled]="isSubmitting"
+      data-test-id="feature-request-submit-button"
+    >
+      Absenden
+    </button>
+
+    <button
+      mat-raised-button
+      type="cancel"
+      color="secondary"
+      (click)="cancel()"
+      data-test-id="feature-request-cancel-button"
+    >
+      Abbrechen
+    </button>
+  </div>
+</form>

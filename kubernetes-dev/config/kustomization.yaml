@@ -1,0 +1,3 @@
+resources:
+  - tecradar-project.yaml
+  - tecradar-app.yaml

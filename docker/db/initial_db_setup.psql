@@ -1,0 +1,109 @@
+--
+-- Initial setup of the database
+--
+
+-- Create an initial set of database tables
+create table if not exists "User" (
+    id       bigint primary key,
+    username varchar(255),
+    role varchar(255)
+);
+create table if not exists category (
+    id   bigint primary key,
+    name varchar(255),
+    description varchar(1800)
+);
+create table if not exists lifecycle (
+    id   bigint primary key,
+    name varchar(255),
+    sort integer not null
+);
+create table if not exists technology (
+    id           bigint primary key,
+    description  varchar(1800),
+    short_description varchar(300),
+    name         varchar(255),
+    category_id  bigint
+        constraint technology_category_fk references category,
+    lifecycle_id bigint
+        constraint technology_lifecycle_fk references lifecycle
+);
+create table if not exists history (
+    id            bigint primary key,
+    changedate    timestamp,
+    description   varchar(1800),
+    short_description varchar(300),
+    name          varchar(255),
+    category_id   bigint
+        constraint history_category_fk references category,
+    lifecycle_id  bigint
+        constraint history_lifecycle_fk references lifecycle,
+    technology_id bigint
+        constraint history_technology_fk references technology,
+    user_id       bigint
+        constraint history_user_fk references "User"
+);
+create table if not exists vote (
+    id            bigint primary key,
+    isupvote      boolean not null,
+    technology_id bigint
+        constraint vote_technology_fk references technology,
+    user_id       bigint
+        constraint vote_user_fk references "User"
+);
+
+create table public.tag
+(
+    id   bigint      not null
+        constraint tag_pk
+            primary key,
+    name varchar(16) not null
+);
+
+alter table tag
+    owner to quarkus_test;
+
+create table technology_tag
+(
+    tags_id         bigint not null
+        constraint tag_fk
+            references tag,
+    technologies_id bigint not null
+        constraint technology_fk
+            references technology
+);
+
+alter table technology_tag
+    owner to quarkus_test;
+
+-- Create sequences
+create sequence if not exists hibernate_sequence;
+
+-- Insert initial base data.
+-- Use negative ids to not interfere with generated ids
+INSERT INTO "User" (id, userName, role)
+VALUES (-1, 'luke', 'ADMIN'),
+       (-2, 'leia', 'USER');
+
+INSERT INTO category (id, name, description)
+VALUES (-1, 'Languages & Frameworks', 'Die Kategorie Languages & Frameworks konzentriert sich auf die Werkzeuge, die für die Softwareentwicklung verwendet werden. Hier erfahren Sie mehr über eine Vielzahl von Programmiersprachen, Bibliotheken und Frameworks, die von Entwicklern verwendet werden, um Anwendungen zu erstellen. Diese Kategorie hilft, die verschiedenen Optionen für die Entwicklung von Software zu verstehen.'),
+       (-2, 'Tools', 'In der Kategorie Tools stehen die Softwareanwendungen und Plattformen im Fokus, die bei der Entwicklung, Bereitstellung und Verwaltung von Softwarelösungen verwendet werden. Dies beinhaltet Programmierumgebungen, Testframeworks und andere Hilfsmittel, die Entwicklern bei ihrer Arbeit unterstützen.'),
+       (-3, 'Platforms', 'Plattformen dienen als Grundlage für Softwarelösungen. Hier finden Sie eine vertiefte Betrachtung von Infrastrukturen, Cloud-Services und Betriebssystemen, die den Betrieb von modernen Anwendungen ermöglichen. Diese Plattformen bieten nicht nur die technische Grundlage, sondern schaffen auch die Umgebung für Skalierbarkeit, Sicherheit und Verfügbarkeit von Softwarelösungen.'),
+       (-4, 'Techniques & Methodologies', 'Die Kategorie Techniques & Methodologies bietet Einblicke in bewährte Methoden, Herangehensweisen und Arbeitsabläufe im IT-Bereich. Sie umfasst agile Entwicklung, DevOps-Praktiken und andere Ansätze, die Entwickler nutzen, um Projekte effizient zu gestalten und zu liefern.');
+
+INSERT INTO lifecycle (id, name, sort)
+VALUES (-4, 'Maintain', 1),
+       (-3, 'Adopt', 2),
+       (-2, 'Assess', 3),
+       (-1, 'Monitor', 4),
+       (-5, 'Undefined', 5);
+
+INSERT INTO technology (id, name, description, short_description, category_id, lifecycle_id)
+VALUES (-1, 'Quarkus', 'Lorem ipsum dolor amet.', 'Eine Kurzbeschreibung zu Quarkus', -1, -1),
+       (-2, 'IntelliJ', 'Lorem ipsum dolor amet.', 'Eine Kurzbeschreibung zu InteliJ', -2, -2),
+       (-3, 'AWS', 'Lorem ipsum dolor amet.', 'Eine Kurzbeschreibung zu AWS', -3, -3),
+       (-4, 'TypeScript', 'Lorem ipsum dolor amet.', 'Eine Kurzbeschreibung zu TypeScript', -1, -3),
+       (-5, 'Java', 'Lorem ipsum dolor amet.', 'Eine Kurzbeschreibung zu Java', -1, -3),
+       (-6, 'VSCode', 'Lorem ipsum dolor amet.', 'Eine Kurzbeschreibung zu VSCode', -2, -3),
+       (-7, 'Agile', 'Lorem ipsum dolor amet.', 'Eine Kurzbeschreibung zu Agile', -4, -3),
+       (-8, 'Scrum', 'Lorem ipsum dolor amet.', 'Eine Kurzbeschreibung zu Scrum', -4, -4);

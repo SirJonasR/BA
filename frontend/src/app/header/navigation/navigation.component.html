@@ -1,0 +1,129 @@
+<button
+  mat-icon-button
+  [matMenuTriggerFor]="menu"
+  data-test-id="menu-button"
+  aria-label="Hauptmenü öffnen"
+>
+  <mat-icon>menu</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <a
+    mat-menu-item
+    [matMenuTriggerFor]="categories"
+    (click)="this.trigger.closeMenu()"
+    routerLink="/technologies"
+    data-test-id="category"
+    >Kategorien</a
+  >
+  <a
+    mat-menu-item
+    [matMenuTriggerFor]="lifecycles"
+    (click)="this.trigger.closeMenu()"
+    routerLink="/technologies"
+    data-test-id="lifecycle"
+    >Lebenszyklen</a
+  >
+  <a
+    mat-menu-item
+    [matMenuTriggerFor]="reports"
+    routerLink="/report"
+    data-test-id="reports"
+    >Berichte</a
+  >
+  <a mat-menu-item [matMenuTriggerFor]="kontakt" data-test-id="contact"
+    >Kontakt</a
+  >
+  <a mat-menu-item [matMenuTriggerFor]="project" data-test-id="projects"
+    >Projekt</a
+  >
+  <a mat-menu-item routerLink="/technologies/add" data-test-id="newTechnology"
+    >Neue Technologie</a
+  >
+  <a mat-menu-item routerLink="/certificates" data-test-id="certificatePath"
+    >Zertifizierungspfade</a
+  >
+  <a
+    *ngIf="isTecSwap()"
+    mat-menu-item
+    routerLink="/tecswaps"
+    data-test-id="tecswap"
+    >TecSwap</a
+  >
+  <a *ngIf="isAdmin()" mat-menu-item routerLink="/admin" data-test-id="admin">
+    Admin Seite
+  </a>
+  <button mat-menu-item (click)="openInfoWindow()" data-test-id="versioninfo2">
+    Version
+  </button>
+</mat-menu>
+
+<mat-menu #categories="matMenu">
+  <a
+    mat-menu-item
+    *ngFor="let category of getCategories"
+    routerLink="/technologies"
+    [queryParams]="{ categoryId: category.id }"
+    data-test-id="categories-menu"
+    >{{ category.name }}</a
+  >
+</mat-menu>
+
+<mat-menu #lifecycles="matMenu">
+  <a
+    mat-menu-item
+    *ngFor="let lifecycle of getLifecycles"
+    routerLink="/technologies"
+    [queryParams]="{ lifecycleId: lifecycle.id }"
+    data-test-id="lifecycles-menu"
+    >{{ lifecycle.name }}</a
+  >
+</mat-menu>
+
+<mat-menu #reports="matMenu">
+  <a
+    mat-menu-item
+    routerLink="/report"
+    [queryParams]="{ reportTyp: 'Technologien' }"
+    data-test-id="reports-technologien"
+    >Technologien</a
+  >
+</mat-menu>
+
+<mat-menu #kontakt="matMenu">
+  <a
+    mat-menu-item
+    routerLink="/kontakt/bug-report"
+    data-test-id="kontakt-menu-bug-report"
+    >Bug Report</a
+  >
+  <a
+    mat-menu-item
+    routerLink="/kontakt/feature-request"
+    data-test-id="kontakt-menu-feature-request"
+    >Feature Request</a
+  >
+  <a
+    mat-menu-item
+    routerLink="/kontakt/feedback"
+    data-test-id="kontakt-menu-feedback"
+    >Feedback</a
+  >
+</mat-menu>
+
+<mat-menu #project="matMenu">
+  <a mat-menu-item routerLink="/projects/add" data-test-id="newProject"
+    >Projekt hinzufügen</a
+  >
+  <!-- <a mat-menu-item routerLink="/projects/edit" data-test-id="editProject"
+    >Projekt bearbeiten</a
+  > -->
+  <a mat-menu-item routerLink="/projects" data-test-id="projects">
+    Projekte anzeigen
+  </a>
+  <a
+    mat-menu-item
+    routerLink="/projects/reference"
+    data-test-id="project-reference"
+    >Projektreferenzen suchen</a
+  >
+</mat-menu>

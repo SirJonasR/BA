@@ -1,0 +1,198 @@
+<div *ngIf="technology">
+  <div class="header">
+    <div class="left">
+      <h1 data-test-id="technology-name">{{ technology.name }}</h1>
+      <span class="prio-flag" *ngIf="technology.priority">
+        <span> <mat-icon>flag</mat-icon></span>
+      </span>
+    </div>
+  </div>
+  <p class="properties">
+    <span data-test-id="technology-category">
+      <span class="label">Kategorie:</span>
+      {{ getCategoryName() }}
+    </span>
+    <span data-test-id="technology-lifecycle">
+      <span class="label">Lebenszyklus:</span>
+      {{ getLifecycleName() }}
+    </span>
+  </p>
+  <mat-divider></mat-divider>
+  <div class="content">
+    <div class="description">
+      <div *ngIf="pictureAvailable">
+        <img [src]="pictureUrl" alt="Logo" class="logo" />
+      </div>
+      <br />
+      <span class="label">Kurzbeschreibung:</span>
+      <div class="short-description" data-test-id="technology-shortDescription">
+        <p *ngIf="isShortDescriptionAvailable(); else noShortDescription">
+          {{ technology.shortDescription }}
+        </p>
+        <ng-template #noShortDescription
+          ><span class="no-short-description-text"
+            >Keine Kurzbeschreibung vorhanden</span
+          ></ng-template
+        >
+      </div>
+      <br />
+      <span class="label">Beschreibung:</span>
+      <md-editor
+        data-test-id="technology-description-view"
+        [ngModel]="technology.description.toString()"
+        [mode]="'preview'"
+        [height]="'auto'"
+      ></md-editor>
+
+      <ng-container *ngIf="technology.certificates?.length !== 0">
+        <span class="label">Zertifikat:</span>
+        <div class="tag" data-test-id="technology-certificates">
+          <ng-container *ngFor="let certificate of certificates">
+            <span data-test-id="technology-category">
+              <span class="label">Titel: </span>
+              {{ certificate.name }}
+            </span>
+            <md-editor
+              [ngModel]="certificate.description.toString()"
+              [mode]="'preview'"
+              [height]="'auto'"
+            ></md-editor>
+          </ng-container>
+        </div>
+      </ng-container>
+
+      <div class="tag">
+        <ng-container
+          *ngIf="
+            technology.tags[0] !== '' ||
+            technology.tags[1] !== '' ||
+            technology.tags[2] !== '' ||
+            technology.tags[3] !== '' ||
+            technology.tags[4] !== ''
+          "
+        >
+          <span class="label">Tags:</span>
+        </ng-container>
+        <div class="tag" data-test-id="technology-tags">
+          <ng-container *ngFor="let tag of technology.tags; let i = index">
+            <ng-container *ngIf="tag !== ''">
+              <pre class="tags defaultcursor">{{ tag }}</pre>
+            </ng-container>
+          </ng-container>
+        </div>
+      </div>
+
+      <ng-container *ngIf="technology.projects.length !== 0">
+        <span class="label">Projekte:</span>
+        <div class="tag" data-test-id="technology-customers">
+          <ng-container *ngFor="let project of this.technology.projects">
+            <ng-container *ngFor="let customer of project.customers">
+              <pre class="tags pointercursor">
+                <a routerLink="/project/{{project.id}}">
+                  <span>{{project.name}}</span> | {{customer.name}}
+                </a>
+
+              </pre>
+            </ng-container>
+          </ng-container>
+        </div>
+      </ng-container>
+
+      <div class="tag">
+        <ng-container *ngIf="this.similarityName.length > 0">
+          <span class="label">Ähnliche Technologien:</span>
+        </ng-container>
+        <div class="tag">
+          <ng-container *ngFor="let name of this.similarityName; let i = index">
+            <ng-container *ngIf="name !== ''">
+              <pre
+                (click)="handleClickOnSimilarityRedirect(i)"
+                class="tags pointercursor"
+                tabindex="0"
+                (keydown.enter)="handleClickOnSimilarityRedirect(i)"
+                >{{ name }}</pre
+              >
+            </ng-container>
+          </ng-container>
+        </div>
+      </div>
+      <div class="tag">
+        <ng-container *ngIf="this.technology.connectedTechnologyIds.length > 0">
+          <span class="label">Wird häufig verwendet mit:</span>
+        </ng-container>
+        <div class="tag">
+          <ng-container
+            *ngFor="
+              let technologyName of this.technology.connectedTechnologyNames;
+              let i = index
+            "
+          >
+            <ng-container *ngIf="technologyName">
+              <pre
+                (click)="
+                  handleClickOnConnectedTechnologyRedirect(
+                    technology.connectedTechnologyIds[i]
+                  )
+                "
+                class="tags pointercursor"
+                tabindex="0"
+                (keydown.enter)="
+                  handleClickOnConnectedTechnologyRedirect(
+                    technology.connectedTechnologyIds[i]
+                  )
+                "
+                >{{ technologyName }}</pre
+              >
+            </ng-container>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="deepExpertList.length > 0" class="deep-expert-list">
+      <h5 class="">TecUniverse Deep Experts</h5>
+      <p class="label">
+        Quelle:
+
+        <a
+          class="link-info"
+          href="https://atos365.sharepoint.com/sites/teamstecswapamsad_migrated/SitePages/Deep-Experts.aspx"
+          >SharePoint DeepExpert Liste</a
+        >
+      </p>
+      <div class="deep-expert-table-container">
+        <app-deep-expert-table
+          [deepExpertList]="deepExpertList"
+        ></app-deep-expert-table>
+      </div>
+    </div>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div class="actions">
+    <a
+      mat-raised-button
+      routerLink="/technology/{{ technology.id }}/history"
+      data-test-id="button-view-technology-history"
+      matTooltip="Änderungshistorie"
+      ><mat-icon>history</mat-icon></a
+    >
+    <a
+      mat-raised-button
+      routerLink="/detail/{{ technology.id }}/edit"
+      data-test-id="button-edit-technology"
+      matTooltip="Bearbeiten"
+      ><mat-icon>edit</mat-icon></a
+    >
+    <button
+      mat-raised-button
+      *ngIf="isAdmin()"
+      mat-button
+      data-test-id="button-remove-technology"
+      (click)="openDeleteConfirmationDialog()"
+      matTooltip="Löschen"
+    >
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+</div>

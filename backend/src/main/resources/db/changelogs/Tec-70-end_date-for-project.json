@@ -1,0 +1,46 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "add-end_date-to-project",
+        "author": "epi2000",
+        "changes": [
+          {
+            "addColumn": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "end_date",
+                    "type": "DATE",
+                    "constraints": {
+                      "nullable": true
+                    }
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "project"
+            }
+          },
+          {
+            "addColumn": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "end_date",
+                    "type": "DATE",
+                    "constraints": {
+                      "nullable": true
+                    }
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "project_history"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

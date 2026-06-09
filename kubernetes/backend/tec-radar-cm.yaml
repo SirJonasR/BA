@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tecradar-config
+data:
+  QUARKUS_LOG_LEVEL: INFO
+  QUARKUS_DATASOURCE_JDBC_URL: jdbc:postgresql://tecradar-postgres:5432/tecradar
+  QUARKUS_DATASOURCE_MIGRATE_JDBC_URL: jdbc:postgresql://tecradar-postgres:5432/tecradar
+  APP_USER: 'quarkus_app'

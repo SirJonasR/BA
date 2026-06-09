@@ -1,0 +1,42 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav position="end" [mode]="'side'">
+    <div class="fg-template-panel">
+      <div class="fg-template-header">
+        <div class="fg-template-title">{{ panelTitle }}</div>
+        <span class="fg-active-counter">{{ activeFiltersCount }} aktiv</span>
+      </div>
+
+      <div #panelContent class="fg-template-content">
+        <ng-content select="[filter-panel]"></ng-content>
+      </div>
+
+      <div class="fg-template-actions">
+        <button
+          mat-raised-button
+          color="warn"
+          type="button"
+          class="reset-button"
+          (click)="onResetClick()"
+        >
+          <mat-icon>clear_all</mat-icon>
+          {{ resetButtonText }}
+        </button>
+      </div>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<button
+  [class.active]="sidenav.opened"
+  class="filterButton"
+  data-test-id="filter-button"
+  [matTooltip]="tooltip"
+  (click)="onFilterClick()"
+  mat-mini-fab
+>
+  <mat-icon class="button-icon">filter_alt</mat-icon>
+</button>

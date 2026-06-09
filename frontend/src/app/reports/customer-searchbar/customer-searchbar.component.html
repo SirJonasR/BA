@@ -1,0 +1,51 @@
+<form>
+  <mat-form-field>
+    <input
+      matInput
+      [formControl]="control"
+      [matAutocomplete]="auto"
+      data-test-id="searchbar-multiCustomer-input"
+    />
+    <mat-label>{{ searchFieldPlaceholder }}</mat-label>
+    <mat-error
+      *ngIf="
+        validate &&
+        selectedItems.length < 1 &&
+        control.invalid &&
+        (control.dirty || control.touched || showError)
+      "
+    >
+      Bitte wähle mindestens einen Kunden aus.
+    </mat-error>
+    <mat-autocomplete
+      autoActiveFirstOption
+      #auto="matAutocomplete"
+      (optionSelected)="emit($event)"
+      [displayWith]="displayCustomer"
+    >
+      <mat-option
+        *ngFor="let customer of filteredCustomers | async"
+        [value]="customer"
+        data-test-id="search-option"
+      >
+        <div class="option">
+          <div>{{ customer.name }}</div>
+        </div>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <p *ngIf="selectedItems.length > 0" style="color: grey">Ausgewählte Kunden</p>
+  <div *ngFor="let customer of selectedItems" class="selected-item-container">
+    <span class="item-text">
+      {{ customer.name }}
+    </span>
+    <button
+      mat-icon-button
+      (click)="removeItem(customer)"
+      style="margin-top: 5px"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+</form>

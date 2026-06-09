@@ -1,0 +1,473 @@
+<app-filter-group tooltip="Filtern" (resetClicked)="resetFilter()">
+  <div filter-panel class="side-nav">
+    <div class="filter-header">
+      <div class="filterHead">Filter</div>
+    </div>
+    <mat-divider style="padding-bottom: 30px"></mat-divider>
+
+    <div
+      class="filter-card"
+      [class.has-selections]="selectedTecSwaps.length > 0"
+    >
+      <div
+        class="card-header"
+        (click)="toggleCardExpanded('tecSwaps')"
+        (keydown.enter)="toggleCardExpanded('tecSwaps')"
+        (keydown.space)="
+          toggleCardExpanded('tecSwaps'); $event.preventDefault()
+        "
+        tabindex="0"
+        role="button"
+        [attr.aria-expanded]="isCardExpanded('tecSwaps')"
+      >
+        <div class="card-title">
+          <mat-icon class="card-icon">groups</mat-icon>
+          <span>TecSwap</span>
+          <span class="selection-badge" *ngIf="selectedTecSwaps.length > 0">{{
+            selectedTecSwaps.length
+          }}</span>
+        </div>
+        <mat-icon
+          class="expand-icon"
+          [class.expanded]="isCardExpanded('tecSwaps')"
+          >expand_more</mat-icon
+        >
+      </div>
+
+      <div class="card-content" [class.expanded]="isCardExpanded('tecSwaps')">
+        <div class="content-wrapper">
+          <div class="selected-items" *ngIf="selectedTecSwaps.length > 0">
+            <mat-chip-set>
+              <mat-chip
+                *ngFor="let tecSwap of selectedTecSwaps"
+                (removed)="removeTecSwapChip(tecSwap)"
+              >
+                {{ tecSwap }}
+                <button matChipRemove>
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip>
+            </mat-chip-set>
+          </div>
+
+          <div class="checkbox-group">
+            <div class="checkbox-option">
+              <mat-checkbox
+                color="primary"
+                [checked]="allTecSwapsSelected"
+                [indeterminate]="
+                  selectedTecSwaps.length > 0 && !allTecSwapsSelected
+                "
+                (change)="toggleAllTecSwaps($event.checked)"
+              >
+                Alle TecSwaps
+              </mat-checkbox>
+            </div>
+
+            <div
+              class="checkbox-option"
+              *ngFor="let tecSwapOption of tecSwapOptions"
+            >
+              <mat-checkbox
+                color="primary"
+                [checked]="selectedTecSwaps.includes(tecSwapOption)"
+                (change)="toggleTecSwapOption(tecSwapOption, $event.checked)"
+              >
+                {{ tecSwapOption }}
+              </mat-checkbox>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="filter-card"
+      [class.has-selections]="selectedCategories.length > 0"
+    >
+      <div
+        class="card-header"
+        (click)="toggleCardExpanded('categories')"
+        (keydown.enter)="toggleCardExpanded('categories')"
+        (keydown.space)="
+          toggleCardExpanded('categories'); $event.preventDefault()
+        "
+        tabindex="0"
+        role="button"
+        [attr.aria-expanded]="isCardExpanded('categories')"
+      >
+        <div class="card-title">
+          <mat-icon class="card-icon">category</mat-icon>
+          <span>Kategorie</span>
+          <span class="selection-badge" *ngIf="selectedCategories.length > 0">{{
+            selectedCategories.length
+          }}</span>
+        </div>
+        <mat-icon
+          class="expand-icon"
+          [class.expanded]="isCardExpanded('categories')"
+          >expand_more</mat-icon
+        >
+      </div>
+
+      <div class="card-content" [class.expanded]="isCardExpanded('categories')">
+        <div class="content-wrapper">
+          <div class="selected-items" *ngIf="selectedCategories.length > 0">
+            <mat-chip-set>
+              <mat-chip
+                *ngFor="let category of selectedCategories"
+                (removed)="removeCategoryChip(category.name)"
+              >
+                {{ category.name }}
+                <button matChipRemove>
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip>
+            </mat-chip-set>
+          </div>
+
+          <div class="checkbox-group">
+            <div class="checkbox-option">
+              <mat-checkbox
+                color="primary"
+                [checked]="allCategoriesSelected"
+                [indeterminate]="
+                  selectedCategories.length > 0 && !allCategoriesSelected
+                "
+                (change)="toggleAllCategories($event.checked)"
+              >
+                Alle Kategorien
+              </mat-checkbox>
+            </div>
+
+            <div class="checkbox-option" *ngFor="let category of categories">
+              <mat-checkbox
+                color="primary"
+                [checked]="isCategorySelected(category)"
+                (change)="toggleCategory(category, $event.checked)"
+              >
+                {{ category.name }}
+              </mat-checkbox>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="filter-card"
+      [class.has-selections]="selectedLifecycles.length > 0"
+    >
+      <div
+        class="card-header"
+        (click)="toggleCardExpanded('lifecycles')"
+        (keydown.enter)="toggleCardExpanded('lifecycles')"
+        (keydown.space)="
+          toggleCardExpanded('lifecycles'); $event.preventDefault()
+        "
+        tabindex="0"
+        role="button"
+        [attr.aria-expanded]="isCardExpanded('lifecycles')"
+      >
+        <div class="card-title">
+          <mat-icon class="card-icon">cycle</mat-icon>
+          <span>Lebenszyklus</span>
+          <span class="selection-badge" *ngIf="selectedLifecycles.length > 0">{{
+            selectedLifecycles.length
+          }}</span>
+        </div>
+        <mat-icon
+          class="expand-icon"
+          [class.expanded]="isCardExpanded('lifecycles')"
+          >expand_more</mat-icon
+        >
+      </div>
+
+      <div class="card-content" [class.expanded]="isCardExpanded('lifecycles')">
+        <div class="content-wrapper">
+          <div class="selected-items" *ngIf="selectedLifecycles.length > 0">
+            <mat-chip-set>
+              <mat-chip
+                *ngFor="let lifecycle of selectedLifecycles"
+                (removed)="removeLifecycleChip(lifecycle.name)"
+              >
+                {{ lifecycle.name }}
+                <button matChipRemove>
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip>
+            </mat-chip-set>
+          </div>
+
+          <div class="checkbox-group">
+            <div class="checkbox-option">
+              <mat-checkbox
+                color="primary"
+                [checked]="allLifecyclesSelected"
+                [indeterminate]="
+                  selectedLifecycles.length > 0 && !allLifecyclesSelected
+                "
+                (change)="toggleAllLifecycles($event.checked)"
+              >
+                Alle Lebenszyklen
+              </mat-checkbox>
+            </div>
+
+            <div class="checkbox-option" *ngFor="let lifecycle of lifecycles">
+              <mat-checkbox
+                color="primary"
+                [checked]="isLifecycleSelected(lifecycle)"
+                (change)="toggleLifecycle(lifecycle, $event.checked)"
+              >
+                {{ lifecycle.name }}
+              </mat-checkbox>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="filter-card toggle-card"
+      [class.has-selections]="onlyUncompleted"
+    >
+      <div class="card-header">
+        <div class="card-title">
+          <mat-icon class="card-icon">task_alt</mat-icon>
+          <span>Nur unbearbeitete Technologien</span>
+        </div>
+        <mat-slide-toggle
+          [checked]="onlyUncompleted"
+          (change)="onlyUncompleted = $event.checked; startFilter()"
+          color="primary"
+        ></mat-slide-toggle>
+      </div>
+    </div>
+  </div>
+
+  <div class="header">
+    <div class="left">
+      <div class="page-title">TecSwap</div>
+      <a
+        href="https://atos365.sharepoint.com/sites/teamstecswapamsad_migrated/SitePages/TecRadar---TecSwaps.aspx"
+        >Bedienungshinweise</a
+      >
+    </div>
+    <div class="right">
+      <button
+        (click)="toggleSearch()"
+        class="search-button"
+        mat-mini-fab
+        matTooltip="Suchen"
+        aria-label="Suchfeld öffnen"
+      >
+        <mat-icon class="filter-search-icon">search</mat-icon>
+      </button>
+      <input
+        #searchInput
+        type="text"
+        class="search-input"
+        [class.visible]="isSearchVisible"
+        placeholder="Suchen..."
+        [(ngModel)]="searchText"
+        (input)="startFilter()"
+      />
+    </div>
+  </div>
+
+  <div class="mat-elevation-z8">
+    <table
+      mat-table
+      [dataSource]="dataSource"
+      matSort
+      data-test-id="technology-list"
+      class="mat-elevation-z8"
+    >
+      <!-- Name Column -->
+      <ng-container matColumnDef="technologyName">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header
+          sortActionDescription="Sort by name"
+          class="technology-name"
+        >
+          Technologiename
+        </th>
+        <td
+          mat-cell
+          *matCellDef="let tecSwap"
+          class="technology-name"
+          (click)="navigate(tecSwap)"
+        >
+          <span>{{ tecSwap.technologyName }}</span>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="lifecycle">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header
+          sortActionDescription="Sort by lifecycle"
+          class="lifecycle"
+        >
+          Lebenszyklus
+        </th>
+        <td mat-cell *matCellDef="let tecSwap" class="lifecycle">
+          <mat-form-field appearance="fill" class="lifecycle-select">
+            <mat-select
+              [(ngModel)]="tecSwap.technologyLifecycleId"
+              (selectionChange)="onTechnologyChange(tecSwap)"
+            >
+              <mat-option
+                *ngFor="let lifecycle of lifecycles"
+                [value]="lifecycle.id"
+              >
+                {{ lifecycle.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="category">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header
+          sortActionDescription="Sort by category"
+          class="category"
+        >
+          Kategorie
+        </th>
+        <td mat-cell *matCellDef="let tecSwap" class="category">
+          <mat-form-field appearance="fill" class="category-select">
+            <mat-select
+              [(ngModel)]="tecSwap.technologyCategoryId"
+              (selectionChange)="onTechnologyChange(tecSwap)"
+            >
+              <mat-option
+                *ngFor="let category of categories"
+                [value]="category.id"
+              >
+                {{ category.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="priority">
+        <th
+          mat-header-cell
+          mat-sort-header
+          SortActionDescribtion="Sort by priority"
+          *matHeaderCellDef
+        >
+          Priorität
+        </th>
+        <td mat-cell *matCellDef="let tecSwap">
+          <mat-slide-toggle
+            [(ngModel)]="tecSwap.technologyIsPriority"
+            (change)="onTechnologyChange(tecSwap)"
+          >
+          </mat-slide-toggle>
+        </td>
+      </ng-container>
+
+      <!-- TecSwap Column -->
+      <ng-container matColumnDef="tecSwap">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header
+          SortActionDescribtion="Sort by TecSwap"
+          class="tec-swap"
+        >
+          Zugeordneter TecSwap
+        </th>
+        <td mat-cell *matCellDef="let tecSwap" class="tec-swap">
+          <mat-form-field appearance="fill" class="tec-swap-select">
+            <mat-select
+              [(ngModel)]="tecSwap.tecSwap"
+              (selectionChange)="onTecSwapChange(tecSwap)"
+            >
+              <mat-option *ngFor="let swap of tecSwapOptions" [value]="swap">
+                {{ swap }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
+      </ng-container>
+
+      <!-- Abgearbeitet Column -->
+      <ng-container matColumnDef="completed">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header
+          SortActionDescribtion="Sort by completion"
+          class="is-completed"
+        >
+          Erledigt
+        </th>
+        <td mat-cell *matCellDef="let tecSwap" class="is-completed">
+          <mat-slide-toggle
+            [(ngModel)]="tecSwap.isCompleted"
+            (change)="onCompletedChange(tecSwap)"
+          >
+          </mat-slide-toggle>
+        </td>
+      </ng-container>
+
+      <!-- Bearbeitungsdatum Column -->
+      <ng-container matColumnDef="editDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="edit-date">
+          Erledigt am
+        </th>
+        <td mat-cell *matCellDef="let tecSwap" class="edit-date">
+          {{ tecSwap.editDate | date: "shortDate" }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="confirm">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let tecSwap">
+          <button
+            class="confirm-button"
+            *ngIf="shouldConfirmButton(tecSwap)"
+            mat-mini-fab
+            (click)="confirmChanges(tecSwap)"
+            aria-label="confirm changes"
+          >
+            <mat-icon>save</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="history">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let tecSwap">
+          <button
+            aria-label="Zeige Änderungshistorie und Kommentare dieses TecSwap an"
+            (click)="showHistory(tecSwap)"
+            class="historyButton"
+            matTooltip="Änderungshistorie & Kommentare"
+          >
+            <mat-icon>history</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr
+        class="row1"
+        mat-row
+        *matRowDef="let row; columns: displayedColumns"
+      ></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[10, 25, 100]" showFirstLastButtons>
+    </mat-paginator>
+  </div>
+</app-filter-group>

@@ -1,0 +1,104 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "Tec-14-certificate_prerequisites-and-follow_ups",
+        "author": "epi2000",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "certificate_follow_up",
+              "columns": [
+                {
+                  "column": {
+                    "name": "certificate_id",
+                    "type": "BIGINT"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "follow_up_id",
+                    "type": "BIGINT"
+                  }
+                },
+                {
+                  "addForeignKeyConstraint": {
+                    "constraintName": "fk_certificate_certificate",
+                    "baseTableName": "certificate_follow_up",
+                    "baseColumnNames": "certificate_id",
+                    "referencedTableName": "certificate",
+                    "referencedColumnNames": "id",
+                    "onDelete": "CASCADE"
+                  }
+                },
+                {
+                  "addForeignKeyConstraint": {
+                    "constraintName": "fk_certificate_follow_up",
+                    "baseTableName": "certificate_follow_up",
+                    "baseColumNames": "follow_up_id",
+                    "referencedTableName": "certificate",
+                    "referencedColumnNames": "id",
+                    "onDelete": "CASCADE"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "createTable": {
+              "tableName": "certificate_prerequisite",
+              "columns": [
+                {
+                  "column": {
+                    "name": "certificate_id",
+                    "type": "BIGINT"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "prerequisite_id",
+                    "type": "BIGINT"
+                  }
+                },
+                {
+                  "addForeignKeyConstraint": {
+                    "constraintName": "fk_certificate_certificate",
+                    "baseTableName": "certificate_prerequisite",
+                    "baseColumnNames": "certificate_id",
+                    "referencedTableName": "certificate",
+                    "referencedColumnNames": "id",
+                    "onDelete": "CASCADE"
+                  }
+                },
+                {
+                  "addForeignKeyConstraint": {
+                    "constraintName": "fk_certificate_prerequisite",
+                    "baseTableName": "certificate_prerequisite",
+                    "baseColumNames": "prerequisite_id",
+                    "referencedTableName": "certificate",
+                    "referencedColumnNames": "id",
+                    "onDelete": "CASCADE"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "Tec-14-2",
+        "author": "epi2000",
+        "changes": [
+          {
+            "sql": {
+              "dbms": "postgresql",
+              "sql": "grant select, insert, update, delete on table certificate_prerequisite, certificate_follow_up to ${APP_USER};"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

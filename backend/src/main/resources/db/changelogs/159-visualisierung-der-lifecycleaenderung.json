@@ -1,0 +1,42 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "159-visualisierung-der-lyfecycleänderung",
+        "author": "JonasKohl1",
+        "changes": [
+          {
+            "addColumn": {
+              "tableName": "technology",
+              "columns": [
+                {
+                  "column": {
+                    "name": "status",
+                    "type": "Integer",
+                    "constraints": {
+                      "nullable": true
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE",
+                    "constraints": {
+                      "nullable": true
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+
+
+
+
+

@@ -1,0 +1,533 @@
+<app-filter-group
+  tooltip="Projekte filtern"
+  panelTitle="Projekte filtern"
+  resetButtonText="Filter zurücksetzen"
+  (resetClicked)="resetFilter()"
+>
+  <!-- ── Filter panel ──────────────────────────────────────────────────── -->
+  <div filter-panel>
+    <!-- Technologien -->
+    <div
+      class="filter-card"
+      [class.has-selections]="selectedTechnologies.length > 0"
+    >
+      <div
+        class="card-header"
+        (click)="toggleCardExpanded('technologies')"
+        (keydown.enter)="toggleCardExpanded('technologies')"
+        (keydown.space)="
+          toggleCardExpanded('technologies'); $event.preventDefault()
+        "
+        tabindex="0"
+        role="button"
+        [attr.aria-expanded]="isCardExpanded('technologies')"
+      >
+        <div class="card-title">
+          <mat-icon class="card-icon">memory</mat-icon>
+          <span>Technologien</span>
+          <span
+            class="selection-badge"
+            *ngIf="selectedTechnologies.length > 0"
+            >{{ selectedTechnologies.length }}</span
+          >
+        </div>
+        <mat-icon
+          class="expand-icon"
+          [class.expanded]="isCardExpanded('technologies')"
+          >expand_more</mat-icon
+        >
+      </div>
+
+      <div
+        class="card-content"
+        [class.expanded]="isCardExpanded('technologies')"
+      >
+        <div class="content-wrapper">
+          <div class="selected-items" *ngIf="selectedTechnologies.length > 0">
+            <mat-chip-set>
+              <mat-chip
+                *ngFor="let tech of selectedTechnologies"
+                (removed)="removeTechnologyChip(tech.name)"
+              >
+                {{ tech.name }}
+                <button matChipRemove>
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip>
+            </mat-chip-set>
+          </div>
+
+          <div class="checkbox-group">
+            <div class="checkbox-option">
+              <mat-checkbox
+                color="primary"
+                [checked]="allTechnologiesSelected"
+                [indeterminate]="
+                  selectedTechnologies.length > 0 && !allTechnologiesSelected
+                "
+                (change)="toggleAllTechnologies($event.checked)"
+              >
+                Alle Technologien
+              </mat-checkbox>
+            </div>
+            <div
+              class="checkbox-option"
+              *ngFor="let tech of availableTechnologies"
+            >
+              <mat-checkbox
+                color="primary"
+                [checked]="isTechnologySelected(tech)"
+                (change)="toggleTechnology(tech, $event.checked)"
+              >
+                {{ tech.name }}
+              </mat-checkbox>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kunden -->
+    <div
+      class="filter-card"
+      [class.has-selections]="selectedCustomers.length > 0"
+    >
+      <div
+        class="card-header"
+        (click)="toggleCardExpanded('customers')"
+        (keydown.enter)="toggleCardExpanded('customers')"
+        (keydown.space)="
+          toggleCardExpanded('customers'); $event.preventDefault()
+        "
+        tabindex="0"
+        role="button"
+        [attr.aria-expanded]="isCardExpanded('customers')"
+      >
+        <div class="card-title">
+          <mat-icon class="card-icon">business</mat-icon>
+          <span>Kunden</span>
+          <span class="selection-badge" *ngIf="selectedCustomers.length > 0">{{
+            selectedCustomers.length
+          }}</span>
+        </div>
+        <mat-icon
+          class="expand-icon"
+          [class.expanded]="isCardExpanded('customers')"
+          >expand_more</mat-icon
+        >
+      </div>
+
+      <div class="card-content" [class.expanded]="isCardExpanded('customers')">
+        <div class="content-wrapper">
+          <div class="selected-items" *ngIf="selectedCustomers.length > 0">
+            <mat-chip-set>
+              <mat-chip
+                *ngFor="let customer of selectedCustomers"
+                (removed)="removeCustomerChip(customer.name)"
+              >
+                {{ customer.name }}
+                <button matChipRemove>
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip>
+            </mat-chip-set>
+          </div>
+
+          <div class="checkbox-group">
+            <div class="checkbox-option">
+              <mat-checkbox
+                color="primary"
+                [checked]="allCustomersSelected"
+                [indeterminate]="
+                  selectedCustomers.length > 0 && !allCustomersSelected
+                "
+                (change)="toggleAllCustomers($event.checked)"
+              >
+                Alle Kunden
+              </mat-checkbox>
+            </div>
+            <div
+              class="checkbox-option"
+              *ngFor="let customer of availableCustomers"
+            >
+              <mat-checkbox
+                color="primary"
+                [checked]="isCustomerSelected(customer)"
+                (change)="toggleCustomer(customer, $event.checked)"
+              >
+                {{ customer.name }}
+              </mat-checkbox>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Startdatum -->
+    <div class="filter-card">
+      <div
+        class="card-header"
+        (click)="toggleCardExpanded('startDate')"
+        (keydown.enter)="toggleCardExpanded('startDate')"
+        (keydown.space)="
+          toggleCardExpanded('startDate'); $event.preventDefault()
+        "
+        tabindex="0"
+        role="button"
+        [attr.aria-expanded]="isCardExpanded('startDate')"
+      >
+        <div class="card-title">
+          <mat-icon class="card-icon">event</mat-icon>
+          <span>Startdatum</span>
+        </div>
+        <mat-icon
+          class="expand-icon"
+          [class.expanded]="isCardExpanded('startDate')"
+          >expand_more</mat-icon
+        >
+      </div>
+
+      <div class="card-content" [class.expanded]="isCardExpanded('startDate')">
+        <div class="content-wrapper">
+          <!-- Active date chips -->
+          <div
+            class="selected-items"
+            *ngIf="startedAfter !== null || startedBefore !== null"
+          >
+            <mat-chip-set>
+              <mat-chip
+                *ngIf="startedAfter !== null"
+                (removed)="clearStartedAfter()"
+              >
+                ab: {{ startedAfter | date: "dd.MM.yyyy" }}
+                <button matChipRemove><mat-icon>cancel</mat-icon></button>
+              </mat-chip>
+              <mat-chip
+                *ngIf="startedBefore !== null"
+                (removed)="clearStartedBefore()"
+              >
+                bis: {{ startedBefore | date: "dd.MM.yyyy" }}
+                <button matChipRemove><mat-icon>cancel</mat-icon></button>
+              </mat-chip>
+            </mat-chip-set>
+          </div>
+
+          <div class="date-range-group" [class.has-error]="startDateRangeError">
+            <mat-form-field
+              appearance="fill"
+              [class.error-field]="startDateRangeError"
+            >
+              <mat-label>Start nach</mat-label>
+              <input
+                matInput
+                [matDatepicker]="startAfterPicker"
+                [(ngModel)]="startedAfter"
+                (dateChange)="onStartAfterChange()"
+                placeholder="dd.mm.yyyy"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="startAfterPicker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #startAfterPicker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field
+              appearance="fill"
+              [class.error-field]="startDateRangeError"
+            >
+              <mat-label>Start vor</mat-label>
+              <input
+                matInput
+                [matDatepicker]="startBeforePicker"
+                [(ngModel)]="startedBefore"
+                (dateChange)="onStartBeforeChange()"
+                placeholder="dd.mm.yyyy"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="startBeforePicker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #startBeforePicker></mat-datepicker>
+            </mat-form-field>
+
+            <div *ngIf="startDateRangeError" class="field-error">
+              <mat-icon>error</mat-icon>
+              <span>{{ startDateRangeError }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Enddatum -->
+    <div class="filter-card">
+      <div
+        class="card-header"
+        (click)="toggleCardExpanded('endDate')"
+        (keydown.enter)="toggleCardExpanded('endDate')"
+        (keydown.space)="toggleCardExpanded('endDate'); $event.preventDefault()"
+        tabindex="0"
+        role="button"
+        [attr.aria-expanded]="isCardExpanded('endDate')"
+      >
+        <div class="card-title">
+          <mat-icon class="card-icon">event_busy</mat-icon>
+          <span>Enddatum</span>
+        </div>
+        <mat-icon
+          class="expand-icon"
+          [class.expanded]="isCardExpanded('endDate')"
+          >expand_more</mat-icon
+        >
+      </div>
+
+      <div class="card-content" [class.expanded]="isCardExpanded('endDate')">
+        <div class="content-wrapper">
+          <!-- Active date chips -->
+          <div
+            class="selected-items"
+            *ngIf="endedAfter !== null || endedBefore !== null"
+          >
+            <mat-chip-set>
+              <mat-chip
+                *ngIf="endedAfter !== null"
+                (removed)="clearEndedAfter()"
+              >
+                ab: {{ endedAfter | date: "dd.MM.yyyy" }}
+                <button matChipRemove><mat-icon>cancel</mat-icon></button>
+              </mat-chip>
+              <mat-chip
+                *ngIf="endedBefore !== null"
+                (removed)="clearEndedBefore()"
+              >
+                bis: {{ endedBefore | date: "dd.MM.yyyy" }}
+                <button matChipRemove><mat-icon>cancel</mat-icon></button>
+              </mat-chip>
+            </mat-chip-set>
+          </div>
+
+          <div class="date-range-group" [class.has-error]="endDateRangeError">
+            <mat-form-field
+              appearance="fill"
+              [class.error-field]="endDateRangeError"
+            >
+              <mat-label>Ende nach</mat-label>
+              <input
+                matInput
+                [matDatepicker]="endAfterPicker"
+                [(ngModel)]="endedAfter"
+                (dateChange)="onEndAfterChange()"
+                placeholder="dd.mm.yyyy"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="endAfterPicker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #endAfterPicker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field
+              appearance="fill"
+              [class.error-field]="endDateRangeError"
+            >
+              <mat-label>Ende vor</mat-label>
+              <input
+                matInput
+                [matDatepicker]="endBeforePicker"
+                [(ngModel)]="endedBefore"
+                (dateChange)="onEndBeforeChange()"
+                placeholder="dd.mm.yyyy"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="endBeforePicker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #endBeforePicker></mat-datepicker>
+            </mat-form-field>
+
+            <div *ngIf="endDateRangeError" class="field-error">
+              <mat-icon>error</mat-icon>
+              <span>{{ endDateRangeError }}</span>
+            </div>
+          </div>
+
+          <div
+            *ngIf="projectDurationError"
+            class="field-error project-duration-error"
+          >
+            <mat-icon>error</mat-icon>
+            <span>{{ projectDurationError }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projektstatus -->
+    <div class="filter-card toggle-card">
+      <div class="card-header">
+        <div class="card-title">
+          <mat-icon class="card-icon">assignment_turned_in</mat-icon>
+          <span>Projektstatus</span>
+        </div>
+      </div>
+      <div class="card-content expanded">
+        <div class="content-wrapper">
+          <div class="checkbox-option">
+            <mat-slide-toggle
+              color="primary"
+              [checked]="projectStatusFilter === 'completed'"
+              (change)="onStatusToggle('completed', $event.checked)"
+            >
+              Nur abgeschlossene Projekte
+            </mat-slide-toggle>
+          </div>
+          <div class="checkbox-option">
+            <mat-slide-toggle
+              color="primary"
+              [checked]="projectStatusFilter === 'ongoing'"
+              (change)="onStatusToggle('ongoing', $event.checked)"
+            >
+              Nur laufende Projekte
+            </mat-slide-toggle>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Search header ────────────────────────────────────────────────── -->
+  <div class="header">
+    <div class="left">
+      <div class="page-title">Projekte</div>
+    </div>
+    <div class="right">
+      <button
+        (click)="toggleSearch()"
+        class="search-button"
+        mat-mini-fab
+        matTooltip="Projekte suchen"
+        aria-label="Suchfeld öffnen"
+      >
+        <mat-icon class="filter-search-icon">search</mat-icon>
+      </button>
+      <input
+        #searchInput
+        type="text"
+        class="search-input"
+        [class.visible]="isSearchVisible"
+        placeholder="Suchen..."
+        [(ngModel)]="searchText"
+        (input)="applySearchFilter()"
+      />
+    </div>
+  </div>
+
+  <!-- ── Project table ─────────────────────────────────────────────────── -->
+  <div class="mat-elevation-z8">
+    <table
+      mat-table
+      [dataSource]="dataSource"
+      matSort
+      data-test-id="project-list"
+    >
+      <ng-container matColumnDef="name">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header
+          sortActionDescription="Sort by name"
+        >
+          Name
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <span class="name">{{ element.name }}</span>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="contact">
+        <th mat-header-cell *matHeaderCellDef>Kontakt</th>
+        <td mat-cell *matCellDef="let element">
+          <div *ngIf="element.contact && element.contact.length > 0">
+            <ng-container
+              *ngFor="let contact of element.contact; let last = last"
+            >
+              {{ contact.email
+              }}<span *ngIf="contact.role"> ({{ contact.role }})</span
+              ><span *ngIf="!last">, </span>
+            </ng-container>
+          </div>
+          <span *ngIf="!element.contact || element.contact.length === 0"
+            >Keine Angabe</span
+          >
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="technologyIds">
+        <th mat-header-cell *matHeaderCellDef>Verwendete Technologien</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.technologies.join(", ") }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="customers">
+        <th mat-header-cell *matHeaderCellDef>Kunden / Auftraggeber</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.customerNames.join(", ") }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="industry">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Branche</th>
+        <td mat-cell *matCellDef="let element">{{ element.industry }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="startDate">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header
+          sortActionDescription="Sort by startDate"
+        >
+          Startdatum
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <span class="startDate">{{
+            element.startDate | date: "dd.MM.yyyy"
+          }}</span>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="endDate">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header
+          sortActionDescription="Sort by endDate"
+        >
+          Enddatum
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <span class="endDate">{{
+            element.endDate | date: "dd.MM.yyyy"
+          }}</span>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr
+        class="row1"
+        mat-row
+        *matRowDef="let project; columns: displayedColumns"
+        (click)="navigate(project)"
+      ></tr>
+    </table>
+
+    <mat-paginator
+      [pageSizeOptions]="[10, 25, 100]"
+      showFirstLastButtons
+      aria-label="Wähle die Seite mit den Projekten aus"
+    >
+    </mat-paginator>
+  </div>
+</app-filter-group>

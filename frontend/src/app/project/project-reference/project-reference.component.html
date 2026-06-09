@@ -1,0 +1,88 @@
+<div class="header-row">
+  <h1 class="left-heading">Projektreferenzen suchen</h1>
+  <h1 *ngIf="dataSource.data.length > 0" class="right-heading">
+    Projektreferenzen
+  </h1>
+</div>
+
+<div class="project-reference-container">
+  <!-- Linker Bereich -->
+  <div class="left">
+    <app-tech-searchbar
+      class="tech-searchbar"
+      [searchFieldPlaceholder]="'Technologie wählen'"
+      [multipleSelect]="true"
+      [selectedItems]="selectedTechnologies"
+    ></app-tech-searchbar>
+    <app-industry-searchfield [selectedIndustryIds]="selectedIndustryIds">
+    </app-industry-searchfield>
+
+    <div class="button-container">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="searchProjectReference()"
+        [disabled]="selectedTechnologies.length === 0"
+      >
+        Referenzen suchen
+      </button>
+      <button mat-raised-button color="secondary" (click)="goBackToPrevPage()">
+        Abbrechen
+      </button>
+    </div>
+  </div>
+
+  <!-- Rechter Bereich -->
+  <div class="right mat-elevation-z8" *ngIf="dataSource.data.length > 0">
+    <div class="table-wrapper">
+      <table mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="projectName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Projektname</th>
+          <td mat-cell *matCellDef="let project">{{ project.projectName }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="industry">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Branche</th>
+          <td mat-cell *matCellDef="let project">{{ project.industryName }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="matchingPercentage">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Übereinstimmung in Prozent
+          </th>
+          <td mat-cell *matCellDef="let project">
+            {{
+              (project.overlappedTechnologies.length /
+                project.givenTechnologies.length) *
+                100 | number: "1.0-2"
+            }}%
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="overlapCount">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Anzahl übereinstimmender Technologien
+          </th>
+          <td mat-cell *matCellDef="let project" class>
+            {{ project.overlappedTechnologies.length }}
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+          (click)="navigate(row)"
+          class="row1 clickable"
+        ></tr>
+      </table>
+
+      <mat-paginator
+        [pageSizeOptions]="[10, 25, 100]"
+        showFirstLastButtons
+        aria-label="Wähle die Seite mit den Projekten aus"
+      >
+      </mat-paginator>
+    </div>
+  </div>
+</div>

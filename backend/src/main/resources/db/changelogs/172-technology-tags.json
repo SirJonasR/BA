@@ -1,0 +1,93 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "172-technology-tags-1",
+        "author": "mscherz",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "tag",
+              "columns": [
+                {
+                  "column": {
+                    "name": "name",
+                    "type": "varchar(25)",
+                    "constraints": {
+                      "primaryKey": true,
+                      "nullable": false,
+                      "unique": true
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "createTable": {
+              "tableName": "technology_tag",
+              "columns": [
+                {
+                  "column": {
+                    "name": "tags_name",
+                    "type": "varchar(25)",
+                    "constraints": {
+                      "deleteCascade": true,
+                      "nullable": false,
+                      "primaryKey": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technologies_id",
+                    "type": "bigint",
+                    "constraints": {
+                      "deleteCascade": true,
+                      "nullable": false,
+                      "primaryKey": false
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "baseTableName": "technology_tag",
+              "baseColumnNames": "technologies_id",
+              "constraintName": "fk_technology",
+              "referencedTableName": "technology",
+              "referencedColumnNames": "id",
+              "onDelete": "CASCADE"
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "baseTableName": "technology_tag",
+              "baseColumnNames": "tags_name",
+              "constraintName": "fk_tag",
+              "referencedTableName": "tag",
+              "referencedColumnNames": "name",
+              "onDelete": "CASCADE"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "172-technology-tags-2",
+        "author": "mscherz",
+        "changes": [
+          {
+            "sql": {
+              "dbms": "postgresql",
+              "sql": "grant select, insert, update, delete on table tag, technology_tag to ${APP_USER};"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

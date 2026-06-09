@@ -1,0 +1,229 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "Tec-38-expand-history",
+        "author": "epi2000",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "history_embedded_certificate",
+              "columns": [
+                {
+                  "column": {
+                    "name": "history_id",
+                    "type": "BIGINT"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "type": "VARCHAR(60)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "type": "VARCHAR(1800)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "follow_ups",
+                    "type": "VARCHAR(1800)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "prerequisites",
+                    "type": "VARCHAR(1800)"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "constraintName": "fk_history_embedded_certificate",
+              "baseTableName": "history_embedded_certificate",
+              "baseColumnNames": "history_id",
+              "referencedTableName": "history",
+              "referencedColumnNames": "id"
+            }
+          },
+          {
+            "createTable": {
+              "tableName": "history_embedded_project",
+              "columns": [
+                {
+                  "column": {
+                    "name": "history_id",
+                    "type": "BIGINT"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "type": "VARCHAR(255)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "type": "VARCHAR(1800)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "info",
+                    "type": "VARCHAR(1800)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "contact_person",
+                    "type": "VARCHAR(1800)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "start_date",
+                    "type": "DATE",
+                    "constraints": {
+                      "nullable": true
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customers",
+                    "type": "VARCHAR(1800)"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "constraintName": "fk_history_embedded_project",
+              "baseTableName": "history_embedded_project",
+              "baseColumnNames": "history_id",
+              "referencedTableName": "history",
+              "referencedColumnNames": "id"
+            }
+          },
+          {
+            "createTable": {
+              "tableName": "history_tag",
+              "columns": [
+                {
+                  "column": {
+                    "name": "history_id",
+                    "type": "BIGINT"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "tag",
+                    "type": "VARCHAR(25)"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "constraintName": "fk_history_tag",
+              "baseTableName": "history_tag",
+              "baseColumnNames": "history_id",
+              "referencedTableName": "history",
+              "referencedColumnNames": "id"
+            }
+          },
+          {
+            "createTable": {
+              "tableName": "history_connected_technology_name",
+              "columns": [
+                {
+                  "column": {
+                    "name": "history_id",
+                    "type": "BIGINT"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_name",
+                    "type": "VARCHAR(255)"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "constraintName": "fk_history_connected_technology_name",
+              "baseTableName": "history_connected_technology_name",
+              "baseColumnNames": "history_id",
+              "referencedTableName": "history",
+              "referencedColumnNames": "id"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "Tec-38-expand-history-2",
+        "author": "epi2000",
+        "changes": [
+          {
+            "sql": {
+              "dbms": "postgresql",
+              "sql": "grant select, insert, update, delete on table history_embedded_certificate, history_embedded_project, history_tag, history_connected_technology_name to ${APP_USER};"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "Fix project_history attribute lengths",
+        "author": "epi2000",
+        "changes": [
+          {
+            "modifyDataType": {
+              "tableName": "project_history",
+              "schemaName": "public",
+              "columnName": "description",
+              "newDataType": "VARCHAR(1800)"
+            }
+          },
+          {
+            "modifyDataType": {
+              "tableName": "project_history",
+              "schemaName": "public",
+              "columnName": "info",
+              "newDataType": "VARCHAR(1800)"
+            }
+          },
+          {
+            "modifyDataType": {
+              "tableName": "project_history",
+              "schemaName": "public",
+              "columnName": "contact_person",
+              "newDataType": "VARCHAR(255)"
+            }
+          },
+          {
+            "modifyDataType": {
+              "tableName": "project_history",
+              "schemaName": "public",
+              "columnName": "name",
+              "newDataType": "VARCHAR(255)"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

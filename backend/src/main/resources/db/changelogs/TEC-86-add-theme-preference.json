@@ -1,0 +1,23 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "TEC-86-add-theme-preference-column",
+        "author": "leonklemmer",
+        "changes": [
+          {
+            "addColumn": {
+              "column": {
+                "name": "theme_preference",
+                "type": "VARCHAR(50)",
+                "defaultValue": "light"
+              },
+              "schemaName": "public",
+              "tableName": "User"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

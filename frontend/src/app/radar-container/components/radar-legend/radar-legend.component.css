@@ -1,0 +1,65 @@
+.lifecycle-label {
+  position: absolute;
+  z-index: 999;
+  font-weight: bold;
+  margin: 0;
+  padding: 12px 16px;
+  background: var(--app-surface-translucent, rgba(255, 255, 255, 0.95));
+  border-radius: 8px;
+  box-shadow: var(--app-shadow-md, 0 2px 8px rgba(0, 0, 0, 0.15));
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--app-border-light);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  perspective: 1000px;
+}
+
+.lifecycle-label:hover {
+  transform: scale(1.05);
+  box-shadow: var(--app-shadow-lg, 0 4px 16px rgba(0, 0, 0, 0.2));
+  background: var(--app-surface);
+}
+
+.lifecycle-item {
+  margin: 6px 0;
+  padding: 0;
+  color: var(--app-text-primary);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.lifecycle-item:first-child {
+  margin-top: 0;
+}
+
+.lifecycle-item:last-child {
+  margin-bottom: 0;
+}
+
+.legend-image-container {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+}
+
+#labelPic {
+  max-width: 300px;
+  height: auto;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .legend-image-container {
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #labelPic {
+    max-width: 200px;
+  }
+}

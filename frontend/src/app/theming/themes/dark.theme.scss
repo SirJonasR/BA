@@ -1,0 +1,79 @@
+/**
+ * Dark Theme
+ * Standard dark mode with muted colors for reduced eye strain
+ * 
+ * NOTE: Theme metadata (name, icon, description) is defined in theme-registry.ts
+ */
+
+[data-theme="dark"] {
+  // Typography
+  --app-font-family: "Biennale", "Montserrat", sans-serif;
+
+  // Surface colors (dark mode)
+  --app-background-primary: #1a1a1a;
+  --app-background-secondary: #2d2d2d;
+  --app-background-tertiary: #383838;
+  --app-surface: #2d2d2d;
+  --app-surface-elevated: #383838;
+  --app-surface-translucent: rgba(45, 45, 45, 0.95);
+  
+  // Text colors (dark mode)
+  --app-text-primary: #e0e0e0;
+  --app-text-secondary: #b0b0b0;
+  --app-text-tertiary: #888888;
+  --app-text-disabled: #555555;
+  --app-text-inverse: #1a1a1a;
+  
+  // Border and divider colors (dark mode)
+  --app-border-color: #404040;
+  --app-border-light: #333333;
+  --app-divider-color: #404040;
+  
+  // Interactive states (dark mode)
+  --app-hover-bg: #3a3a3a;
+  --app-active-bg: #454545;
+  --app-selected-bg: #1e3a45;
+  
+  // Radar visualization specific (dark mode)
+  --radar-background: transparent;
+  --radar-grid: #555555;
+  --radar-grid-light: #404040;
+  --radar-inactive: #404040;
+  --radar-text: #e0e0e0;
+  --radar-text-secondary: #b0b0b0;
+  
+  // State colors (semantic - adjusted for dark mode)
+  --app-success: #4caf50;
+  --app-success-light: #66bb6a;
+  --app-error: #f44336;
+  --app-error-light: #ef5350;
+  --app-warning: #ffa726;
+  --app-warning-light: #ffb74d;
+  --app-info: #29b6f6;
+  --app-info-light: #4fc3f7;
+  
+  // Brand colors (adjusted for dark mode contrast)
+  --brand-primary: #fc9264;
+  --brand-primary-dark: #e96e3a;
+  --brand-accent: #a1cad3;
+  --brand-accent-light: #c7e4ea;
+  
+  // Radar interaction colors (brighter for dark mode)
+  --radar-category-hover: #29b6f6;
+  
+  // Shadow and elevation (stronger in dark mode)
+  --app-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --app-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.25);
+  --app-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3);
+  --app-shadow-error: 0 0 20px #ff5252;
+  
+  // Text shadows for interactive elements (lighter in dark mode)
+  --app-text-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --app-text-shadow-accent: 0 1px 3px rgba(161, 202, 211, 0.4);
+  --app-text-shadow-primary: 0 2px 4px rgba(252, 146, 100, 0.4);
+  --app-text-shadow-none: none;
+  
+  // Overlay and backdrop
+  --app-overlay: rgba(0, 0, 0, 0.7);
+  --app-backdrop: rgba(0, 0, 0, 0.6);
+}

@@ -1,0 +1,66 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "162-kategorieansicht-1",
+        "author": "ErikM02",
+        "changes": [
+          {
+            "addColumn": {
+              "column": {
+                "name": "description",
+                "type": "VARCHAR(1800)"
+              },
+              "schemaName": "public",
+              "tableName": "category"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "description",
+                "value": "Die Kategorie 'Techniques & Methodologies' bietet Einblicke in bewährte Methoden, Herangehensweisen und Arbeitsabläufe im IT-Bereich. Sie umfasst agile Entwicklung, DevOps-Praktiken und andere Ansätze, die Entwickler nutzen, um Projekte effizient zu gestalten und zu liefern."
+              },
+              "schemaName": "public",
+              "tableName": "category",
+              "where": "id=-4"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "description",
+                "value": "Plattformen dienen als Grundlage für Softwarelösungen. Hier finden Sie eine vertiefte Betrachtung von Infrastrukturen, Cloud-Services und Betriebssystemen, die den Betrieb von modernen Anwendungen ermöglichen. Diese Plattformen bieten nicht nur die technische Grundlage, sondern schaffen auch die Umgebung für Skalierbarkeit, Sicherheit und Verfügbarkeit von Softwarelösungen."
+              },
+              "schemaName": "public",
+              "tableName": "category",
+              "where": "id=-3"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "description",
+                "value": "In der Kategorie 'Tools' stehen die Softwareanwendungen und Plattformen im Fokus, die bei der Entwicklung, Bereitstellung und Verwaltung von Softwarelösungen verwendet werden. Dies beinhaltet Programmierumgebungen, Testframeworks und andere Hilfsmittel, die Entwicklern bei ihrer Arbeit unterstützen."
+              },
+              "schemaName": "public",
+              "tableName": "category",
+              "where": "id=-2"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "description",
+                "value": "Die Kategorie 'Languages & Frameworks' konzentriert sich auf die Werkzeuge, die für die Softwareentwicklung verwendet werden. Hier erfahren Sie mehr über eine Vielzahl von Programmiersprachen, Bibliotheken und Frameworks, die von Entwicklern verwendet werden, um Anwendungen zu erstellen. Diese Kategorie hilft, die verschiedenen Optionen für die Entwicklung von Software zu verstehen."
+              },
+              "schemaName": "public",
+              "tableName": "category",
+              "where": "id=-1"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

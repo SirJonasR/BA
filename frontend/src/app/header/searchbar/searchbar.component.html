@@ -1,0 +1,59 @@
+<form class="searchbar">
+  <mat-form-field class="container">
+    <mat-icon class="search-icon">search</mat-icon>
+    <input
+      #searchbox
+      matInput
+      placeholder="Suche eine Technologie ..."
+      [formControl]="control"
+      [matAutocomplete]="auto"
+      data-test-id="searchbar-input"
+      (click)="refresh()"
+    />
+    <mat-autocomplete
+      #auto="matAutocomplete"
+      (optionSelected)="emit($event)"
+      [displayWith]="displayTechnology"
+      ><div *ngIf="showLastClicked">
+        <mat-option
+          *ngFor="let technology of lastClickedTechnologies.slice().reverse()"
+          [value]="technology"
+        >
+          <div *ngIf="showLastClicked" class="last-clicked">
+            <div class="option">
+              <div>{{ technology.name }}</div>
+              <div class="category">
+                {{
+                  getCategoryAndLifecycle(
+                    technology.categoryId,
+                    technology.lifecycleId
+                  )
+                }}
+              </div>
+            </div>
+            <div class="restore-icon">
+              <mat-icon>restore</mat-icon>
+            </div>
+          </div>
+        </mat-option>
+      </div>
+      <mat-option
+        *ngFor="let technology of filteredTechnologies | async"
+        [value]="technology"
+        data-test-id="search-option"
+      >
+        <div class="option">
+          <div>{{ technology.name }}</div>
+          <div class="category">
+            {{
+              getCategoryAndLifecycle(
+                technology.categoryId,
+                technology.lifecycleId
+              )
+            }}
+          </div>
+        </div>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>

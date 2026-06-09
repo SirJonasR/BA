@@ -1,0 +1,40 @@
+<form>
+  <mat-form-field>
+    <input matInput [formControl]="control" [matAutocomplete]="auto" />
+    <mat-label>Branche auswählen (optional)</mat-label>
+    <mat-autocomplete
+      autoActiveFirstOption
+      #auto="matAutocomplete"
+      (optionSelected)="emit($event)"
+      [displayWith]="displayIndustryName"
+    >
+      <mat-option
+        *ngFor="let industry of filteredIndustries | async"
+        [value]="industry"
+      >
+        <div>
+          <div>{{ industry.name }}</div>
+        </div>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <p *ngIf="selectedIndustries.length > 1" style="color: grey">
+    Ausgewählte Branchen:
+  </p>
+  <div
+    *ngFor="let industry of selectedIndustries"
+    class="selected-item-container"
+  >
+    <span class="item-text">
+      {{ industry.name }}
+    </span>
+    <button
+      mat-icon-button
+      (click)="removeItem(industry)"
+      style="margin-top: 5px"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+</form>

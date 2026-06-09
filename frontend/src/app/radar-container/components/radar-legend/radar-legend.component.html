@@ -1,0 +1,15 @@
+<div class="lifecycle-label" aria-label="Shows lifecycle legend">
+  <div>
+    <div *ngFor="let lifecycle of lifecycles" class="lifecycle-item">
+      {{ getCleanId(lifecycle.id) }}: {{ lifecycle.name }}
+    </div>
+  </div>
+
+  <div class="legend-image-container" *ngIf="shouldShowLegacyRadarLegend()">
+    <img
+      id="labelPic"
+      src="../../../../assets/radarLabelPic.png"
+      alt="Radar Legend"
+    />
+  </div>
+</div>

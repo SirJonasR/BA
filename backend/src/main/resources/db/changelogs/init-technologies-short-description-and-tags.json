@@ -1,0 +1,768 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "add-short-description-for-init-technologies",
+        "author": "epi2000",
+        "changes": [
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Angular ist ein leistungsstarkes JavaScript-Framework für Single-Page-Webanwendungen mit Fokus auf Enterprise-Entwicklung. Es bietet eine umfassende API, Entwicklungs-Tools, Generatoren und klare Architekturkonzepte. Es ermöglicht skalierbare und wartbare Softwarelösungen."
+              },
+              "schemaName": "public",
+              "tableName": "technology",
+              "where":"id=1000"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "TypeScript ist eine echte Obermenge von JavaScript mit optionaler statischer Typisierung."
+              },
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "id=1001"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Bei JavaScript handelt es sich um eine Skriptsprache, die auf der Seite des Clients arbeitet. Mit Hilfe von JavaScript lässt sich die Funktionalität von Websites erhöhen, indem Inhalte verändert oder generiert werden. JavaScript wird eingesetzt, um CSS und HTML zu ergänzen."
+              },
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "id=1002"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "React ist eine JavaScript-Programmbibliothek zur Erstellung von webbasierten Benutzeroberflächen. Komponenten werden in React hierarchisch aufgebaut und können in dessen Syntax als selbst definierte JSX-Tags repräsentiert werden."
+              },
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "id=1003"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "CSS ist die Abkürzung für „Cascading Style Sheets“ und bezeichnet Formatvorlagen für Webseiten. In HTML werden die Seiteninhalte strukturiert und in CSS formatiert. Das heißt mit CSS werden Dinge, wie Schriftfarben, Schrifttypen oder Zeilenabstände definiert."
+              },
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "id=1004"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Die Hypertext Markup Language ist eine textbasierte Auszeichnungssprache zur Strukturierung elektronischer Dokumente wie Texte mit Hyperlinks, Bildern und anderen Inhalten. HTML-Dokumente sind die Grundlage des World Wide Web und werden von Webbrowsern dargestellt."
+              },
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "id=1005"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Vue.js ist ein clientseitiges JavaScript-Webframework zum Erstellen von Single-Page-Webanwendungen nach dem MVVM-Muster, es kann allerdings auch in Multipage-Webseiten für einzelne Abschnitte verwendet werden. Ab Version 2.0 unterstützt es auch serverseitiges Rendern."
+              },
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "id=1006"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "npm (ehemals Node Package Manager) ist ein Paketmanager für die JavaScript-Laufzeitumgebung Node.js."
+              },
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "id=1007"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Nginx, ist ein Open-Source-Webserver, der seit seinem anfänglichen Erfolg als Webserver auch als Reverse-Proxy, HTTP-Cache und Load-Balancer verwendet wird."
+              },
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "id=1008"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Apache Kafka ist eine freie Software der Apache Software Foundation, die insbesondere zur Verarbeitung von Datenströmen dient. Kafka ist dazu entwickelt, Datenströme zu speichern und zu verarbeiten, und stellt eine Schnittstelle zum Laden und Exportieren von Datenströmen zu Drittsystemen bereit."
+              },
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "id=1009"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Spring Boot hilft Entwicklern, Anwendungen zu erstellen, die einfach laufen. Insbesondere können Sie damit eigenständige Anwendungen erstellen, die ohne einen externen Webserver laufen, indem Sie einen Webserver wie Tomcat oder Netty während des Initialisierungsprozesses in Ihre Anwendung einbetten."
+              },
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "id=1010"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Java ist eine objektorientierte Programmiersprache."
+              },
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "id=1011"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Apache Maven (kurz Maven) ist ein in der Programmiersprache Java geschriebenes Kommandozeilenwerkzeug aus der Kategorie der Build-Werkzeuge."
+              },
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "id=1012"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "SQL ist eine Datenbanksprache zur Definition von Datenstrukturen in relationalen Datenbanken sowie zum Bearbeiten (Einfügen, Verändern, Löschen) und Abfragen von darauf basierenden Datenbeständen."
+              },
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "id=1013"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Kibana ist eine Open-Source-Analyse- und -Visualisierungsplattform. Sie bildet zusammen mit Elasticsearch und Logstash den Elastic-Stack und ermöglicht die Visualisierung der per Elasticsearch erhobenen Daten."
+              },
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "id=1014"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Quarkus ist ein Kubernetes-natives Full-Stack Java Framework für JVMs (Java Virtual Machines) und native Kompilierung, mit dem Java speziell für Container optimiert wird. Es bietet eine effektive Plattform für Serverless-, Cloud- und Kubernetes-Umgebungen."
+              },
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "id=1015"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "PostgreSQL ist ein Verwaltungssystem für relationale Datenbanken (RDBMS, Relational Database Management System). Es ist ein stabiles System und leicht erweiterbar und bietet eine hohe Datenqualität auch bei sehr großen Datenmengen."
+              },
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "id=1016"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Docker ist eine freie Software zur Isolierung von Anwendungen mit Hilfe von Containervirtualisierung."
+              },
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "id=1017"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Kubernetes ist eine portable, erweiterbare Open-Source-Plattform zur Verwaltung von containerisierten Arbeitslasten und Services, die sowohl die deklarative Konfiguration als auch die Automatisierung erleichtert."
+              },
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "id=1018"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Jenkins ist ein Open Source Tool für Continuous Integration/Continuous Delivery (CI/CD), sowie Automatisierung und DevOps, das in der Programmiersprache Java geschrieben ist. Mit dem Programm lassen sich CI/CD-Workflows, sogenannte Pipelines, implementieren."
+              },
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "id=1019"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "description",
+                "value": "GitHub ist eine Codehostingplattform für die Versionskontrolle und Zusammenarbeit. Du kannst von jedem Ort aus mit anderen an Projekten zusammenarbeiten."
+              },
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "id=1022"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "SonarQube (ehemals Sonar) ist eine Plattform für die statische Analyse und Bewertung der technischen Qualität von Quelltext. SonarQube analysiert den Quelltext hinsichtlich verschiedener Qualitätsbereiche und stellt die Ergebnisse über eine Website dar."
+              },
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "id=1023"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Cucumber ist ein spezielles Framework, welches die Automatisierung der mit der Gherkin Sprache formulierten (Test)-Szenarien nach dem BDD-Prinzip unterstützt. Dabei fungiert Cucumber weniger als ein Testautomatisierungsframework, sondern viel mehr als ein Adapter-Framework."
+              },
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "id=1024"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Grafana sorgt für die grafische Darstellung von Zeitreihendaten in Echtzeit, die Analyse von Ereignissen in Softwareprotokolldateien und gibt tiefe Einblicke in SQL-Datenbanken. Grafana hilft bei der Vereinfachung von Data-First-Ansätzen für Engineering und Betrieb."
+              },
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "id=1025"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Mit der Open Source-Software „Prometheus“ lassen sich in Echtzeit Netzwerke effektiv überwachen Die Anwendung gehört zudem zu den bekanntesten Überwachungs-Tools für „Kubernetes“ und „Red Hat Openshift“."
+              },
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "id=1026"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Swagger ist eine Open Source Programmier-Tool-Sammlung, die zu Dokumentationen von APIs verwendet wird. Als Grundlage dient das Programmierparadigma REST."
+              },
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "id=1027"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "REST steht für Representational State Transfer. Gemeint ist damit eine Programmierschnittstelle, die sich an den Paradigmen und Verhalten des World Wide Web (WWW) orientiert und einen Ansatz für die Kommunikation zwischen Client und Server in Netzwerken beschreibt."
+              },
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "id=1028"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "GraphQL ist eine Abfrage- und Manipulationssprache für APIs. GraphQL bietet eine flexible und intuitive Syntax zur Beschreibung von Datenanforderungen und Interaktionen. Es ermöglicht Entwicklern, genau nach dem zu fragen, was benötigt wird, und vorhersehbare Ergebnisse zu erhalten."
+              },
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "id=1029"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Jira ist eine Anwendung für die Bearbeitung und Nachverfolgung von Aufgaben"
+              },
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "id=1030"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Confluence ist ein Arbeitsbereich für Teams, in dem Wissen und Zusammenarbeit aufeinandertreffen. Dynamische Seiten bieten deinem Team einen Ort zum Erstellen, Erfassen und Zusammenarbeiten rund um Projekte oder Ideen"
+              },
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "id=1031"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Bitbucket Cloud ist ein Git-basiertes Code-Hosting- und Zusammenarbeitstool für Teams"
+              },
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "id=1032"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Scrum ist ein Rahmenwerk für die Zusammenarbeit von Teams basierend auf einer Definition von Rollen, Meetings und Werkzeugen, die einem Team Struktur und einen klar definierten Arbeitsprozess basierend auf agilen Prinzipien geben."
+              },
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "id=1033"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Microservices sind eine Architektur für die Softwareentwicklung, bei der eine Anwendung in viele kleine Teile, sogenannte Dienste, aufgeteilt wird. Jeder Dienst ist eigenständig und interagiert mit anderen Diensten, um der Anwendung eine Gesamtfunktionalität zu verleihen."
+              },
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "id=1034"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Micro Frontends sind Benutzeroberflächen, die sich aus einzelnen, isolierten Bestandteilen zusammensetzen. Sie können unabhängig voneinander entwickelt, implementiert, gewartet und verändert werden. Das Besondere dabei ist, dass sowohl Backend als auch Frontend modular aufgebaut sind. "
+              },
+              "schemaName": "public",
+              "tableName": "technology",
+              "where": "id=1035"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "add-short-description-for-init-technologies-history",
+        "author": "epi2000",
+        "changes": [
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Angular ist ein leistungsstarkes JavaScript-Framework für Single-Page-Webanwendungen mit Fokus auf Enterprise-Entwicklung. Es bietet eine umfassende API, Entwicklungs-Tools, Generatoren und klare Architekturkonzepte. Es ermöglicht skalierbare und wartbare Softwarelösungen."
+              },
+              "schemaName": "public",
+              "tableName": "history",
+              "where":"technology_id=1000"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "TypeScript ist eine echte Obermenge von JavaScript mit optionaler statischer Typisierung."
+              },
+              "schemaName": "public",
+              "tableName": "history",
+              "where": "technology_id=1001"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Bei JavaScript handelt es sich um eine Skriptsprache, die auf der Seite des Clients arbeitet. Mit Hilfe von JavaScript lässt sich die Funktionalität von Websites erhöhen, indem Inhalte verändert oder generiert werden. JavaScript wird eingesetzt, um CSS und HTML zu ergänzen."
+              },
+              "schemaName": "public",
+              "tableName": "history",
+              "where": "technology_id=1002"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "React ist eine JavaScript-Programmbibliothek zur Erstellung von webbasierten Benutzeroberflächen. Komponenten werden in React hierarchisch aufgebaut und können in dessen Syntax als selbst definierte JSX-Tags repräsentiert werden."
+              },
+              "schemaName": "public",
+              "tableName": "history",
+              "where": "technology_id=1003"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "CSS ist die Abkürzung für „Cascading Style Sheets“ und bezeichnet Formatvorlagen für Webseiten. In HTML werden die Seiteninhalte strukturiert und in CSS formatiert. Das heißt mit CSS werden Dinge, wie Schriftfarben, Schrifttypen oder Zeilenabstände definiert."
+              },
+              "schemaName": "public",
+              "tableName": "history",
+              "where": "technology_id=1004"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Die Hypertext Markup Language ist eine textbasierte Auszeichnungssprache zur Strukturierung elektronischer Dokumente wie Texte mit Hyperlinks, Bildern und anderen Inhalten. HTML-Dokumente sind die Grundlage des World Wide Web und werden von Webbrowsern dargestellt."
+              },
+              "schemaName": "public",
+              "tableName": "history",
+              "where": "technology_id=1005"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Vue.js ist ein clientseitiges JavaScript-Webframework zum Erstellen von Single-Page-Webanwendungen nach dem MVVM-Muster, es kann allerdings auch in Multipage-Webseiten für einzelne Abschnitte verwendet werden. Ab Version 2.0 unterstützt es auch serverseitiges Rendern."
+              },
+              "schemaName": "public",
+              "tableName": "history",
+              "where": "technology_id=1006"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "npm (ehemals Node Package Manager) ist ein Paketmanager für die JavaScript-Laufzeitumgebung Node.js."
+              },
+              "schemaName": "public",
+              "tableName": "history",
+              "where": "technology_id=1007"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Nginx, ist ein Open-Source-Webserver, der seit seinem anfänglichen Erfolg als Webserver auch als Reverse-Proxy, HTTP-Cache und Load-Balancer verwendet wird."
+              },
+              "schemaName": "public",
+              "tableName": "history",
+              "where": "technology_id=1008"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Apache Kafka ist eine freie Software der Apache Software Foundation, die insbesondere zur Verarbeitung von Datenströmen dient. Kafka ist dazu entwickelt, Datenströme zu speichern und zu verarbeiten, und stellt eine Schnittstelle zum Laden und Exportieren von Datenströmen zu Drittsystemen bereit."
+              },
+              "schemaName": "public",
+              "tableName": "history",
+              "where": "technology_id=1009"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Spring Boot hilft Entwicklern, Anwendungen zu erstellen, die einfach laufen. Insbesondere können Sie damit eigenständige Anwendungen erstellen, die ohne einen externen Webserver laufen, indem Sie einen Webserver wie Tomcat oder Netty während des Initialisierungsprozesses in Ihre Anwendung einbetten."
+              },
+              "schemaName": "public",
+              "tableName": "history",
+              "where": "technology_id=1010"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Java ist eine objektorientierte Programmiersprache."
+              },
+              "schemaName": "public",
+              "tableName": "history",
+              "where": "technology_id=1011"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Apache Maven (kurz Maven) ist ein in der Programmiersprache Java geschriebenes Kommandozeilenwerkzeug aus der Kategorie der Build-Werkzeuge."
+              },
+              "schemaName": "public",
+              "tableName": "history",
+              "where": "technology_id=1012"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "SQL ist eine Datenbanksprache zur Definition von Datenstrukturen in relationalen Datenbanken sowie zum Bearbeiten (Einfügen, Verändern, Löschen) und Abfragen von darauf basierenden Datenbeständen."
+              },
+              "schemaName": "public",
+              "tableName": "history",
+              "where": "technology_id=1013"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Kibana ist eine Open-Source-Analyse- und -Visualisierungsplattform. Sie bildet zusammen mit Elasticsearch und Logstash den Elastic-Stack und ermöglicht die Visualisierung der per Elasticsearch erhobenen Daten."
+              },
+              "schemaName": "public",
+              "tableName": "history",
+              "where": "technology_id=1014"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Quarkus ist ein Kubernetes-natives Full-Stack Java Framework für JVMs (Java Virtual Machines) und native Kompilierung, mit dem Java speziell für Container optimiert wird. Es bietet eine effektive Plattform für Serverless-, Cloud- und Kubernetes-Umgebungen."
+              },
+              "schemaName": "public",
+              "tableName": "history",
+              "where": "technology_id=1015"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "PostgreSQL ist ein Verwaltungssystem für relationale Datenbanken (RDBMS, Relational Database Management System). Es ist ein stabiles System und leicht erweiterbar und bietet eine hohe Datenqualität auch bei sehr großen Datenmengen."
+              },
+              "schemaName": "public",
+              "tableName": "history",
+              "where": "technology_id=1016"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Docker ist eine freie Software zur Isolierung von Anwendungen mit Hilfe von Containervirtualisierung."
+              },
+              "schemaName": "public",
+              "tableName": "history",
+              "where": "technology_id=1017"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Kubernetes ist eine portable, erweiterbare Open-Source-Plattform zur Verwaltung von containerisierten Arbeitslasten und Services, die sowohl die deklarative Konfiguration als auch die Automatisierung erleichtert."
+              },
+              "schemaName": "public",
+              "tableName": "history",
+              "where": "technology_id=1018"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Jenkins ist ein Open Source Tool für Continuous Integration/Continuous Delivery (CI/CD), sowie Automatisierung und DevOps, das in der Programmiersprache Java geschrieben ist. Mit dem Programm lassen sich CI/CD-Workflows, sogenannte Pipelines, implementieren."
+              },
+              "schemaName": "public",
+              "tableName": "history",
+              "where": "technology_id=1019"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "description",
+                "value": "GitHub ist eine Codehostingplattform für die Versionskontrolle und Zusammenarbeit. Du kannst von jedem Ort aus mit anderen an Projekten zusammenarbeiten."
+              },
+              "schemaName": "public",
+              "tableName": "history",
+              "where": "technology_id=1022"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "SonarQube (ehemals Sonar) ist eine Plattform für die statische Analyse und Bewertung der technischen Qualität von Quelltext. SonarQube analysiert den Quelltext hinsichtlich verschiedener Qualitätsbereiche und stellt die Ergebnisse über eine Website dar."
+              },
+              "schemaName": "public",
+              "tableName": "history",
+              "where": "technology_id=1023"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Cucumber ist ein spezielles Framework, welches die Automatisierung der mit der Gherkin Sprache formulierten (Test)-Szenarien nach dem BDD-Prinzip unterstützt. Dabei fungiert Cucumber weniger als ein Testautomatisierungsframework, sondern viel mehr als ein Adapter-Framework."
+              },
+              "schemaName": "public",
+              "tableName": "history",
+              "where": "technology_id=1024"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Grafana sorgt für die grafische Darstellung von Zeitreihendaten in Echtzeit, die Analyse von Ereignissen in Softwareprotokolldateien und gibt tiefe Einblicke in SQL-Datenbanken. Grafana hilft bei der Vereinfachung von Data-First-Ansätzen für Engineering und Betrieb."
+              },
+              "schemaName": "public",
+              "tableName": "history",
+              "where": "technology_id=1025"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Mit der Open Source-Software „Prometheus“ lassen sich in Echtzeit Netzwerke effektiv überwachen Die Anwendung gehört zudem zu den bekanntesten Überwachungs-Tools für „Kubernetes“ und „Red Hat Openshift“."
+              },
+              "schemaName": "public",
+              "tableName": "history",
+              "where": "technology_id=1026"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Swagger ist eine Open Source Programmier-Tool-Sammlung, die zu Dokumentationen von APIs verwendet wird. Als Grundlage dient das Programmierparadigma REST."
+              },
+              "schemaName": "public",
+              "tableName": "history",
+              "where": "technology_id=1027"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "REST steht für Representational State Transfer. Gemeint ist damit eine Programmierschnittstelle, die sich an den Paradigmen und Verhalten des World Wide Web (WWW) orientiert und einen Ansatz für die Kommunikation zwischen Client und Server in Netzwerken beschreibt."
+              },
+              "schemaName": "public",
+              "tableName": "history",
+              "where": "technology_id=1028"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "GraphQL ist eine Abfrage- und Manipulationssprache für APIs. GraphQL bietet eine flexible und intuitive Syntax zur Beschreibung von Datenanforderungen und Interaktionen. Es ermöglicht Entwicklern, genau nach dem zu fragen, was benötigt wird, und vorhersehbare Ergebnisse zu erhalten."
+              },
+              "schemaName": "public",
+              "tableName": "history",
+              "where": "technology_id=1029"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Jira ist eine Anwendung für die Bearbeitung und Nachverfolgung von Aufgaben"
+              },
+              "schemaName": "public",
+              "tableName": "history",
+              "where": "technology_id=1030"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Confluence ist ein Arbeitsbereich für Teams, in dem Wissen und Zusammenarbeit aufeinandertreffen. Dynamische Seiten bieten deinem Team einen Ort zum Erstellen, Erfassen und Zusammenarbeiten rund um Projekte oder Ideen"
+              },
+              "schemaName": "public",
+              "tableName": "history",
+              "where": "technology_id=1031"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Bitbucket Cloud ist ein Git-basiertes Code-Hosting- und Zusammenarbeitstool für Teams"
+              },
+              "schemaName": "public",
+              "tableName": "history",
+              "where": "technology_id=1032"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Scrum ist ein Rahmenwerk für die Zusammenarbeit von Teams basierend auf einer Definition von Rollen, Meetings und Werkzeugen, die einem Team Struktur und einen klar definierten Arbeitsprozess basierend auf agilen Prinzipien geben."
+              },
+              "schemaName": "public",
+              "tableName": "history",
+              "where": "technology_id=1033"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Microservices sind eine Architektur für die Softwareentwicklung, bei der eine Anwendung in viele kleine Teile, sogenannte Dienste, aufgeteilt wird. Jeder Dienst ist eigenständig und interagiert mit anderen Diensten, um der Anwendung eine Gesamtfunktionalität zu verleihen."
+              },
+              "schemaName": "public",
+              "tableName": "history",
+              "where": "technology_id=1034"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "short_description",
+                "value": "Micro Frontends sind Benutzeroberflächen, die sich aus einzelnen, isolierten Bestandteilen zusammensetzen. Sie können unabhängig voneinander entwickelt, implementiert, gewartet und verändert werden. Das Besondere dabei ist, dass sowohl Backend als auch Frontend modular aufgebaut sind. "
+              },
+              "schemaName": "public",
+              "tableName": "history",
+              "where": "technology_id=1035"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

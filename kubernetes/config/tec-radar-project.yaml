@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: tecradar
+  namespace: argocd
+spec:
+  sourceRepos:
+    - "https://github.com/DE-AMS-AD-TECUNIVERS/tecradar.git"
+  destinations:
+    - namespace: "tecradar-uat"
+      server: "*"
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"

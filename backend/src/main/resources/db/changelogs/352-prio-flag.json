@@ -1,0 +1,41 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "352-prio-flag-1",
+        "author": "epi2000",
+        "changes": [
+          {
+            "addColumn": {
+              "column": {
+                "name": "priority",
+                "type": "BOOLEAN"
+              },
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "352-prio-flag-2",
+        "author": "epi2000",
+        "changes": [
+          {
+            "addColumn": {
+              "column": {
+                "name": "priority",
+                "type": "BOOLEAN"
+              },
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          }
+        ]
+      }
+    }
+
+  ]
+}

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/name: tecradar-dev-frontend
+  name: tecradar-dev-frontend
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+      nodePort: 31746
+  selector:
+    app.kubernetes.io/name: tecradar-dev-frontend
+  type: NodePort

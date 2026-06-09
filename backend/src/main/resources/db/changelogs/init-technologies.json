@@ -1,0 +1,3927 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "init-technologies",
+        "author": "epi2000",
+        "changes": [
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1000"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Angular"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Angular ist ein sehr erfolgreiches, clientseitiges JavaScript-Web-Framework zur Erstellung von Single-Page-Webanwendungen. Es reiht sich neben den anderen großen Frameworks für Single Page Applications ein. Wobei das nicht ganz stimmt, da Angular sich mittlerweile sogar eher zur Plattform weiterentwickelt hat. Es beinhaltet neben der reinen “API” zur Anwendungsentwicklung mittlerweile auch Entwicklungs-Werkzeuge, Generatoren und mitgelieferte Architektur-Konzepte und stellt somit eine Ready-to-Rock Lösung um Enterprise-Anwendungen zu entwickeln dar. Es reiht sich neben den beiden anderen erfolgreichen Frontend Frameworks React und VueJS ein. Angular zielt hierbei ganz klar auf die professionelle Entwicklung von Enterprise Software ab. Durch klare Vorgaben in der Struktur und den Einsatz von Generatoren können langfristig wartbare und skalierbare Softwarelösungen erstellt werden. Konzepte wie Dependency Injection und ein Fokus auf TDD sind seit der ersten Stunde von Angular im Core verankert. Durch die klare Struktur von Projekten ist hierbei explizit die Skalierbarkeit von neuen Entwickler:innen hervorzuheben. Durch dieses massive Grundgerüst wirkt Angular auf den ersten Blick oft etwas schwergewichtig - überzeugt jedoch in Production durch systematische Optimierungen und Erweiterbarkeit. (Angular)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1001"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Typescript"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "TypeScript ist eine echte Obermenge von JavaScript mit optionaler statischer Typisierung. Es bietet schon heute zahlreiche Features aus den zukünftigen ECMAScript-Standards. Dabei transpiliert es zu JavaScript in der ECMAScript-Version 3/5 und ist damit kompatibel zu allen Browsern. Hauptmerkmal von TypeScript ist die optionale statische Typisierung. Dafür stellt es eine ganze Reihe von Basistypen bereit. Neben den klassischen Typen für boolesche Werte boolean, string für Strings und number für Zahlenwerte im Format dezimal, hexadezimal, binär und oktär, lassen sich auch Arrays definieren. (Entwickler.de)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1002"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Javascript"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "JavaScript ist eine Programmiersprache, die Entwickler verwenden, um interaktive Webseiten zu erstellen. Von der Aktualisierung von Social Media Feeds bis hin zur Anzeige von Animationen und interaktiven Karten können JavaScript-Funktionen die Benutzerfreundlichkeit einer Website verbessern. Als clientseitige Skriptsprache ist sie eine der Kerntechnologien des World Wide Web. Wenn Sie zum Beispiel im Internet surfen und ein Bildkarussell, ein Dropdown-Menü zum Anklicken oder dynamisch wechselnde Elementfarben auf einer Webseite sehen, sehen Sie die Auswirkungen von JavaScript. "
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1003"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "React"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "React.js, auch einfach React genannt, ist eine JavaScript-Bibliothek, die für die Erstellung von Benutzeroberflächen verwendet wird. Jede React-Webanwendung besteht aus wiederverwendbaren Komponenten, die Teile der Benutzeroberfläche bilden – wir können eine separate Komponente für unsere Navigationsleiste haben, eine für die Fußzeile, eine andere für den Hauptinhalt und so weiter.\n\nDiese wiederverwendbaren Komponenten machen die Entwicklung einfacher, weil wir wiederkehrenden Code nicht wiederholen müssen. Wir müssen nur die Logik erstellen und die Komponente in jeden Teil des Codes importieren, in dem sie benötigt wird.\n\nReact ist außerdem eine Single-Page-Anwendung. Anstatt also jedes Mal, wenn eine neue Seite gerendert werden soll, eine Anfrage an den Server zu senden, wird der Inhalt der Seite direkt von den React-Komponenten geladen. Das führt zu einem schnelleren Rendering ohne Neuladen der Seite.(kinsta)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1004"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "CSS3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Cascading Style Sheets (CSS) ist eine Stylesheet-Sprache, die zur Beschreibung der Präsentation eines in einer Auszeichnungssprache wie HTML geschriebenen Dokuments verwendet wird. CSS ist neben HTML und JavaScript ein Eckpfeiler der Technologie des World Wide Web.\n\nCSS wurde entwickelt, um die Trennung von Präsentation und Inhalt, einschließlich Layout, Farben und Schriftarten, zu ermöglichen. Diese Trennung kann die Zugänglichkeit von Inhalten verbessern, mehr Flexibilität und Kontrolle bei der Spezifikation von Präsentationsmerkmalen bieten, die gemeinsame Nutzung von Formatierungen durch mehrere Webseiten ermöglichen, indem die relevanten CSS in einer separaten .css-Datei spezifiziert werden, was die Komplexität und Wiederholung des strukturellen Inhalts reduziert, und die .css-Datei in den Cache stellen, um die Ladegeschwindigkeit der Seiten zu verbessern, die die Datei und ihre Formatierung gemeinsam nutzen.\n\nDurch die Trennung von Formatierung und Inhalt ist es auch möglich, dieselbe Auszeichnungsseite in verschiedenen Stilen für unterschiedliche Darstellungsmethoden darzustellen, z.B. auf dem Bildschirm, in gedruckter Form, per Sprache (über einen sprachbasierten Browser oder ein Bildschirmlesegerät) und auf taktilen Geräten mit Braille-Schrift. CSS verfügt auch über Regeln für eine alternative Formatierung, wenn der Inhalt auf einem mobilen Gerät aufgerufen wird. (webmasterpro)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1005"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "HTML"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Per Definition versteht man unter HTML eine einheitliche, textbasierte Auszeichnungssprache. Sie besteht aus einfachen Auszeichnungselementen, den sogenannten „Tags“ als auch inhaltsleeren Elementen wie etwa < br >. HTML steht als Abkürzung für „Hypertext Markup Language“. Sie macht Browsern eine Interpretation und Anzeige sowie das Verknüpfen von Webseiten möglich. Im aktuellen Standard nutzt man XHTML und HTML 5 um insbesondere Suchmaschinen-optimierte und User-orientierte Webseiten mit allen nötigen Elementen zu erstellen. Auch das Responsive Design und verschiedene Auszeichnungen innerhalb des Codes sind relevant für das Suchmaschinenranking. HTML ist auch eine plattformunabhängige Sprache. Das bedeutet, dass HTML-Dateien auf jedem Computer mit einem Webbrowser angezeigt werden können. Egal welches Betriebssystem oder welcher Browser verwendet wird. (seo-kueche)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1006"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Vue"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Vue (oder Vue.js) ist ein Open-Source Javascript-Framework für die Frontendentwicklung. Im Gegensatz zu anderen beliebten JavaScript-Frameworks wird Vue nicht von einem großen Unternehmen wie React (Facebook) oder Angular (Google) unterstützt. Vue wurde ursprünglich von Evan You und mittlerweile von einer größeren Open-Source-Community geschrieben.\n\nWie in allen gängigen Frameworks, wird auch in Vue komponentenorientiert gearbeitet. Eine Anwendung wird dabei in kleinere Bestandteile (Bausteine, Komponenten) zerlegt. Dadurch werden einfach wiederverwendbare und pflegbare Einheiten erstellt, die in eine hierarchische Struktur gebracht werden, um somit eine größere Anwendung Stück für Stück zusammenzusetzen. Komponenten bilden somit die fundamentalen Bausteine einer Anwendung. (vuejs)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1007"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "NPM"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "npm (Node Package Manager) ist ein Paketmanager für Node.js-Projekte, der für die öffentliche Nutzung zur Verfügung steht. Projekte, die in der npm-Registry verfügbar sind, werden „Pakete“ genannt\n\nnpm ermöglicht es uns, Code, der von anderen geschrieben wurde, einfach zu nutzen, ohne dass wir ihn während der Entwicklung selbst schreiben müssen.\n\nIn der npm-Registry gibt es über 1,3 Millionen Pakete, die von mehr als 11 Millionen Entwicklern auf der ganzen Welt genutzt werden. (kinsta)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1008"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Nginx"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Nginx, wie „engine-ex“ ausgesprochen, ist ein Open-Source-Webserver, der seit seinem anfänglichen Erfolg als Webserver auch als Reverse-Proxy, HTTP-Cache und Load-Balancer verwendet wird. (kinsta)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1009"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Apache Kafka"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Apache Kafka ist eine freie Software der Apache Software Foundation, die insbesondere zur Verarbeitung von Datenströmen dient. Kafka ist dazu entwickelt, Datenströme zu speichern und zu verarbeiten, und stellt eine Schnittstelle zum Laden und Exportieren von Datenströmen zu Drittsystemen bereit. Die Kernarchitektur bildet ein verteiltes Transaktions-Log. (Wikipedia)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1010"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Spring Boot"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Java Spring Framework (Spring Framework) ist ein beliebtes Open-Source-Framework für Unternehmen zur Erstellung eigenständiger, produktionsreifer Anwendungen, die auf der Java Virtual Machine (JVM) laufen.\n\nJava Spring Boot (Spring Boot) ist ein Tool, das die Entwicklung von Webanwendungen und Mikroservices mit Spring Framework durch drei Kernfunktionen schneller und einfacher macht.\n\nAutokonfiguration\n\nEin „Opinionated\"-Konfigurationsansatz\n\nDie Fähigkeit, eigenständige Anwendungen zu erstellen\nDiese Funktionen arbeiten zusammen, um Ihnen ein Tool zur Verfügung zu stellen, mit dem Sie eine Spring-basierte Anwendung mit minimaler Konfiguration und Einrichtung installieren können.\n\n"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1011"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Java"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Java ist eine Programmiersprache und Computing-Plattform, die 1995 von Sun Microsystems veröffentlicht wurde. Sie stellt mittlerweile eine Basis für den Großteil der digitalen Welt von heute bereit und dient als zuverlässige Plattform für viele Services und Anwendungen. Auch neue, innovative und zukunftsgerichtete Produkte und digitale Services basieren nach wie vor auf Java. (java)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1012"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Maven"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Maven ist ein Build-Tool der Apache Software Foundation für die Projektverwaltung. Entwickler können damit Java-Projekte automatisieren. gehostet.\n\nMaven vereinfacht den Softwareerstellungsprozess, bietet ein einheitliches System für die Entwicklerarbeit, hochwertige Projektinformationen, Richtlinien für das Festlegen von Best Practices und erleichtert die Migration zu neuen Funktionen durch mehr Transparenz.\nMaven vereinfacht den Prozess für das Erstellen von Java-Anwendungen erheblich, da Nutzer den Status des Projektes viel einfacher einschätzen können. (computerweekly)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1013"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "SQL"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Die Abkürzung SQL steht für den Begriff Structured Query Language und bezeichnet eine Sprache für die Kommunikation mit relationalen Datenbanken. Mit SQL-Befehlen lassen sich Daten relativ einfach einfügen, verändern oder löschen. (dev-insider)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1014"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Kibana"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Kibana ist eine Open-Source-Analyse- und -Visualisierungsplattform. Sie bildet zusammen mit Elasticsearch und Logstash den Elastic-Stack und ermöglicht die Visualisierung der per Elasticsearch erhobenen Daten. Kibana beherrscht die klassischen Visualisierungsformen wie Histogramme, Liniendiagramme oder Kreisdiagramme und erlaubt die Darstellung von Zeitreihen oder geografischen Daten. (bigdata-insider)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1015"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Quarkus"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Quarkus ist ein Kubernetes-natives Full-Stack Java Framework für JVMs (Java Virtual Machines) und native Kompilierung, mit dem Java speziell für Container optimiert wird. Es bietet eine effektive Plattform für Serverless-, Cloud- und Kubernetes-Umgebungen.\n\nQuarkus wurde speziell für gängige Java-Standards, Frameworks und Libraries wie Eclipse MicroProfile und Spring sowie für Apache Kafka, RESTEasy (JAX-RS), Hibernate ORM (JPA), Spring, Infinispan, Camel und viele mehr konzipiert. (redhat)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1016"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "PostgreSQL"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "PostgreSQL blickt auf eine über 30-jährige Entwicklungshistorie zurück. Seinen Ursprung hat das objektrelationale Datenbank-Managementsystem (ORDBMS) dabei in dem POSTGRES-Projekt der University of California in Berkeley. Das wurde bereits 1986 unter der Führung von Michael Stonebraker gestartet und unter anderem von der Defense Advanced Research Project Agency (DARPA) und der National Science Foundation (NSF) gesponsert. 1994 erweiterten die Studenten Andrew Yu und Jolly Chen den Basiscode um einen SQL-Interpreter, woraufhin man diese neue und rund 30 bis 50 Prozent schnellere Abwandlung unter dem Namen Postgres95 als Open-Source-Lösung freigab (unter eigener Lizenz, die den BSD- und MIT-Lizenzen ähnelt). Zwei Jahre später erhielt die Datenbankanwendung mit Version 6.0 den bis heute gültigen Namen PostgreSQL. (ionos)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1017"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Docker"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Mit Docker können Sie Container wie extrem schlanke, modulare virtuelle Maschinen behandeln. Und mit diesen Containern erhalten Sie Flexibilität – Sie können sie erstellen, einsetzen, kopieren und zwischen Umgebungen verschieben, was wiederum die Optimierung Ihrer Apps für die Cloud unterstützt. (redhat)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1018"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Kubernetes"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Kubernetes ist eine portable, erweiterbare Open-Source-Plattform zur Verwaltung von containerisierten Arbeitslasten und Services, die sowohl die deklarative Konfiguration als auch die Automatisierung erleichtert. Es hat ein großes, schnell wachsendes Ökosystem. Kubernetes Dienstleistungen, Support und Tools sind weit verbreitet.\n\nGoogle hat das Kubernetes-Projekt 2014 als Open-Source-Projekt zur Verfügung gestellt. Kubernetes baut auf anderthalb Jahrzehnten Erfahrung auf, die Google mit der Ausführung von Produktions-Workloads in großem Maßstab hat, kombiniert mit den besten Ideen und Praktiken der Community. (kubernetes)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1019"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Jenkins"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-2"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Jenkins ist ein erweiterbares, webbasiertes Software-System zur kontinuierlichen Integration von Software-Komponenten zu einem Anwendungsprogramm. Es wird als Fork der Software Hudson von Sun, heute Oracle, betrachtet. (Wikipedia)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1020"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Git"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-2"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Git ist ein schnelles skalierbares verteiltes Versionskontrollsystem mit einem ungewöhnlich umfangreichen Befehlssatz, der sowohl hochrangige Operationen als auch vollen Zugriff auf interne Abläufe bietet. (git-scm)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1021"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Github Copilot"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-2"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Der Copilot ist ein intelligenter Assistent, der euch beim Programmieren helfen soll. Dies erfolgt in der Form von Vorschlägen, die euch Copilot in Echtzeit während der Eingabe anzeigt. Beim Copilot handelt es sich um eine Künstliche Intelligenz, die auf OpenAI Codex basiert. (codecentric)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1022"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Github"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-2"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "GitHub ist eine Codehostingplattform für die Versionskontrolle und Zusammenarbeit. Du kannst von jedem Ort aus mit anderen an Projekten zusammenarbeiten.\n\nIn diesem Tutorial werden GitHub-Grundlagen wie Repositorys, Commits und Pull Requests behandelt. Du erstellst ein eigenes Hallo-Welt-Repository und lernst den Pull-Request-Workflow von GitHub kennen, der häufig beim Programmieren und für Code Reviews eingesetzt wird. (github)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1023"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "SonarQube"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-2"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "SonarQube (ehemals Sonar) ist eine Plattform für die statische Analyse und Bewertung der technischen Qualität von Quelltext. SonarQube analysiert den Quelltext hinsichtlich verschiedener Qualitätsbereiche und stellt die Ergebnisse über eine Website dar. SonarQube ist in Java programmiert, unterstützt aber neben der Analyse von Java-Programmen mit entsprechenden Plugins unter anderem die Programmiersprachen JavaScript, Groovy, Flex, PHP, PL/SQL, C#, Cobol, die des .Net-Frameworks und Visual Basic 6. (Wikipedia)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1024"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Cucumber"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-2"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-2"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Cucumber ist ein Behavior-driven-Development-Werkzeug zur textbasierten Spezifikation von Anforderungen an Software und zur automatisierten Überprüfung dieser Beschreibung auf ihre korrekte Implementierung. Es wurde ursprünglich in der Programmiersprache Ruby für Ruby-Anwendungen geschrieben. Inzwischen unterstützt es aber auch andere Programmiersprachen wie Java und andere auf der Java Virtual Machine laufenden Programmiersprachen wie Clojure, Groovy, JRuby, Jython, Scala u. a. . Aslak Hellesøy ist der Erfinder von Cucumber. Im April 2008 startete er das Cucumber-Projekt, um die internen Designfehler und Usability-Probleme des RSpec Story Runner zu lösen und die Benutzerfreundlichkeit zu verbessern. (entwickler.de)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1025"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Grafana"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-2"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Grafana ist eine Open-Source-Software, mit der sich plattformübergreifend Metriken und Daten aus Anwendungen analysieren lassen. Mit Diagrammen, Heatmaps und Histogrammen lässt sich Ihr Stack auf dynamischen Dashboards visualisieren. Dabei verbindet Grafana sich mit einer Vielzahl von Datenquellen wie Prometheus, InfluxDB, ElasticSearch und traditionellen relationalen Datenbank-Engines. (Wilde-IT)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1026"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Prometheus"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-2"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Prometheus wurde ursprünglich von Soundcloud entwickelt und ist seit 2016 ein Open Source Projekt der Cloud Native Computing Foundation (CNCF). Durch seine Kombination aus Abfragefunktionen und Cloud-nativer Architektur hat es schnell an Bedeutung gewonnen, da es damit zum idealen Überwachungsstack für moderne Anwendungen geworden ist.\n\nEs bietet neben dem Monitoring von IT-Infrastrukturen auch ein Alarm- und Warnsystem, um auf Probleme aufmerksam zu machen. Dabei werden Echtzeitmetriken in einer Zeitreihendatenbank aufgezeichnet, die per HTTP von Anwendungen abgefragt werden. Es verwendet die leistungsstarke Abfragesprache PromQL für die Abfrage der Zeitreihendaten. Prometheus speichert Ereignisse in Echtzeit. Diese Ergebnisse beinhalten alles, was für Ihre Anwendung relevant ist, z. B. Speicherverbrauch, Netzwerkauslastung oder einzelne eingehende Anforderungen. (Wilde-IT)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1027"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Swagger"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-2"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Swagger (von englisch Prahlerei) ist eine Sammlung von Open-Source-Werkzeugen, um HTTP-Webservices (auch HTTP API oder REST-like API) zu entwerfen, zu erstellen, zu dokumentieren und zu nutzen. Swagger benutzt dazu den Beschreibungsstandard OpenAPI.\n\nSwagger wird von vielen weiteren Tools erkannt und unterstützt. Während die meisten Benutzer bei „Swagger“ an das Swagger-UI-Tool denken, bietet das Swagger-Toolset Unterstützung für automatisierte Dokumentation, Code-Generierung und Testfallgenerierung. Swagger gehört neben RAML und API Blueprint zu den häufig verwendeten API-Beschreibungssprachen. (Wikipedia)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1028"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "REST"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Representational State Transfer (abgekürzt REST) ist ein Paradigma für die Softwarearchitektur von verteilten Systemen, insbesondere für Webservices. REST ist eine Abstraktion der Struktur und des Verhaltens des World Wide Web. Dabei unterscheidet sich REST vor allem in der Forderung nach einer einheitlichen Schnittstelle von anderen Architekturstilen.\n\nDer Zweck von REST liegt schwerpunktmäßig auf der Maschine-zu-Maschine-Kommunikation. (Wikipedia)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1029"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "GraphQL"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "GraphQL ist eine Abfragesprache und serverseitige Runtime für APIs, die den Kunden nur diejenigen Daten zur Verfügung stellt, die sie wirklich brauchen.\n\nGraphQL macht APIs schneller, flexibler und entwicklerfreundlicher. Es kann sogar innerhalb einer IDE (Integrated Development Environment) namens GraphiQL bereitgestellt werden. Mit dieser Alternative zu REST können Entwickler Anfragen strukturieren, die mit einem einzigen API-Aufruf Daten aus mehreren Quellen gleichzeitig abrufen.\n\nAußerdem können API-Maintainer mit GraphQL flexibel Felder hinzufügen oder entfernen, ohne dass dies bestehende Abfragen beeinträchtigt. Entwickler können APIs mit ihrer bevorzugten Methode erstellen, und die GraphQL-Spezifikation stellt sicher, dass die API für den Kunden auf vorhersehbare Weise funktioniert. (redhat)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1030"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Jira"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Jira Software kam 2002 als Vorgangsverfolgungs- und Projektmanagementtool für Teams auf den Markt. Seitdem haben mehr als 65.000 Unternehmen weltweit Jira eingeführt, weil sie damit Projekte aller Art flexibel unterstützen und die Lösung mit Tausenden von Apps und Integrationen umfassend erweitern können. (atlassian)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1031"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Confluence"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Aufgaben erstellen, organisieren und gemeinsam daran arbeiten – alles an einem einzigen Ort. Confluence ist ein Arbeitsbereich für Teams, in dem Wissen und Zusammenarbeit aufeinandertreffen. Dynamische Seiten bieten deinem Team einen Ort zum Erstellen, Erfassen und Zusammenarbeiten rund um Projekte oder Ideen. Bereiche helfen deinem Team, Aufgaben zu strukturieren, zu organisieren und zu teilen, sodass jedes Teammitglied institutionelles Wissen abrufen und auf die erforderlichen Informationen zugreifen kann, um beste Arbeitsergebnisse zu erzielen. (atlassian)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1032"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Bitbucket"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Bitbucket Cloud ist ein Git-basiertes Code-Hosting- und Zusammenarbeitstool für Teams. Dank der erstklassigen Jira- und Trello-Integrationen in Bitbucket kann das gesamte Softwareteam an einem Projekt zusammenarbeiten. Wir bieten deinem Team einen zentralen Ort, an dem es vom Konzept bis zur Cloud gemeinsam am Code arbeiten, hochwertigen Code durch automatische Tests erstellen und Code zuverlässig bereitstellen kann. (bitbucket)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1033"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Scrum"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Scrum ist ein Rahmenwerk für die Zusammenarbeit von Teams basierend auf einer Definition von Rollen, Meetings und Werkzeugen, die einem Team Struktur und einen klar definierten Arbeitsprozess basierend auf agilen Prinzipien geben.\n\nDabei ist Scrum keine dogmatische Methode, sondern ein Framework, das einem Team und beteiligten Stakeholdern Leitplanken und Orientierungspunkte für ihre Zusammenarbeit und Kommunikation bietet. Die Scrum Methode wird durch www.scrum.org permanent weiterentwickelt und ist im aktuellen Scrum Guide dokumentiert. Die letzte Aktualisierung des Scrum Guides erfolgte Ende 2020. (digitaleneuordnung)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1034"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Microservices"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Microservices bezeichnen eine Art von Anwendungsarchitektur, bei der eine Sammlung unabhängiger Services über schlanke APIs miteinander kommuniziert.\n\nErinnern Sie sich nur einmal an Ihren letzten Besuch in einem Online-Shop. Dabei haben Sie vielleicht die Funktion für die Produktsuche auf der jeweiligen Site verwendet. Diese Funktion ist ein Service. Vielleicht wurden Ihnen auch Vorschläge für ähnliche Produkte unterbreitet, oder Sie haben ein Produkt zu Ihrem Warenkorb hinzugefügt. Dabei handelt es sich auch um Services. Wenn Sie all diese Microservices bündeln, haben Sie eine vollständig funktionale Anwendung. (redhat)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1035"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Microfrontend"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Kurz gesagt, unter einem Micro-Frontend versteht man ein einzelnes, isoliertes Teil einer gesamten Web-Applikation. Diese Micro-Frontends sind dadurch isoliert aufrufbar, beinhalten aber meist keine grundlegenden Standard-Komponenten wie beispielsweise einen Header oder einen Footer, sondern nur die spezifische, fachlich eingegrenzte Funktionalität einer einzelnen Seite. (b-nova)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "status",
+                    "value": "4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "jump_date",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "init-technology-histories",
+        "author": "epi2000",
+        "changes": [
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "-1000"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "username",
+                    "value": "init-user"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "User"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1000"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1000"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Angular"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Angular ist ein sehr erfolgreiches, clientseitiges JavaScript-Web-Framework zur Erstellung von Single-Page-Webanwendungen. Es reiht sich neben den anderen großen Frameworks für Single Page Applications ein. Wobei das nicht ganz stimmt, da Angular sich mittlerweile sogar eher zur Plattform weiterentwickelt hat. Es beinhaltet neben der reinen “API” zur Anwendungsentwicklung mittlerweile auch Entwicklungs-Werkzeuge, Generatoren und mitgelieferte Architektur-Konzepte und stellt somit eine Ready-to-Rock Lösung um Enterprise-Anwendungen zu entwickeln dar. Es reiht sich neben den beiden anderen erfolgreichen Frontend Frameworks React und VueJS ein. Angular zielt hierbei ganz klar auf die professionelle Entwicklung von Enterprise Software ab. Durch klare Vorgaben in der Struktur und den Einsatz von Generatoren können langfristig wartbare und skalierbare Softwarelösungen erstellt werden. Konzepte wie Dependency Injection und ein Fokus auf TDD sind seit der ersten Stunde von Angular im Core verankert. Durch die klare Struktur von Projekten ist hierbei explizit die Skalierbarkeit von neuen Entwickler:innen hervorzuheben. Durch dieses massive Grundgerüst wirkt Angular auf den ersten Blick oft etwas schwergewichtig - überzeugt jedoch in Production durch systematische Optimierungen und Erweiterbarkeit. (Angular)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1001"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1001"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Typescript"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "TypeScript ist eine echte Obermenge von JavaScript mit optionaler statischer Typisierung. Es bietet schon heute zahlreiche Features aus den zukünftigen ECMAScript-Standards. Dabei transpiliert es zu JavaScript in der ECMAScript-Version 3/5 und ist damit kompatibel zu allen Browsern. Hauptmerkmal von TypeScript ist die optionale statische Typisierung. Dafür stellt es eine ganze Reihe von Basistypen bereit. Neben den klassischen Typen für boolesche Werte boolean, string für Strings und number für Zahlenwerte im Format dezimal, hexadezimal, binär und oktär, lassen sich auch Arrays definieren. (Entwickler.de)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1002"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1002"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Javascript"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "JavaScript ist eine Programmiersprache, die Entwickler verwenden, um interaktive Webseiten zu erstellen. Von der Aktualisierung von Social Media Feeds bis hin zur Anzeige von Animationen und interaktiven Karten können JavaScript-Funktionen die Benutzerfreundlichkeit einer Website verbessern. Als clientseitige Skriptsprache ist sie eine der Kerntechnologien des World Wide Web. Wenn Sie zum Beispiel im Internet surfen und ein Bildkarussell, ein Dropdown-Menü zum Anklicken oder dynamisch wechselnde Elementfarben auf einer Webseite sehen, sehen Sie die Auswirkungen von JavaScript. "
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1003"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1003"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "React"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "React.js, auch einfach React genannt, ist eine JavaScript-Bibliothek, die für die Erstellung von Benutzeroberflächen verwendet wird. Jede React-Webanwendung besteht aus wiederverwendbaren Komponenten, die Teile der Benutzeroberfläche bilden – wir können eine separate Komponente für unsere Navigationsleiste haben, eine für die Fußzeile, eine andere für den Hauptinhalt und so weiter.\n\nDiese wiederverwendbaren Komponenten machen die Entwicklung einfacher, weil wir wiederkehrenden Code nicht wiederholen müssen. Wir müssen nur die Logik erstellen und die Komponente in jeden Teil des Codes importieren, in dem sie benötigt wird.\n\nReact ist außerdem eine Single-Page-Anwendung. Anstatt also jedes Mal, wenn eine neue Seite gerendert werden soll, eine Anfrage an den Server zu senden, wird der Inhalt der Seite direkt von den React-Komponenten geladen. Das führt zu einem schnelleren Rendering ohne Neuladen der Seite.(kinsta)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1004"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1004"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "CSS3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Cascading Style Sheets (CSS) ist eine Stylesheet-Sprache, die zur Beschreibung der Präsentation eines in einer Auszeichnungssprache wie HTML geschriebenen Dokuments verwendet wird. CSS ist neben HTML und JavaScript ein Eckpfeiler der Technologie des World Wide Web.\n\nCSS wurde entwickelt, um die Trennung von Präsentation und Inhalt, einschließlich Layout, Farben und Schriftarten, zu ermöglichen. Diese Trennung kann die Zugänglichkeit von Inhalten verbessern, mehr Flexibilität und Kontrolle bei der Spezifikation von Präsentationsmerkmalen bieten, die gemeinsame Nutzung von Formatierungen durch mehrere Webseiten ermöglichen, indem die relevanten CSS in einer separaten .css-Datei spezifiziert werden, was die Komplexität und Wiederholung des strukturellen Inhalts reduziert, und die .css-Datei in den Cache stellen, um die Ladegeschwindigkeit der Seiten zu verbessern, die die Datei und ihre Formatierung gemeinsam nutzen.\n\nDurch die Trennung von Formatierung und Inhalt ist es auch möglich, dieselbe Auszeichnungsseite in verschiedenen Stilen für unterschiedliche Darstellungsmethoden darzustellen, z.B. auf dem Bildschirm, in gedruckter Form, per Sprache (über einen sprachbasierten Browser oder ein Bildschirmlesegerät) und auf taktilen Geräten mit Braille-Schrift. CSS verfügt auch über Regeln für eine alternative Formatierung, wenn der Inhalt auf einem mobilen Gerät aufgerufen wird. (webmasterpro)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1005"
+                  }
+                },{
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1005"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "HTML"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Per Definition versteht man unter HTML eine einheitliche, textbasierte Auszeichnungssprache. Sie besteht aus einfachen Auszeichnungselementen, den sogenannten „Tags“ als auch inhaltsleeren Elementen wie etwa < br >. HTML steht als Abkürzung für „Hypertext Markup Language“. Sie macht Browsern eine Interpretation und Anzeige sowie das Verknüpfen von Webseiten möglich. Im aktuellen Standard nutzt man XHTML und HTML 5 um insbesondere Suchmaschinen-optimierte und User-orientierte Webseiten mit allen nötigen Elementen zu erstellen. Auch das Responsive Design und verschiedene Auszeichnungen innerhalb des Codes sind relevant für das Suchmaschinenranking. HTML ist auch eine plattformunabhängige Sprache. Das bedeutet, dass HTML-Dateien auf jedem Computer mit einem Webbrowser angezeigt werden können. Egal welches Betriebssystem oder welcher Browser verwendet wird. (seo-kueche)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1006"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1006"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Vue"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Vue (oder Vue.js) ist ein Open-Source Javascript-Framework für die Frontendentwicklung. Im Gegensatz zu anderen beliebten JavaScript-Frameworks wird Vue nicht von einem großen Unternehmen wie React (Facebook) oder Angular (Google) unterstützt. Vue wurde ursprünglich von Evan You und mittlerweile von einer größeren Open-Source-Community geschrieben.\n\nWie in allen gängigen Frameworks, wird auch in Vue komponentenorientiert gearbeitet. Eine Anwendung wird dabei in kleinere Bestandteile (Bausteine, Komponenten) zerlegt. Dadurch werden einfach wiederverwendbare und pflegbare Einheiten erstellt, die in eine hierarchische Struktur gebracht werden, um somit eine größere Anwendung Stück für Stück zusammenzusetzen. Komponenten bilden somit die fundamentalen Bausteine einer Anwendung. (vuejs)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1007"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1007"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "NPM"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "npm (Node Package Manager) ist ein Paketmanager für Node.js-Projekte, der für die öffentliche Nutzung zur Verfügung steht. Projekte, die in der npm-Registry verfügbar sind, werden „Pakete“ genannt\n\nnpm ermöglicht es uns, Code, der von anderen geschrieben wurde, einfach zu nutzen, ohne dass wir ihn während der Entwicklung selbst schreiben müssen.\n\nIn der npm-Registry gibt es über 1,3 Millionen Pakete, die von mehr als 11 Millionen Entwicklern auf der ganzen Welt genutzt werden. (kinsta)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1008"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1008"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Nginx"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Nginx, wie „engine-ex“ ausgesprochen, ist ein Open-Source-Webserver, der seit seinem anfänglichen Erfolg als Webserver auch als Reverse-Proxy, HTTP-Cache und Load-Balancer verwendet wird. (kinsta)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1009"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1009"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Apache Kafka"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Apache Kafka ist eine freie Software der Apache Software Foundation, die insbesondere zur Verarbeitung von Datenströmen dient. Kafka ist dazu entwickelt, Datenströme zu speichern und zu verarbeiten, und stellt eine Schnittstelle zum Laden und Exportieren von Datenströmen zu Drittsystemen bereit. Die Kernarchitektur bildet ein verteiltes Transaktions-Log. (Wikipedia)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1010"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1010"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Spring Boot"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Java Spring Framework (Spring Framework) ist ein beliebtes Open-Source-Framework für Unternehmen zur Erstellung eigenständiger, produktionsreifer Anwendungen, die auf der Java Virtual Machine (JVM) laufen.\n\nJava Spring Boot (Spring Boot) ist ein Tool, das die Entwicklung von Webanwendungen und Mikroservices mit Spring Framework durch drei Kernfunktionen schneller und einfacher macht.\n\nAutokonfiguration\n\nEin „Opinionated\"-Konfigurationsansatz\n\nDie Fähigkeit, eigenständige Anwendungen zu erstellen\nDiese Funktionen arbeiten zusammen, um Ihnen ein Tool zur Verfügung zu stellen, mit dem Sie eine Spring-basierte Anwendung mit minimaler Konfiguration und Einrichtung installieren können.\n\n"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1011"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1011"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Java"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Java ist eine Programmiersprache und Computing-Plattform, die 1995 von Sun Microsystems veröffentlicht wurde. Sie stellt mittlerweile eine Basis für den Großteil der digitalen Welt von heute bereit und dient als zuverlässige Plattform für viele Services und Anwendungen. Auch neue, innovative und zukunftsgerichtete Produkte und digitale Services basieren nach wie vor auf Java. (java)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1012"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1012"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Maven"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Maven ist ein Build-Tool der Apache Software Foundation für die Projektverwaltung. Entwickler können damit Java-Projekte automatisieren. gehostet.\n\nMaven vereinfacht den Softwareerstellungsprozess, bietet ein einheitliches System für die Entwicklerarbeit, hochwertige Projektinformationen, Richtlinien für das Festlegen von Best Practices und erleichtert die Migration zu neuen Funktionen durch mehr Transparenz.\nMaven vereinfacht den Prozess für das Erstellen von Java-Anwendungen erheblich, da Nutzer den Status des Projektes viel einfacher einschätzen können. (computerweekly)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1013"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1013"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "SQL"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Die Abkürzung SQL steht für den Begriff Structured Query Language und bezeichnet eine Sprache für die Kommunikation mit relationalen Datenbanken. Mit SQL-Befehlen lassen sich Daten relativ einfach einfügen, verändern oder löschen. (dev-insider)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1014"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1014"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Kibana"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Kibana ist eine Open-Source-Analyse- und -Visualisierungsplattform. Sie bildet zusammen mit Elasticsearch und Logstash den Elastic-Stack und ermöglicht die Visualisierung der per Elasticsearch erhobenen Daten. Kibana beherrscht die klassischen Visualisierungsformen wie Histogramme, Liniendiagramme oder Kreisdiagramme und erlaubt die Darstellung von Zeitreihen oder geografischen Daten. (bigdata-insider)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1015"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1015"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Quarkus_"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Quarkus ist ein Kubernetes-natives Full-Stack Java Framework für JVMs (Java Virtual Machines) und native Kompilierung, mit dem Java speziell für Container optimiert wird. Es bietet eine effektive Plattform für Serverless-, Cloud- und Kubernetes-Umgebungen.\n\nQuarkus wurde speziell für gängige Java-Standards, Frameworks und Libraries wie Eclipse MicroProfile und Spring sowie für Apache Kafka, RESTEasy (JAX-RS), Hibernate ORM (JPA), Spring, Infinispan, Camel und viele mehr konzipiert. (redhat)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1016"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1016"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "PostgreSQL"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-1"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "PostgreSQL blickt auf eine über 30-jährige Entwicklungshistorie zurück. Seinen Ursprung hat das objektrelationale Datenbank-Managementsystem (ORDBMS) dabei in dem POSTGRES-Projekt der University of California in Berkeley. Das wurde bereits 1986 unter der Führung von Michael Stonebraker gestartet und unter anderem von der Defense Advanced Research Project Agency (DARPA) und der National Science Foundation (NSF) gesponsert. 1994 erweiterten die Studenten Andrew Yu und Jolly Chen den Basiscode um einen SQL-Interpreter, woraufhin man diese neue und rund 30 bis 50 Prozent schnellere Abwandlung unter dem Namen Postgres95 als Open-Source-Lösung freigab (unter eigener Lizenz, die den BSD- und MIT-Lizenzen ähnelt). Zwei Jahre später erhielt die Datenbankanwendung mit Version 6.0 den bis heute gültigen Namen PostgreSQL. (ionos)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1017"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1017"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Docker"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Mit Docker können Sie Container wie extrem schlanke, modulare virtuelle Maschinen behandeln. Und mit diesen Containern erhalten Sie Flexibilität – Sie können sie erstellen, einsetzen, kopieren und zwischen Umgebungen verschieben, was wiederum die Optimierung Ihrer Apps für die Cloud unterstützt. (redhat)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1018"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1018"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Kubernetes"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Kubernetes ist eine portable, erweiterbare Open-Source-Plattform zur Verwaltung von containerisierten Arbeitslasten und Services, die sowohl die deklarative Konfiguration als auch die Automatisierung erleichtert. Es hat ein großes, schnell wachsendes Ökosystem. Kubernetes Dienstleistungen, Support und Tools sind weit verbreitet.\n\nGoogle hat das Kubernetes-Projekt 2014 als Open-Source-Projekt zur Verfügung gestellt. Kubernetes baut auf anderthalb Jahrzehnten Erfahrung auf, die Google mit der Ausführung von Produktions-Workloads in großem Maßstab hat, kombiniert mit den besten Ideen und Praktiken der Community. (kubernetes)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1019"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1019"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Jenkins"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-2"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Jenkins ist ein erweiterbares, webbasiertes Software-System zur kontinuierlichen Integration von Software-Komponenten zu einem Anwendungsprogramm. Es wird als Fork der Software Hudson von Sun, heute Oracle, betrachtet. (Wikipedia)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1020"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1020"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Git"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-2"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Git ist ein schnelles skalierbares verteiltes Versionskontrollsystem mit einem ungewöhnlich umfangreichen Befehlssatz, der sowohl hochrangige Operationen als auch vollen Zugriff auf interne Abläufe bietet. (git-scm)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1021"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1021"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Github Copilot"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-2"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Der Copilot ist ein intelligenter Assistent, der euch beim Programmieren helfen soll. Dies erfolgt in der Form von Vorschlägen, die euch Copilot in Echtzeit während der Eingabe anzeigt. Beim Copilot handelt es sich um eine Künstliche Intelligenz, die auf OpenAI Codex basiert. (codecentric)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1022"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1022"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Github"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-2"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "GitHub ist eine Codehostingplattform für die Versionskontrolle und Zusammenarbeit. Du kannst von jedem Ort aus mit anderen an Projekten zusammenarbeiten.\n\nIn diesem Tutorial werden GitHub-Grundlagen wie Repositorys, Commits und Pull Requests behandelt. Du erstellst ein eigenes Hallo-Welt-Repository und lernst den Pull-Request-Workflow von GitHub kennen, der häufig beim Programmieren und für Code Reviews eingesetzt wird. (github)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1023"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1023"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "SonarQube"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-2"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "SonarQube (ehemals Sonar) ist eine Plattform für die statische Analyse und Bewertung der technischen Qualität von Quelltext. SonarQube analysiert den Quelltext hinsichtlich verschiedener Qualitätsbereiche und stellt die Ergebnisse über eine Website dar. SonarQube ist in Java programmiert, unterstützt aber neben der Analyse von Java-Programmen mit entsprechenden Plugins unter anderem die Programmiersprachen JavaScript, Groovy, Flex, PHP, PL/SQL, C#, Cobol, die des .Net-Frameworks und Visual Basic 6. (Wikipedia)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1024"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1024"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Cucumber"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-2"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-2"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Cucumber ist ein Behavior-driven-Development-Werkzeug zur textbasierten Spezifikation von Anforderungen an Software und zur automatisierten Überprüfung dieser Beschreibung auf ihre korrekte Implementierung. Es wurde ursprünglich in der Programmiersprache Ruby für Ruby-Anwendungen geschrieben. Inzwischen unterstützt es aber auch andere Programmiersprachen wie Java und andere auf der Java Virtual Machine laufenden Programmiersprachen wie Clojure, Groovy, JRuby, Jython, Scala u. a. . Aslak Hellesøy ist der Erfinder von Cucumber. Im April 2008 startete er das Cucumber-Projekt, um die internen Designfehler und Usability-Probleme des RSpec Story Runner zu lösen und die Benutzerfreundlichkeit zu verbessern. (entwickler.de)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1025"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1025"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Grafana"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-2"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Grafana ist eine Open-Source-Software, mit der sich plattformübergreifend Metriken und Daten aus Anwendungen analysieren lassen. Mit Diagrammen, Heatmaps und Histogrammen lässt sich Ihr Stack auf dynamischen Dashboards visualisieren. Dabei verbindet Grafana sich mit einer Vielzahl von Datenquellen wie Prometheus, InfluxDB, ElasticSearch und traditionellen relationalen Datenbank-Engines. (Wilde-IT)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1026"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1026"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Prometheus"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-2"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Prometheus wurde ursprünglich von Soundcloud entwickelt und ist seit 2016 ein Open Source Projekt der Cloud Native Computing Foundation (CNCF). Durch seine Kombination aus Abfragefunktionen und Cloud-nativer Architektur hat es schnell an Bedeutung gewonnen, da es damit zum idealen Überwachungsstack für moderne Anwendungen geworden ist.\n\nEs bietet neben dem Monitoring von IT-Infrastrukturen auch ein Alarm- und Warnsystem, um auf Probleme aufmerksam zu machen. Dabei werden Echtzeitmetriken in einer Zeitreihendatenbank aufgezeichnet, die per HTTP von Anwendungen abgefragt werden. Es verwendet die leistungsstarke Abfragesprache PromQL für die Abfrage der Zeitreihendaten. Prometheus speichert Ereignisse in Echtzeit. Diese Ergebnisse beinhalten alles, was für Ihre Anwendung relevant ist, z. B. Speicherverbrauch, Netzwerkauslastung oder einzelne eingehende Anforderungen. (Wilde-IT)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1027"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1027"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Swagger"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-2"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Swagger (von englisch Prahlerei) ist eine Sammlung von Open-Source-Werkzeugen, um HTTP-Webservices (auch HTTP API oder REST-like API) zu entwerfen, zu erstellen, zu dokumentieren und zu nutzen. Swagger benutzt dazu den Beschreibungsstandard OpenAPI.\n\nSwagger wird von vielen weiteren Tools erkannt und unterstützt. Während die meisten Benutzer bei „Swagger“ an das Swagger-UI-Tool denken, bietet das Swagger-Toolset Unterstützung für automatisierte Dokumentation, Code-Generierung und Testfallgenerierung. Swagger gehört neben RAML und API Blueprint zu den häufig verwendeten API-Beschreibungssprachen. (Wikipedia)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1028"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1028"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "REST"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Representational State Transfer (abgekürzt REST) ist ein Paradigma für die Softwarearchitektur von verteilten Systemen, insbesondere für Webservices. REST ist eine Abstraktion der Struktur und des Verhaltens des World Wide Web. Dabei unterscheidet sich REST vor allem in der Forderung nach einer einheitlichen Schnittstelle von anderen Architekturstilen.\n\nDer Zweck von REST liegt schwerpunktmäßig auf der Maschine-zu-Maschine-Kommunikation. (Wikipedia)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1029"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1029"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "GraphQL"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "GraphQL ist eine Abfragesprache und serverseitige Runtime für APIs, die den Kunden nur diejenigen Daten zur Verfügung stellt, die sie wirklich brauchen.\n\nGraphQL macht APIs schneller, flexibler und entwicklerfreundlicher. Es kann sogar innerhalb einer IDE (Integrated Development Environment) namens GraphiQL bereitgestellt werden. Mit dieser Alternative zu REST können Entwickler Anfragen strukturieren, die mit einem einzigen API-Aufruf Daten aus mehreren Quellen gleichzeitig abrufen.\n\nAußerdem können API-Maintainer mit GraphQL flexibel Felder hinzufügen oder entfernen, ohne dass dies bestehende Abfragen beeinträchtigt. Entwickler können APIs mit ihrer bevorzugten Methode erstellen, und die GraphQL-Spezifikation stellt sicher, dass die API für den Kunden auf vorhersehbare Weise funktioniert. (redhat)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1030"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1030"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Jira"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Jira Software kam 2002 als Vorgangsverfolgungs- und Projektmanagementtool für Teams auf den Markt. Seitdem haben mehr als 65.000 Unternehmen weltweit Jira eingeführt, weil sie damit Projekte aller Art flexibel unterstützen und die Lösung mit Tausenden von Apps und Integrationen umfassend erweitern können. (atlassian)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1031"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1031"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Confluence"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Aufgaben erstellen, organisieren und gemeinsam daran arbeiten – alles an einem einzigen Ort. Confluence ist ein Arbeitsbereich für Teams, in dem Wissen und Zusammenarbeit aufeinandertreffen. Dynamische Seiten bieten deinem Team einen Ort zum Erstellen, Erfassen und Zusammenarbeiten rund um Projekte oder Ideen. Bereiche helfen deinem Team, Aufgaben zu strukturieren, zu organisieren und zu teilen, sodass jedes Teammitglied institutionelles Wissen abrufen und auf die erforderlichen Informationen zugreifen kann, um beste Arbeitsergebnisse zu erzielen. (atlassian)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1032"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1032"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Bitbucket"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-3"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Bitbucket Cloud ist ein Git-basiertes Code-Hosting- und Zusammenarbeitstool für Teams. Dank der erstklassigen Jira- und Trello-Integrationen in Bitbucket kann das gesamte Softwareteam an einem Projekt zusammenarbeiten. Wir bieten deinem Team einen zentralen Ort, an dem es vom Konzept bis zur Cloud gemeinsam am Code arbeiten, hochwertigen Code durch automatische Tests erstellen und Code zuverlässig bereitstellen kann. (bitbucket)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1033"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1033"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Scrum"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Scrum ist ein Rahmenwerk für die Zusammenarbeit von Teams basierend auf einer Definition von Rollen, Meetings und Werkzeugen, die einem Team Struktur und einen klar definierten Arbeitsprozess basierend auf agilen Prinzipien geben.\n\nDabei ist Scrum keine dogmatische Methode, sondern ein Framework, das einem Team und beteiligten Stakeholdern Leitplanken und Orientierungspunkte für ihre Zusammenarbeit und Kommunikation bietet. Die Scrum Methode wird durch www.scrum.org permanent weiterentwickelt und ist im aktuellen Scrum Guide dokumentiert. Die letzte Aktualisierung des Scrum Guides erfolgte Ende 2020. (digitaleneuordnung)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1034"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1034"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Microservices"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Microservices bezeichnen eine Art von Anwendungsarchitektur, bei der eine Sammlung unabhängiger Services über schlanke APIs miteinander kommuniziert.\n\nErinnern Sie sich nur einmal an Ihren letzten Besuch in einem Online-Shop. Dabei haben Sie vielleicht die Funktion für die Produktsuche auf der jeweiligen Site verwendet. Diese Funktion ist ein Service. Vielleicht wurden Ihnen auch Vorschläge für ähnliche Produkte unterbreitet, oder Sie haben ein Produkt zu Ihrem Warenkorb hinzugefügt. Dabei handelt es sich auch um Services. Wenn Sie all diese Microservices bündeln, haben Sie eine vollständig funktionale Anwendung. (redhat)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          },
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "1035"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "value": "1035"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Microfrontend"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "category_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "lifecycle_id",
+                    "value": "-4"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Kurz gesagt, unter einem Micro-Frontend versteht man ein einzelnes, isoliertes Teil einer gesamten Web-Applikation. Diese Micro-Frontends sind dadurch isoliert aufrufbar, beinhalten aber meist keine grundlegenden Standard-Komponenten wie beispielsweise einen Header oder einen Footer, sondern nur die spezifische, fachlich eingegrenzte Funktionalität einer einzelnen Seite. (b-nova)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changedate",
+                    "value": "2023-08-18 00:00:00.000000",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "value": "-1000"
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "history"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

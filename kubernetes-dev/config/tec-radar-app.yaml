@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: tecradar-dev
+  namespace: argocd
+spec:
+  destination:
+    namespace: tecradar-uat
+    server: "https://kubernetes.default.svc"
+  source:
+    repoURL: "https://github.com/DE-AMS-AD-TECUNIVERS/tecradar.git"
+    targetRevision: test
+    path: kubernetes-test
+  project: tecradar
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

@@ -1,0 +1,204 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "Tec9-project-history",
+        "author": "epi2000",
+        "preConditions": {
+          "onFail": "MARK_RAN",
+          "not": {
+            "tableExists": {
+              "tableName": "project_history"
+            }
+          }
+        },
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "project_history",
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "type": "BIGINT",
+                    "constraints": {
+                      "nullable": false,
+                      "primaryKey": true,
+                      "primaryKeyName": "project_history_pkey"
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "type": "VARCHAR(60)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "type": "VARCHAR(300)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "contact_person",
+                    "type": "VARCHAR(60)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "info",
+                    "type": "VARCHAR(300)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "start_date",
+                    "type": "DATE",
+                    "constraints": {
+                      "nullable": true
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "change_date",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "type": "BIGINT"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "project_id",
+                    "type": "BIGINT"
+                  }
+                },
+                {
+                  "addForeignKeyConstraint": {
+                    "constraintName": "fk_user",
+                    "baseTableName": "project_history",
+                    "baseColumnNames": "user_id",
+                    "referencedTableName": "user",
+                    "referencedColumnNames": "id"
+                  }
+                },
+                {
+                  "addForeignKeyConstraint": {
+                    "constraintName": "fk_project",
+                    "baseTableName": "project_history",
+                    "baseColumnNames": "project_id",
+                    "referencedTableName": "project",
+                    "referencedColumnNames": "id"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "createTable": {
+              "tableName": "project_history_technology",
+              "columns": [
+                {
+                  "column": {
+                    "name": "project_history_id",
+                    "type": "BIGINT"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "type": "BIGINT"
+                  }
+                },
+                {
+                  "addForeignKeyConstraint": {
+                    "constraintName": "fk_project_history_technology",
+                    "baseTableName": "project_history_technology",
+                    "baseColumnNames": "project_history_id",
+                    "referencedTableName": "project_history",
+                    "referencedColumnNames": "id"
+                  }
+                },
+                {
+                  "addForeignKeyConstraint": {
+                    "constraintName": "fk_technology_project_history",
+                    "baseTableName": "project_history_technology",
+                    "baseColumnNames": "technology_id",
+                    "referencedTableName": "technology",
+                    "referencedColumnNames": "id"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "createTable": {
+              "tableName": "project_history_customer",
+              "columns": [
+                {
+                  "column": {
+                    "name": "project_history_id",
+                    "type": "BIGINT"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_id",
+                    "type": "BIGINT"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "constraintName": "fk_project_history_customer",
+              "baseTableName": "project_history_customer",
+              "baseColumnNames": "project_history_id",
+              "referencedTableName": "project_history",
+              "referencedColumnNames": "id"
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "constraintName": "fk_customer_project_history",
+              "baseTableName": "project_history_customer",
+              "baseColumnNames": "customer_id",
+              "referencedTableName": "customer",
+              "referencedColumnNames": "id"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "Tec9-2",
+        "author": "epi2000",
+        "changes": [
+          {
+            "sql": {
+              "dbms": "postgresql",
+              "sql": "grant select, insert, update, delete on table project_history, project_history_customer, project_history_technology to ${APP_USER};"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

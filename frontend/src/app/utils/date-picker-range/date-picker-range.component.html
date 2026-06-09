@@ -1,0 +1,37 @@
+<mat-form-field [formGroup]="dateRangeForm">
+  <mat-label>Zeitraum eintragen</mat-label>
+  <mat-date-range-input [rangePicker]="rangePicker">
+    <input
+      matStartDate
+      formControlName="startDate"
+      placeholder="Start Datum"
+      required
+    />
+    <input
+      matEndDate
+      formControlName="endDate"
+      placeholder="End Datum"
+      required
+    />
+  </mat-date-range-input>
+  <mat-hint>TT/MM/JJJJ – TT/MM/JJJJ</mat-hint>
+  <mat-datepicker-toggle
+    matIconSuffix
+    [for]="rangePicker"
+  ></mat-datepicker-toggle>
+  <mat-date-range-picker #rangePicker>
+    <mat-date-range-picker-actions>
+      <button mat-button matDateRangePickerCancel>Abbrechen</button>
+      <button mat-raised-button color="primary" matDateRangePickerApply>
+        Bestätigen
+      </button>
+    </mat-date-range-picker-actions>
+  </mat-date-range-picker>
+  <mat-error
+    *ngIf="
+      dateRangeForm.invalid && (dateRangeForm.dirty || dateRangeForm.touched)
+    "
+  >
+    Bitte wähle einen Zeitraum aus.
+  </mat-error>
+</mat-form-field>

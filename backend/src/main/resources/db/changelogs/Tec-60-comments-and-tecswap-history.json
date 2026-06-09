@@ -1,0 +1,444 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "TEC-60-create-comment-table",
+        "author": "a881109",
+        "comment": "Create Comment table with all constraints",
+        "preConditions": {
+          "onFail": "MARK_RAN",
+          "not": {
+            "tableExists": {
+              "tableName": "comment"
+            }
+          }
+        },
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "comment",
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "type": "BIGINT",
+                    "constraints": {
+                      "nullable": false,
+                      "primaryKey": true,
+                      "primaryKeyName": "pk_comment"
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "corresponding_history_id",
+                    "type": "BIGINT"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "previous_history_id",
+                    "type": "BIGINT"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "tecswap_revision_id",
+                    "type": "INT",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "base_tecswap_revision_id",
+                    "type": "INT",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "creation_date",
+                    "type": "DATETIME"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "type": "BIGINT"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "tecswap_element_id",
+                    "type": "BIGINT"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "content",
+                    "type": "VARCHAR(1000)"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "TEC-60-create-revision-entities",
+        "author": "a881109",
+        "comment": "Create revision tracking tables for audit functionality",
+        "preConditions": {
+          "onFail": "MARK_RAN",
+          "not": {
+            "tableExists": {
+              "tableName": "userrevisionentity"
+            }
+          }
+        },
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "userrevisionentity",
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "type": "INT",
+                    "constraints": {
+                      "nullable": false,
+                      "primaryKey": true,
+                      "primaryKeyName": "pk_userrevisionentity"
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "timestamp",
+                    "type": "BIGINT",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "userid",
+                    "type": "BIGINT"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "createTable": {
+              "tableName": "revinfo",
+              "columns": [
+                {
+                  "column": {
+                    "name": "rev",
+                    "type": "INT",
+                    "constraints": {
+                      "nullable": false,
+                      "primaryKey": true,
+                      "primaryKeyName": "revinfo_pkey"
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "revtstmp",
+                    "type": "BIGINT"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "createSequence": {
+              "sequenceName": "revinfo_seq",
+              "startValue": 1,
+              "incrementBy": 50
+            }
+          },
+          {
+            "createSequence": {
+              "sequenceName": "userrevisionentity_seq",
+              "startValue": 1,
+              "incrementBy": 50
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "TEC-60-create-tecswap-audit-table",
+        "author": "a881109",
+        "comment": "Create audit table for tec_swap_element",
+        "preConditions": {
+          "onFail": "MARK_RAN",
+          "not": {
+            "tableExists": {
+              "tableName": "tec_swap_element_aud"
+            }
+          }
+        },
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "tec_swap_element_aud",
+              "columns": [
+                {
+                  "column": {
+                    "name": "rev",
+                    "type": "INT",
+                    "constraints": {
+                      "nullable": false,
+                      "primaryKey": true,
+                      "primaryKeyName": "pk_tec_swap_element_aud"
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "id",
+                    "type": "BIGINT",
+                    "constraints": {
+                      "nullable": false,
+                      "primaryKey": true,
+                      "primaryKeyName": "pk_tec_swap_element_aud"
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "revtype",
+                    "type": "SMALLINT"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "type": "BIGINT"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "tec_swap",
+                    "type": "VARCHAR(255)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "is_completed",
+                    "type": "BOOLEAN"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "edit_date",
+                    "type": "DATE"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "TEC-60-update-tecswap-element-constraints",
+        "author": "a881109",
+        "comment": "Add primary key and not null constraints to existing tec_swap_element table",
+        "preConditions": {
+          "onFail": "MARK_RAN",
+          "not": {
+            "tableExists": {
+              "tableName": "tec_swap_element_aud"
+            }
+          }
+        },
+        "changes": [
+          {
+            "addPrimaryKey": {
+              "tableName": "tec_swap_element",
+              "columnNames": "id",
+              "constraintName": "pk_tec_swap_element"
+            }
+          },
+          {
+            "addNotNullConstraint": {
+              "tableName": "tec_swap_element",
+              "columnName": "id",
+              "columnDataType": "BIGINT",
+              "validate": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "TEC-60-add-primary-key-before-fk",
+        "author": "a881109",
+        "comment": "Ensure primary key exists on tec_swap_element before adding foreign keys",
+        "preConditions": {
+          "onFail": "MARK_RAN",
+          "not": {
+            "primaryKeyExists": {
+              "tableName": "tec_swap_element"
+            }
+          }
+        },
+        "changes": [
+          {
+            "addNotNullConstraint": {
+              "tableName": "tec_swap_element",
+              "columnName": "id",
+              "columnDataType": "BIGINT",
+              "validate": true
+            }
+          },
+          {
+            "addPrimaryKey": {
+              "tableName": "tec_swap_element",
+              "columnNames": "id",
+              "constraintName": "pk_tec_swap_element"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "TEC-60-add-foreign-key-constraints",
+        "author": "a881109",
+        "comment": "Add all foreign key constraints for Comment and audit tables",
+        "preConditions": {
+          "onFail": "MARK_RAN",
+          "not": {
+            "foreignKeyConstraintExists": {
+              "foreignKeyName": "FK_COMMENT_ON_CORRESPONDING_HISTORY"
+            }
+          }
+        },
+        "changes": [
+          {
+            "addForeignKeyConstraint": {
+              "baseTableName": "comment",
+              "baseColumnNames": "corresponding_history_id",
+              "constraintName": "FK_COMMENT_ON_CORRESPONDING_HISTORY",
+              "referencedTableName": "history",
+              "referencedColumnNames": "id"
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "baseTableName": "comment",
+              "baseColumnNames": "previous_history_id",
+              "constraintName": "FK_COMMENT_ON_PREVIOUS_HISTORY",
+              "referencedTableName": "history",
+              "referencedColumnNames": "id"
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "baseTableName": "comment",
+              "baseColumnNames": "tecswap_element_id",
+              "constraintName": "FK_COMMENT_ON_TECSWAPELEMENT",
+              "referencedTableName": "tec_swap_element",
+              "referencedColumnNames": "id"
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "baseTableName": "comment",
+              "baseColumnNames": "user_id",
+              "constraintName": "FK_COMMENT_ON_USER",
+              "referencedTableName": "User",
+              "referencedColumnNames": "id"
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "baseTableName": "tec_swap_element_aud",
+              "baseColumnNames": "rev",
+              "constraintName": "FK_TEC_SWAP_ELEMENT_AUD_ON_REV",
+              "referencedTableName": "userrevisionentity",
+              "referencedColumnNames": "id"
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "baseTableName": "tec_swap_element",
+              "baseColumnNames": "technology_id",
+              "constraintName": "FK_TEC_SWAP_ELEMENT_ON_TECHNOLOGY",
+              "referencedTableName": "technology",
+              "referencedColumnNames": "id"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "Tec-60-grant-permissions",
+        "author": "mircoboettcher",
+        "changes": [
+          {
+            "sql": {
+              "dbms": "postgresql",
+              "sql": "grant select, insert, update, delete on table COMMENT to ${APP_USER};"
+            }
+          },
+          {
+            "sql": {
+              "dbms": "postgresql",
+              "sql": "GRANT USAGE, SELECT, UPDATE ON SEQUENCE userrevisionentity_seq TO ${APP_USER};"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "Tec-60-grant-permissions-2",
+        "author": "mircoboettcher",
+        "changes": [
+          {
+            "sql": {
+              "dbms": "postgresql",
+              "sql": "GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE revinfo TO ${APP_USER};"
+            }
+          },
+          {
+            "sql": {
+              "dbms": "postgresql",
+              "sql": "GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE tec_swap_element_aud TO ${APP_USER};"
+            }
+          },
+          {
+            "sql": {
+              "dbms": "postgresql",
+              "sql": "GRANT USAGE, SELECT, UPDATE ON SEQUENCE revinfo_seq TO ${APP_USER};"
+            }
+          },
+          {
+            "sql": {
+              "dbms": "postgresql",
+              "sql": "GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE userrevisionentity TO ${APP_USER};"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "Tec-106-rename-industries",
+        "author": "timdangberg05",
+        "changes": [
+          {
+            "update": {
+              "tableName": "industry",
+              "columns": [
+                { "column": { "name": "name", "value": "PSD - Public Sector & Defense" } }
+              ],
+              "where": "id = -1"
+            }
+          },
+          {
+            "update": {
+              "tableName": "industry",
+              "columns": [
+                { "column": { "name": "name", "value": "FS&I - Financial Services & Insurance" } }
+              ],
+              "where": "id = -2"
+            }
+          },
+          {
+            "update": {
+              "tableName": "industry",
+              "columns": [
+                { "column": { "name": "name", "value": "MAN - Manufacturing" } }
+              ],
+              "where": "id = -3"
+            }
+          },
+          {
+            "update": {
+              "tableName": "industry",
+              "columns": [
+                { "column": { "name": "name", "value": "HLS - Health & Life Sciences" } }
+              ],
+              "where": "id = -4"
+            }
+          },
+          {
+            "update": {
+              "tableName": "industry",
+              "columns": [
+                { "column": { "name": "name", "value": "TMT - Telecom, Media & Technology" } }
+              ],
+              "where": "id = -5"
+            }
+          },
+          {
+            "update": {
+              "tableName": "industry",
+              "columns": [
+                { "column": { "name": "name", "value": "R&S - Resources & Services" } }
+              ],
+              "where": "id = -6"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

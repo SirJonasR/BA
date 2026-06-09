@@ -1,0 +1,70 @@
+<h1>Zertifikate</h1>
+
+<div class="sidenav-buttons-container">
+  <!-- Such Button -->
+  <button
+    (click)="toggleSearch()"
+    class="search-button"
+    mat-mini-fab
+    matTooltip="Suchen"
+    aria-label="Suchfeld öffnen"
+  >
+    <mat-icon class="filter-search-icon">search</mat-icon>
+  </button>
+  <input
+    #searchInput
+    type="text"
+    class="search-input"
+    [class.visible]="isSearchVisible"
+    placeholder="Suchen..."
+    [(ngModel)]="searchText"
+    (input)="applySearch()"
+  />
+</div>
+
+<div class="mat-elevation-z8">
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    matSort
+    data-test-id="certificate-list"
+  >
+    <ng-container matColumnDef="name">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by name"
+      >
+        Name
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <span class="name">
+          {{ element.name }}
+        </span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="certificates">
+      <th mat-header-cell *matHeaderCellDef>Zertifikate</th>
+      <td mat-cell *matCellDef="let element">
+        {{ getCertificateNames(element) }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      class="row1 clickable"
+      mat-row
+      *matRowDef="let row; columns: displayedColumns"
+      (click)="navigate(row)"
+    ></tr>
+  </table>
+
+  <mat-paginator
+    [pageSizeOptions]="[10, 25, 100]"
+    showFirstLastButtons
+    aria-label="Wähle die Seite mit den Zertifikaten aus"
+  >
+  </mat-paginator>
+</div>

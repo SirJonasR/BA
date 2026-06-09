@@ -1,0 +1,90 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "165-lifecycle-popup-1",
+        "author": "epi2000",
+        "changes": [
+          {
+            "addColumn": {
+              "column": {
+                "name": "description",
+                "type": "VARCHAR(300)"
+              },
+              "schemaName": "public",
+              "tableName": "lifecycle"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "165-lifecycle-popup-2",
+        "author": "epi2000",
+        "changes": [
+          {
+            "update": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Wir können diese Technologien mit klarer Sicherheit empfehlen. Diese Technologien haben wir erfolgreich in mehreren Teams verwendet."
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "lifecycle",
+              "where": "name='Maintain'"
+            }
+          },
+          {
+            "update": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Wir sind davon überzeugt, dass die Industrie diese Technologien übernehnemen soll. An geeigneter Stelle verwenden wir die Technologien bei unseren eigenen Projekten."
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "lifecycle",
+              "where": "name='Adopt'"
+            }
+          },
+          {
+            "update": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Diese Technologien sind es wert näher untersucht zu werden. Sollte in Projekten verwendet werden mit dem Ziel den Nutzen zu bewerten."
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "lifecycle",
+              "where": "name='Assess'"
+            }
+          },
+          {
+            "update": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Wir verwenden diese Technologien nur noch zur Instandhaltung in Altprojekten, weil bessere Alternativen existieren."
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "lifecycle",
+              "where": "name='Monitor'"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

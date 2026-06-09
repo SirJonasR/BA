@@ -1,0 +1,180 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "Tec-108-add-contact-persons",
+        "author": "timdangberg05",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "contact",
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "type": "BIGINT",
+                    "constraints": {
+                      "primaryKey": true,
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "email",
+                    "type": "VARCHAR(255)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "role",
+                    "type": "VARCHAR(255)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "project_id",
+                    "type": "BIGINT",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "constraintName": "fk_contact_project",
+              "baseTableName": "contact",
+              "baseColumnNames": "project_id",
+              "referencedTableName": "project",
+              "referencedColumnNames": "id",
+              "onDelete": "CASCADE"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "add-contact-history",
+        "author": "timdangberg05",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "contact_history",
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "type": "BIGINT",
+                    "constraints": {
+                      "primaryKey": true,
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "email",
+                    "type": "VARCHAR(255)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "role",
+                    "type": "VARCHAR(255)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "project_history_id",
+                    "type": "BIGINT",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "constraintName": "fk_contact_history_project_history",
+              "baseTableName": "contact_history",
+              "baseColumnNames": "project_history_id",
+              "referencedTableName": "project_history",
+              "referencedColumnNames": "id",
+              "onDelete": "CASCADE"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "drop-null-constraint-contact-person",
+        "author": "timdangberg05",
+        "changes": [
+          {
+            "dropNotNullConstraint": {
+              "tableName": "project",
+              "columnName": "contact_person",
+              "columnDataType": "VARCHAR(255)"
+            }
+          },
+          {
+            "dropNotNullConstraint": {
+              "tableName": "project_history",
+              "columnName": "contact_person",
+              "columnDataType": "VARCHAR(255)"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "migrate-contact-person-into-contact",
+        "author": "timdangberg05",
+        "changes": [
+          {
+            "sql": {
+              "dbms": "postgresql",
+              "sql": "insert into contact (id, email, role, project_id) select nextval('hibernate_sequence'), btrim(regexp_replace(r, '\\s*\\([^)]*\\)\\s*$', '')), nullif(btrim(substring(r from '\\(([^)]*)\\)\\s*$')), ''), p.id from project p cross join lateral unnest(string_to_array(p.contact_person, ',')) as r where p.contact_person is not null and btrim(p.contact_person) <> '' and lower(btrim(p.contact_person)) <> 'unbekannt' and btrim(r) <> '' and lower(btrim(r)) <> 'unbekannt' and btrim(regexp_replace(r, '\\s*\\([^)]*\\)\\s*$', '')) <> '';"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "migrate-contact-person-into-contact-history",
+        "author": "timdangberg05",
+        "changes": [
+          {
+            "sql": {
+              "dbms": "postgresql",
+              "sql": "insert into contact_history (id, email, role, project_history_id) select nextval('hibernate_sequence'), btrim(regexp_replace(r, '\\s*\\([^)]*\\)\\s*$', '')), nullif(btrim(substring(r from '\\(([^)]*)\\)\\s*$')), ''), ph.id from project_history ph cross join lateral unnest(string_to_array(ph.contact_person, ',')) as r where ph.contact_person is not null and btrim(ph.contact_person) <> '' and lower(btrim(ph.contact_person)) <> 'unbekannt' and btrim(r) <> '' and lower(btrim(r)) <> 'unbekannt' and btrim(regexp_replace(r, '\\s*\\([^)]*\\)\\s*$', '')) <> '';"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "grant-permissions-contact",
+        "author": "timdangberg05",
+        "changes": [
+          {
+            "sql": {
+              "dbms": "postgresql",
+              "sql": "grant select, insert, update, delete on table contact, contact_history to ${APP_USER};"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

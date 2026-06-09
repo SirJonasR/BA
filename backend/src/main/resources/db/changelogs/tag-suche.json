@@ -1,0 +1,100 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "add-visit-counter",
+        "author": "epi2000",
+        "changes": [
+          {
+            "addColumn": {
+              "column": {
+                "name": "view_count",
+                "type": "BIGINT"
+              },
+              "schemaName": "public",
+              "tableName": "technology"
+            }
+          },
+          {
+            "createTable": {
+              "tableName": "counter",
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "type": "BIGINT",
+                    "constraints": {
+                      "nullable": false,
+                      "primaryKey": true,
+                      "primaryKeyName": "counter_pkey"
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "type": "BIGINT",
+                    "constraints": {
+                      "deleteCascade": true,
+                      "nullable": false,
+                      "primaryKey": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "type": "BIGINT",
+                    "constraints":{
+                      "nullable": false,
+                      "primaryKey": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "view_count",
+                    "type": "BIGINT"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "baseTableName": "counter",
+              "baseColumnNames": "technology_id",
+              "constraintName": "technology_fk",
+              "referencedTableName": "technology",
+              "referencedColumnNames": "id",
+              "onDelete": "CASCADE"
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "baseTableName": "counter",
+              "baseColumnNames": "user_id",
+              "constraintName": "user_fk",
+              "referencedTableName": "User",
+              "referencedColumnNames": "id"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "tag-suche-2",
+        "author": "epi2000",
+        "changes": [
+          {
+            "sql": {
+              "dbms": "postgresql",
+              "sql": "grant select, insert, update, delete on table counter to ${APP_USER};"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

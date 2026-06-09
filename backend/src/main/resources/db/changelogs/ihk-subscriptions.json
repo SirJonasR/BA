@@ -1,0 +1,149 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "ihk-subscriptions-1",
+        "author": "ErikM02",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "subscription",
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "type": "BIGINT",
+                    "constraints": {
+                      "nullable": false,
+                      "primaryKey": true,
+                      "primaryKeyName": "subscription_pkey"
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "type": "BIGINT"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "type": "VARCHAR(255)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "timespan",
+                    "type": "INTEGER"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "email",
+                    "type": "VARCHAR(255)"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "changeSet": {
+        "id": "ihk-subscriptions-2",
+        "author": "ErikM02",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "subscription_item",
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "type": "BIGINT",
+                    "constraints": {
+                      "primaryKey": true,
+                      "nullable": false,
+                      "primaryKeyName": "subscriptionItem_pkey"
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "subscription_id",
+                    "type": "BIGINT"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "itemtype",
+                    "type": "VARCHAR(255)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "item_id",
+                    "type": "BIGINT"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "changeSet": {
+        "id": "ihk-subscriptions-3",
+        "author": "ErikM02",
+        "changes": [
+          {
+            "addForeignKeyConstraint": {
+              "baseColumnNames": "user_id",
+              "baseTableName": "subscription",
+              "constraintName": "subscription_user_fk",
+              "onDelete": "CASCADE",
+              "referencedColumnNames": "id",
+              "referencedTableName": "User"
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "baseColumnNames": "subscription_id",
+              "baseTableName": "subscription_item",
+              "constraintName": "subscriptionItem_subscription_fk",
+              "onDelete": "CASCADE",
+              "referencedColumnNames": "id",
+              "referencedTableName": "subscription"
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "changeSet": {
+        "id": "ihk-subscriptions-4",
+        "author": "ErikM02",
+        "changes": [
+          {
+            "sql": {
+              "dbms": "postgresql",
+              "sql": "grant select, insert, update, delete on table subscription to ${APP_USER};"
+            }
+          },
+          {
+            "sql": {
+              "dbms": "postgresql",
+              "sql": "grant select, insert, update, delete on table subscription_item to ${APP_USER};"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+<div class="side-nav">
+  <div class="filter-header">
+    <h1>Einstellungen</h1>
+  </div>
+
+  <!-- SHOW ICONS TOGGLE-->
+  <div class="filter-card toggle-card" [class.has-selections]="false">
+    <div class="card-header">
+      <div class="card-title">
+        <mat-icon class="card-icon">image</mat-icon>
+        <span>Icons anzeigen</span>
+      </div>
+      <mat-slide-toggle
+        [checked]="showIcons"
+        (change)="setShowIcons($event.checked)"
+        color="primary"
+      ></mat-slide-toggle>
+    </div>
+  </div>
+
+  <!-- SHOW ICONS IN COLOR TOGGLE-->
+  <div class="filter-card toggle-card" [class.has-selections]="false">
+    <div class="card-header">
+      <div class="card-title">
+        <mat-icon class="card-icon">color_lens</mat-icon>
+        <span>Icons farbig anzeigen</span>
+      </div>
+      <mat-slide-toggle
+        [checked]="showIconsInColor"
+        (change)="setShowIconsInColor($event.checked)"
+        color="primary"
+      ></mat-slide-toggle>
+    </div>
+  </div>
+
+  <!-- SWITCH BETWEEN THEMES-->
+  <div class="filter-card" [class.has-selections]="false">
+    <div
+      class="card-header"
+      (click)="toggleThemeExpanded()"
+      tabindex="0"
+      (keydown.enter)="toggleThemeExpanded()"
+      (keydown.space)="toggleThemeExpanded(); $event.preventDefault()"
+      [attr.aria-expanded]="isThemeExpanded"
+      role="button"
+    >
+      <div class="card-title">
+        <mat-icon class="card-icon">brightness_6</mat-icon>
+        <span>Design wählen</span>
+      </div>
+      <mat-icon class="expand-icon" [class.expanded]="isThemeExpanded"
+        >expand_more</mat-icon
+      >
+    </div>
+
+    <div class="card-content" [class.expanded]="isThemeExpanded">
+      <div class="content-wrapper">
+        <mat-radio-group
+          class="radio-group-mat"
+          [value]="currentThemeId"
+          (change)="onThemeChange($event.value)"
+        >
+          <div *ngFor="let theme of availableThemes" class="radio-option-mat">
+            <mat-radio-button [value]="theme.id" color="primary">
+              <div class="theme-option-label">
+                <mat-icon class="theme-icon">{{ theme.icon }}</mat-icon>
+                <span>{{ theme.name }}</span>
+              </div>
+            </mat-radio-button>
+          </div>
+        </mat-radio-group>
+      </div>
+    </div>
+  </div>
+</div>

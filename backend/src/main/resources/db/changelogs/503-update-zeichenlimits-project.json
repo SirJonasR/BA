@@ -1,0 +1,52 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "503-update-zeichenlimit-project",
+        "author": "epi2000",
+        "changes": [
+          {
+            "modifyDataType": {
+              "tableName": "project",
+              "schemaName": "public",
+              "columnName": "name",
+              "newDataType": "VARCHAR(255)"
+            }
+          },
+          {
+            "modifyDataType": {
+              "tableName": "project",
+              "schemaName": "public",
+              "columnName": "description",
+              "newDataType": "VARCHAR(1800)"
+            }
+          },
+          {
+            "modifyDataType": {
+              "tableName": "project",
+              "schemaName": "public",
+              "columnName": "contact_person",
+              "newDataType": "VARCHAR(255)"
+            }
+          },
+          {
+            "modifyDataType": {
+              "tableName": "project",
+              "schemaName": "public",
+              "columnName": "info",
+              "newDataType": "VARCHAR(1800)"
+            }
+          },
+          {
+            "modifyDataType": {
+              "tableName": "customer",
+              "schemaName": "public",
+              "columnName": "name",
+              "newDataType": "VARCHAR(255)"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

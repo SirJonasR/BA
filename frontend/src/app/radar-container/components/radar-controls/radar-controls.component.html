@@ -1,0 +1,68 @@
+<!-- Sidenav Container -->
+<mat-sidenav-container>
+  <!-- Single Sidenav with mode switcher -->
+  <mat-sidenav #sidenav position="end" [mode]="'side'">
+    <div class="sidenav-content-wrapper">
+      <app-radar-filters
+        *ngIf="sidenavMode === 'filters'"
+        [@fadeContent]
+        [tags]="tags"
+        [customers]="customers"
+        [projects]="projects"
+        [lifecycles]="lifecycles"
+        [filterState]="filterState"
+        (filtersChanged)="onFiltersChanged($event)"
+        (filterReset)="onFilterReset()"
+      >
+      </app-radar-filters>
+
+      <app-radar-settings
+        *ngIf="sidenavMode === 'settings'"
+        [@fadeContent]
+        (settingsChanged)="onSettingsChanged($event)"
+      >
+      </app-radar-settings>
+    </div>
+  </mat-sidenav>
+
+  <!-- Content projection for parent's radar visualization -->
+  <mat-sidenav-content>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- Floating Action Buttons -->
+<button
+  [class.active]="sidenavMode === 'filters' && sidenav.opened"
+  class="filterButton"
+  data-test-id="filter-button"
+  matTooltip="Filtern und Sortieren"
+  (click)="onFilterClick()"
+  mat-mini-fab
+>
+  <mat-icon class="button-icon">filter_alt</mat-icon>
+</button>
+
+<!-- Settings Button -->
+<button
+  [class.active]="sidenavMode === 'settings' && sidenav.opened"
+  class="settingsButton"
+  data-test-id="settings-button"
+  matTooltip="Einstellungen"
+  (click)="onSettingsClick()"
+  *ngIf="featureFlagService.isEnabled('SHOW_SETTINGS_ICON')"
+  mat-mini-fab
+>
+  <mat-icon class="button-icon">settings</mat-icon>
+</button>
+
+<!-- Add Technology Button -->
+<button
+  class="addButton"
+  mat-fab
+  color="primary"
+  matTooltip="Füge eine neue Technologie hinzu"
+  (click)="onAddTechnologyClick()"
+>
+  <mat-icon>add</mat-icon>
+</button>

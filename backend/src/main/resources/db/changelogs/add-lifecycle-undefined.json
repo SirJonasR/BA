@@ -1,0 +1,44 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "add-lifecycle-undefined",
+        "author": "ErikM02",
+        "changes": [
+          {
+            "insert": {
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "value": "-5"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "Undefined"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "sort",
+                    "value": "5"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Diese Technologien wurden noch keinem Lebenszyklus zugewiesen."
+                  }
+                }
+              ],
+              "schemaName": "public",
+              "tableName": "lifecycle"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

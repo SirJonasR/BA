@@ -1,0 +1,84 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.properties {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  column-gap: 1rem;
+  row-gap: 0.25rem;
+}
+
+.properties > span:nth-child(1) {
+  flex: 0 0 100%;
+}
+
+.label {
+  color: gray;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  grid-template-columns: max-content 1fr;
+  word-break: break-word;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.field {
+  padding: 10px;
+  overflow-y: auto;
+  height: 90px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-start;
+  gap: 30px;
+  margin: 1rem 1rem 0;
+}
+.mat-icon {
+  margin-right: 0;
+  margin-left: 1px;
+  height: 20px;
+  width: 20px;
+}
+
+mat-chip{
+  margin-right: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+.chip {
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: 16px;
+  font-weight: bold;
+  white-space: nowrap;
+  margin: 5px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: var(--brand-primary-dark);
+  color: var(--brand-accent-light);
+}
+
+.defaultcursor {
+  cursor: default;
+}
+
+.pointercursor{
+  cursor: pointer;
+}
+
+a, a:visited, a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: inherit;
+}

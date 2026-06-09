@@ -1,0 +1,8 @@
+<h1>Technologie bearbeiten</h1>
+<app-edit-form
+  *ngIf="hasLoaded"
+  [values]="values"
+  (submitForm)="onSubmit()"
+  [isSubmitting]="isSubmitting"
+  [hasError]="hasError"
+></app-edit-form>

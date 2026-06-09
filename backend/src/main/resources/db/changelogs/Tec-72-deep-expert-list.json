@@ -1,0 +1,94 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "Tec-72-deep-expert-list",
+        "author": "mircoboettcher",
+        "changes": [
+          {
+            "createTable": {
+              "columns": [
+                {
+                  "column": {
+                    "constraints": {
+                      "nullable": false,
+                      "primaryKey": true,
+                      "primaryKeyName": "pk_deep_expert_list"
+                    },
+                    "name": "list_index",
+                    "type": "INT"
+                  }
+                },
+                {
+                  "column": {
+                    "constraints": {
+                      "nullable": false
+                    },
+                    "name": "technology_name",
+                    "type": "VARCHAR(400)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "expert_information",
+                    "type": "VARCHAR(400)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "scope",
+                    "type": "VARCHAR(1500)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "comment",
+                    "type": "VARCHAR(1500)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "type": "VARCHAR(1500)"
+                  }
+                }
+              ],
+              "tableName": "deep_expert_list"
+            }
+          },
+          {
+            "sql": {
+              "dbms": "postgresql",
+              "sql": "grant select, insert, update, delete on table deep_expert_list to ${APP_USER};"
+            }
+          },
+          {
+            "insert": {
+              "tableName": "feature_flags",
+              "columns": [
+                {
+                  "column": {
+                    "name": "name",
+                    "value": "SHOW_DEEP_EXPERTS_IN_TECHNOLOGY_DETAIL"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "enabled",
+                    "value": false
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "value": "Steuert, ob das Frontend beim Aufruf einer Technology-Detail Seite versucht, die Deep Experts abzurufen."
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

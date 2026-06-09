@@ -1,0 +1,66 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "174-contactform-anlegen-1",
+        "author": "TobiasLoesing",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "contactform",
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "type": "BIGINT",
+                    "constraints": {
+                      "primaryKey": true,
+                      "nullable": false,
+                      "unique": true
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "consentdate",
+                    "type": "TIMESTAMP WITHOUT TIME ZONE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "type": "BIGINT"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "baseTableName": "contactform",
+              "baseColumnNames": "user_id",
+              "constraintName": "user_fk",
+              "referencedTableName": "User",
+              "referencedColumnNames": "id",
+              "onDelete": "CASCADE"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "174-contactform-anlegen-2",
+        "author": "TobiasLoesing",
+        "changes": [
+          {
+            "sql": {
+              "dbms": "postgresql",
+              "sql": "grant select, insert, update, delete on table contactform to ${APP_USER};"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

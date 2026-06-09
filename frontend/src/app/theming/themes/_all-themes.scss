@@ -1,0 +1,10 @@
+/**
+ * Theme SCSS Imports
+ * Import order matches theme-registry.ts
+ * SCSS compilation requires explicit imports (build-time limitation)
+ */
+
+@import './light.theme.scss';
+@import './dark.theme.scss';
+@import './night-sky.theme.scss';
+@import './atos-light.theme.scss';

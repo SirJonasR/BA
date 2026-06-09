@@ -1,0 +1,379 @@
+/**
+ * Night Sky Theme - Dark theme with celestial aesthetics
+ * Theme metadata defined in theme-registry.ts
+ */
+
+[data-theme="night-sky"] {
+  // Typography
+  --app-font-family: "Montserrat", sans-serif;
+
+  // Surface colors
+  --app-background-primary: transparent;
+  --app-background-secondary: rgba(19, 24, 41, 0.85);
+  --app-background-tertiary: rgba(26, 31, 58, 0.85);
+  --app-surface: rgba(19, 24, 41, 0.85);
+  --app-surface-elevated: rgba(26, 31, 58, 0.90);
+  --app-surface-translucent: rgba(19, 24, 41, 0.75);
+  
+  // Radar-specific surfaces
+  --radar-background-blur: rgba(19, 24, 41, 0.70);
+  --radar-accent-border: rgba(125, 211, 224, 0.2);
+  --radar-accent-glow: rgba(125, 211, 224, 0.1);
+  --radar-accent-glow-inner: rgba(125, 211, 224, 0.05);
+  
+  // Text colors
+  --app-text-primary: #e8eaf6;
+  --app-text-secondary: #b8c5d6;
+  --app-text-tertiary: #8996ab;
+  --app-text-disabled: #4a5568;
+  --app-text-inverse: #0a0e27;
+  
+  // Borders and dividers
+  --app-border-color: #2d3748;
+  --app-border-light: #1e2635;
+  --app-divider-color: #2d3748;
+  
+  // Interactive states
+  --app-hover-bg: #1e2538;
+  --app-active-bg: #252d47;
+  --app-selected-bg: #1a2741;
+  
+  // Radar visualization
+  --radar-background: transparent;
+  --radar-grid: #3d4863;
+  --radar-grid-light: #2a3449;
+  --radar-inactive: #2a3449;
+  --radar-text: #e8eaf6;
+  --radar-text-secondary: #b8c5d6;
+  
+  // State colors
+  --app-success: #66bb6a;
+  --app-success-light: #81c784;
+  --app-error: #ef5350;
+  --app-error-light: #e57373;
+  --app-warning: #ffb74d;
+  --app-warning-light: #ffc107;
+  --app-info: #42a5f5;
+  --app-info-light: #64b5f6;
+  
+  // Brand colors
+  --brand-primary: #ffaa7a;
+  --brand-primary-dark: #fc9264;
+  --brand-accent: #7dd3e0;
+  --brand-accent-light: #a8e6f0;
+  
+  // Radar interactions
+  --radar-category-hover: #64b5f6;
+  
+  // Shadows
+  --app-shadow-sm: 0 1px 3px rgba(13, 71, 161, 0.3);
+  --app-shadow-md: 0 4px 6px rgba(13, 71, 161, 0.25), 0 0 12px rgba(66, 165, 245, 0.15);
+  --app-shadow-lg: 0 10px 15px rgba(13, 71, 161, 0.3), 0 0 25px rgba(66, 165, 245, 0.2);
+  --app-shadow-error: 0 0 20px rgba(239, 83, 80, 0.8), 0 0 40px rgba(239, 83, 80, 0.4);
+  
+  // Text shadows
+  --app-text-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3), 0 0 8px rgba(66, 165, 245, 0.2);
+  --app-text-shadow-accent: 0 1px 3px rgba(125, 211, 224, 0.5), 0 0 10px rgba(125, 211, 224, 0.3);
+  --app-text-shadow-primary: 0 2px 4px rgba(255, 170, 122, 0.5), 0 0 12px rgba(255, 170, 122, 0.3);
+  --app-text-shadow-none: none;
+  
+  // Overlays
+  --app-overlay: rgba(10, 14, 39, 0.85);
+  --app-backdrop: rgba(10, 14, 39, 0.75);
+}
+
+// ====================================
+// Animated Starfield - Seamless parallax with twinkling
+// ====================================
+
+// Star field dimensions (must match animation transform distance)
+//$starFieldWidth: 2560;
+//$starFieldHeight: 2560;
+$starFieldWidth: 4096;
+$starFieldHeight: 4096;
+
+// Animation durations (staggered for parallax depth)
+$starOneScrollDuration: 100s;   // Small stars (fastest)
+$starTwoScrollDuration: 125s;   // Medium stars
+$starThreeScrollDuration: 175s; // Large stars (slowest)
+
+// Star count per layer
+$numStarOneStars: 1700;   // Small (1px)
+$numStarTwoStars: 700;    // Medium (2px)
+$numStarThreeStars: 200;  // Large (3px)
+
+// Generate random star positions
+@function create-stars($n) {
+  $stars: "#{random($starFieldWidth)}px #{random($starFieldHeight)}px #FFF";
+  @for $i from 2 through $n {
+    $stars: "#{$stars}, #{random($starFieldWidth)}px #{random($starFieldHeight)}px #FFF";
+  }
+  @return unquote($stars);
+}
+
+// Generate duplicate star layer offset for seamless loop
+@function create-stars-duplicate($n) {
+  $stars: "#{random($starFieldWidth) + $starFieldWidth}px #{random($starFieldHeight) + $starFieldHeight}px #FFF";
+  @for $i from 2 through $n {
+    $stars: "#{$stars}, #{random($starFieldWidth) + $starFieldWidth}px #{random($starFieldHeight) + $starFieldHeight}px #FFF";
+  }
+  @return unquote($stars);
+}
+
+// Generate star layers at build time
+$shadows-small: create-stars($numStarOneStars);
+$shadows-small-duplicate: create-stars-duplicate($numStarOneStars);
+$shadows-medium: create-stars($numStarTwoStars);
+$shadows-medium-duplicate: create-stars-duplicate($numStarTwoStars);
+$shadows-big: create-stars($numStarThreeStars);
+$shadows-big-duplicate: create-stars-duplicate($numStarThreeStars);
+
+// Diagonal parallax movement
+@keyframes animStar {
+  0% { transform: translateY(0px) translateX(0px); }
+  100% { transform: translateY(-#{$starFieldHeight}px) translateX(-#{$starFieldWidth}px); }
+}
+
+// Twinkling effect
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes twinkleSlow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+// Star layer mixin with GPU optimization
+@mixin star-template($starSize, $scrollSpeed, $shadows, $shadowsDuplicate, $twinkle: false) {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: $starSize;
+  height: $starSize;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: $shadows, $shadowsDuplicate;
+  
+  // GPU acceleration
+  will-change: transform, opacity;
+  transform-origin: 0 0;
+  
+  animation: animStar $scrollSpeed linear infinite;
+  
+  @if $twinkle {
+    animation: animStar $scrollSpeed linear infinite,
+               twinkle #{$scrollSpeed * 0.8} ease-in-out infinite;
+    animation-delay: 0s, #{random(10)}s;
+  }
+  
+  pointer-events: none;
+  z-index: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html[data-theme="night-sky"] {
+  background: radial-gradient(
+    ellipse at bottom,
+    #1B2735 0%,
+    #15202b 40%,
+    #0d1319 70%,
+    #090A0F 100%
+  ) !important;
+  min-height: 100vh;
+  
+  // Small stars (1700, 1px, 100s, with twinkle)
+  &::before {
+    @include star-template(1px, $starOneScrollDuration, $shadows-small, $shadows-small-duplicate, true);
+  }
+}
+
+html[data-theme="night-sky"] body {
+  // Medium stars (700, 2px, 125s, with twinkle)
+  &::before {
+    @include star-template(2px, $starTwoScrollDuration, $shadows-medium, $shadows-medium-duplicate, true);
+  }
+  
+  // Large stars (200, 3px, 175s, no twinkle - stable like planets)
+  &::after {
+    @include star-template(3px, $starThreeScrollDuration, $shadows-big, $shadows-big-duplicate, false);
+    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.5));
+  }
+}
+
+// ====================================
+// Glassmorphism Effects
+// ====================================
+
+html[data-theme="night-sky"] {
+  // Radar containers - transparent, no blur
+  .radar-container-layout,
+  .radar-visualization-container {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  
+  // Radar circular blur background
+  .radar-wrapper {
+    position: relative;
+    background: transparent;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: min(65vw, 950px);
+      height: min(65vw, 950px);
+      aspect-ratio: 1 / 1;
+      
+      background: radial-gradient(
+        circle at center,
+        rgba(19, 24, 41, 0.15) 0%,
+        rgba(19, 24, 41, 0.08) 50%,
+        transparent 80%
+      );
+      backdrop-filter: blur(12px) saturate(1.15);
+      -webkit-backdrop-filter: blur(12px) saturate(1.15);
+      border-radius: 50%;
+      
+      mask-image: radial-gradient(
+        circle at center,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0.8) 50%,
+        rgba(0, 0, 0, 0.3) 80%,
+        rgba(0, 0, 0, 0) 100%
+      );
+      -webkit-mask-image: radial-gradient(
+        circle at center,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0.8) 50%,
+        rgba(0, 0, 0, 0.3) 80%,
+        rgba(0, 0, 0, 0) 100%
+      );
+      
+      border: none;
+      box-shadow: none;
+      z-index: 0;
+    }
+  }
+  
+  .radar-svg {
+    position: relative;
+    z-index: 1;
+    background: transparent;
+  }
+  
+  // Sidenav glassmorphism
+  mat-sidenav {
+    background: linear-gradient(
+      to left,
+      rgba(19, 24, 41, 0.05) 0%,
+      rgba(19, 24, 41, 0.12) 30%,
+      rgba(19, 24, 41, 0.08) 100%
+    ) !important;
+    backdrop-filter: blur(15px) saturate(1.2);
+    -webkit-backdrop-filter: blur(15px) saturate(1.2);
+    border-left: 1px solid var(--radar-accent-border);
+    
+    mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 1) 10%,
+      rgba(0, 0, 0, 1) 90%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 1) 10%,
+      rgba(0, 0, 0, 1) 90%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
+  }
+  
+  app-radar-filters .side-nav {
+    background: linear-gradient(
+      to left,
+      rgba(19, 24, 41, 0.05) 0%,
+      rgba(19, 24, 41, 0.12) 30%,
+      rgba(19, 24, 41, 0.08) 100%
+    ) !important;
+    backdrop-filter: blur(15px) saturate(1.2);
+    -webkit-backdrop-filter: blur(15px) saturate(1.2);
+    
+    mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 1) 10%,
+      rgba(0, 0, 0, 1) 90%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 1) 10%,
+      rgba(0, 0, 0, 1) 90%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
+  }
+  
+  app-radar-controls {
+    .mat-fab,
+    .mat-mdc-fab,
+    .mat-mini-fab,
+    .mat-mdc-mini-fab {
+      backdrop-filter: blur(10px) saturate(1.1);
+      -webkit-backdrop-filter: blur(10px) saturate(1.1);
+    }
+  }
+  
+  .empty-filter-state {
+    background: var(--app-surface-translucent) !important;
+    backdrop-filter: blur(12px) saturate(1.2);
+    -webkit-backdrop-filter: blur(12px) saturate(1.2);
+    border: 1px solid var(--radar-accent-border);
+  }
+  
+  app-radar-legend {
+    .mat-card,
+    .mat-mdc-card {
+      background: var(--app-surface-translucent);
+      backdrop-filter: blur(12px) saturate(1.2);
+      -webkit-backdrop-filter: blur(12px) saturate(1.2);
+    }
+  }
+  
+  // Responsive adjustments
+  @media (max-width: 768px) {
+    .radar-wrapper::before {
+      width: min(75vw, 700px);
+      height: min(75vw, 700px);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .radar-wrapper::before {
+      width: min(85vw, 500px);
+      height: min(85vw, 500px);
+      backdrop-filter: blur(10px) saturate(1.1);
+      -webkit-backdrop-filter: blur(10px) saturate(1.1);
+    }
+  }
+  
+  @media (max-width: 360px) {
+    .radar-wrapper::before {
+      width: 90vw;
+      height: 90vw;
+      backdrop-filter: blur(8px) saturate(1.05);
+      -webkit-backdrop-filter: blur(8px) saturate(1.05);
+    }
+  }
+}
+
+

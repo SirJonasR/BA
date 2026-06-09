@@ -1,0 +1,41 @@
+<form>
+  <mat-form-field>
+    <input matInput [formControl]="control" [matAutocomplete]="auto" />
+    <mat-label>Projekt wählen</mat-label>
+    <mat-autocomplete
+      autoActiveFirstOption
+      #auto="matAutocomplete"
+      (optionSelected)="emit($event)"
+      [displayWith]="displayProject"
+    >
+      <mat-option
+        *ngFor="let project of filteredProjects | async"
+        [value]="project"
+        data-test-id="search-option"
+      >
+        <div>
+          <div>{{ project.name }}</div>
+        </div>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <p *ngIf="selectedProjects.length > 1"></p>
+  <div class="selected-projects-wrapper">
+    <div
+      *ngFor="let project of selectedProjects"
+      class="selected-item-container"
+    >
+      <span class="item-text">
+        {{ project.name }}
+      </span>
+      <button
+        mat-icon-button
+        (click)="removeItem(project)"
+        style="margin-top: 5px"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,72 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "Tec-36-tec-swap-element",
+        "author": "epi2000",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "tec_swap_element",
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "type": "BIGINT"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "tec_swap",
+                    "type": "VARCHAR(255)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "is_completed",
+                    "type": "BOOLEAN"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "edit_date",
+                    "type": "DATE"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "type": "BIGINT"
+                  }
+                },
+                {
+                  "addForeignKeyConstraint": {
+                    "constraintName": "fk_technology",
+                    "baseTableName": "tec_swap_element",
+                    "baseColumnNames": "technology_id",
+                    "referencedTableName": "technology",
+                    "referencedColumnNames": "id"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "Tec-36-2",
+        "author": "epi2000",
+        "changes": [
+          {
+            "sql": {
+              "dbms": "postgresql",
+              "sql": "grant select, insert, update, delete on table tec_swap_element to ${APP_USER};"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

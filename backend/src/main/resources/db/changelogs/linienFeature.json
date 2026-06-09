@@ -1,0 +1,65 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "linienFeature-1",
+        "author": "ErikM02",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "technology_connected_technologies",
+              "columns": [
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "type": "bigint",
+                    "constraints": {
+                      "deleteCascade": true,
+                      "nullable": false,
+                      "primaryKey": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "connected_technology_id",
+                    "type": "bigint",
+                    "constraints": {
+                      "deleteCascade": true,
+                      "nullable": false,
+                      "primaryKey": false
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "baseTableName": "technology_connected_technologies",
+              "baseColumnNames": "technology_id",
+              "constraintName": "fk_technology",
+              "referencedTableName": "technology",
+              "referencedColumnNames": "id",
+              "onDelete": "CASCADE"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "linienFeature-2",
+        "author": "ErikM02",
+        "changes": [
+          {
+            "sql": {
+              "dbms": "postgresql",
+              "sql": "grant select, insert, update, delete on table tag, technology_connected_technologies to ${APP_USER};"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

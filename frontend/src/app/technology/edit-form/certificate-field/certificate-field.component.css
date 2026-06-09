@@ -1,0 +1,21 @@
+.customer-field {
+    width: 600px;
+  }
+  
+  .project-field {
+    margin-right: 10px;
+    width: 600px;
+  }
+  
+  mat-icon {
+    cursor: pointer;
+  }
+  
+  .error-project {
+    margin-bottom: 10px;
+  }
+  
+  mat-hint {
+    color: red;
+  }
+  

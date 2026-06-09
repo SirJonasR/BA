@@ -1,0 +1,46 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "110-branchen-infos",
+        "author": "malik-logan",
+        "changes": [
+          {
+            "addColumn": {
+              "tableName": "project",
+              "columns": [
+                {
+                  "column": {
+                    "name": "industry_specific_information",
+                    "type": "VARCHAR(1800)"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "110-branchen-infos-history",
+        "author": "malik-logan",
+        "changes": [
+          {
+            "addColumn": {
+              "tableName": "project_history",
+              "columns": [
+                {
+                  "column": {
+                    "name": "industry_specific_information",
+                    "type": "VARCHAR(1800)"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

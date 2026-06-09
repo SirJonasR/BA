@@ -1,0 +1,26 @@
+<div>
+  <div>
+    <mat-form-field
+      [hidden]="technologies === undefined || technologies.length <= 1"
+    >
+      <mat-label>Sortieren nach</mat-label>
+      <mat-select
+        [(ngModel)]="selectedSort"
+        (ngModelChange)="sortTechnologies()"
+      >
+        <mat-option [value]="1">Name aufsteigend</mat-option>
+        <mat-option [value]="2">Name absteigend</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="tiles">
+    <app-technology-tile
+      data-test-id="technology-tiles"
+      class="tile"
+      *ngFor="let technology of sortedTechnologies"
+      [id]="technology.id"
+      [hoveredTechnologyId]="hoveredTechnologyId"
+      (hoveredTile)="receiveHoveredTile($event)"
+    ></app-technology-tile>
+  </div>
+</div>

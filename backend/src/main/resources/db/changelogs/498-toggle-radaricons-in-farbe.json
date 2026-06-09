@@ -1,0 +1,22 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "498-toggle-radaricons-in-farbe",
+        "author": "Annegret01",
+        "changes": [
+          {
+            "addColumn": {
+              "column": {
+                "name": "colour_display",
+                "type": "BOOLEAN"
+              },
+              "schemaName": "public",
+              "tableName": "User"
+            }
+          }
+        ]
+      }
+    }
+   ]
+}

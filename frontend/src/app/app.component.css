@@ -1,0 +1,15 @@
+main {
+  padding: 2rem;
+  /* 64px = header, 4rem = padding-top & padding-bottom */
+  min-height: calc(100vh - 64px);
+  background-color: var(--app-background-primary);
+  color: var(--app-text-primary);
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--app-background-primary);
+}

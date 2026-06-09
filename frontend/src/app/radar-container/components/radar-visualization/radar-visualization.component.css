@@ -1,0 +1,344 @@
+.radar-visualization-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: transparent; /* Transparent background for unified theme transition */
+  /* Remove fixed height to allow vertical growth */
+}
+
+/* Enhanced CSS for Radar Slice Detail Functionality and Startup Animations */
+/* Core SVG Focus Prevention */
+::ng-deep .radar-svg {
+  transition: all 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  outline: none !important;
+  border: none !important;
+}
+
+::ng-deep .radar-svg:focus {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove unwanted focus styles from all SVG child elements */
+::ng-deep .radar-svg *:focus {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Enhanced startup animation support */
+::ng-deep .radar-group {
+  /* Will be animated via D3.js transitions */
+  transform-origin: center center;
+}
+
+::ng-deep .ring-segment,
+::ng-deep .circle {
+  /* Optimized for draw-in animations */
+  shape-rendering: geometricPrecision;
+}
+
+::ng-deep .sector-label-group {
+  /* Optimized for scale animations */
+  transform-origin: center center;
+  transform-box: fill-box;
+}
+
+::ng-deep .blip {
+  /* Optimized for entrance animations */
+  transform-origin: center center;
+  transform-box: fill-box;
+}
+
+::ng-deep .slice-header {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+::ng-deep .slice-title {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+::ng-deep .slice-back-button {
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+::ng-deep .slice-back-button:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+/* Enhanced blip visibility and interactions */
+::ng-deep .blip {
+  transition: all 0.3s ease;
+  cursor: pointer;
+  outline: none !important;
+}
+
+::ng-deep .blip:focus {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+::ng-deep .blip[style*="opacity: 0"] {
+  pointer-events: none;
+}
+
+/* Enhanced blip hover effects with modern styling */
+::ng-deep .blip:hover .blip-main-circle {
+  stroke: #e96e3a !important; /* Eviden brand color */
+  stroke-width: 3 !important;
+  filter: drop-shadow(0 4px 12px rgba(233, 110, 58, 0.4)) !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important; /* Material Design easing */
+}
+
+/* Ring segment highlighting in slice detail */
+::ng-deep .ring-segment {
+  transition: all 0.5s ease;
+}
+
+::ng-deep .ring-segment[style*="opacity: 0"] {
+  pointer-events: none;
+}
+
+/* Sector label enhancements */
+::ng-deep .sector-label-group {
+  cursor: pointer;
+  /* Remove CSS transition to let D3.js handle animations */
+}
+
+/* Remove CSS hover rules - handled by D3.js animations now */
+/* Commented out to prevent conflicts with smooth D3 transitions
+::ng-deep .sector-label-group:hover .sector-title {
+  fill: #667eea !important;
+  font-size: 20px !important;
+}
+
+::ng-deep .sector-label-group:hover .slice-detail-hint {
+  opacity: 1 !important;
+  fill: #667eea !important;
+}
+*/
+
+::ng-deep .sector-label-group.highlighted .sector-title {
+  fill: #e96e3a !important; /* Eviden brand color */
+  font-weight: bold !important;
+  text-shadow: 0 2px 4px rgba(233, 110, 58, 0.3) !important;
+}
+
+/* Lifecycle labels in slice detail mode */
+::ng-deep .lifecycle-label {
+  transition: all 0.3s ease;
+}
+
+/* Tooltip enhancements for slice detail */
+::ng-deep .tooltip,
+::ng-deep #bubble {
+  z-index: 1000;
+  pointer-events: none;
+}
+
+/* Ensure ring highlighting elements stay below tooltips */
+::ng-deep #ring {
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Animation keyframes for slice transitions */
+@keyframes sliceDetailEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes sliceDetailExit {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+}
+
+/* Apply animations to slice detail elements */
+.slice-detail-header {
+  animation: sliceDetailEnter 0.5s ease-out;
+}
+
+.slice-info-panel {
+  animation: sliceDetailEnter 0.5s ease-out 0.2s both;
+}
+
+/* Focus styles for accessibility */
+::ng-deep .blip:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+::ng-deep .sector-label-group:focus-within .sector-title {
+  fill: #667eea !important;
+  text-decoration: underline;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .slice-detail-header {
+    background: var(--app-text-primary);
+    color: var(--app-surface);
+    border: 2px solid var(--app-surface);
+  }
+  
+  .slice-info-panel {
+    background: var(--app-surface);
+    color: var(--app-text-primary);
+    border: 2px solid var(--app-text-primary);
+  }
+  
+  ::ng-deep .sector-label-group:hover .sector-title,
+  ::ng-deep .sector-label-group.highlighted .sector-title {
+    fill: #000 !important;
+  }
+}
+
+/* Reduced motion support - respects user accessibility preferences */
+@media (prefers-reduced-motion: reduce) {
+  ::ng-deep .radar-svg,
+  ::ng-deep .blip,
+  ::ng-deep .ring-segment,
+  ::ng-deep .sector-label-group,
+  ::ng-deep .slice-back-button,
+  ::ng-deep .radar-group,
+  .slice-detail-header,
+  .slice-info-panel,
+  .radar-visualization-container {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  /* Ensure D3 animations are also reduced */
+  ::ng-deep * {
+    transition-duration: 0.1s !important;
+    animation-duration: 0.1s !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .slice-detail-header,
+  .slice-info-panel {
+    display: none;
+  }
+  
+  .radar-visualization-container {
+    background: var(--app-surface) !important;
+    box-shadow: none !important;
+  }
+}
+
+.lifecycle-label {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: var(--app-surface-translucent, rgba(255, 255, 255, 0.9));
+  border-radius: 8px;
+  padding: 15px;
+  z-index: 1000;
+  box-shadow: var(--app-shadow-md, 0 2px 10px rgba(0, 0, 0, 0.1));
+}
+
+.lifecycle-label li {
+  margin: 8px 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--app-text-primary);
+}
+
+.radar-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Allow vertical growth downward */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.radar-fade-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(transparent, var(--app-background-primary));
+  pointer-events: none;
+  z-index: 1;
+}
+
+.radar-svg {
+  /* Size will be set dynamically via inline styles */
+  /* Remove fixed max-width/max-height to allow responsive sizing */
+  display: block;
+  /* Remove browser default focus styling */
+  outline: none !important;
+  border: none !important;
+}
+
+/* Prevent SVG from being focusable and showing blue borders */
+.radar-svg:focus {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Global styles for D3.js elements to prevent unwanted focus styling */
+::ng-deep .radar-svg * {
+  outline: none !important;
+}
+
+::ng-deep .blip {
+  outline: none !important;
+  border: none !important;
+}
+
+::ng-deep .blip:focus {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+
+/* Error notification styling for MatSnackBar */
+::ng-deep .error-snackbar {
+  background-color: var(--app-error) !important;
+  color: var(--app-surface) !important;
+}
+
+::ng-deep .error-snackbar .mat-simple-snackbar {
+  color: var(--app-surface) !important;
+}
+
+::ng-deep .error-snackbar .mat-simple-snackbar-action {
+  color: var(--app-surface) !important;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .lifecycle-label {
+    top: 10px;
+    left: 10px;
+    padding: 10px;
+    font-size: 12px;
+  }
+}

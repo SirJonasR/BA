@@ -1,0 +1,35 @@
+version: "3"
+
+services:
+  db:
+    image: postgres:14.4
+    environment:
+      POSTGRES_USER: quarkus_test
+      POSTGRES_PASSWORD: quarkus_test
+      POSTGRES_DB: quarkus_test
+      PGDATA: /data/postgres
+      APP_USER: quarkus_app
+      APP_PASSWORD: quarkus_app
+      APP_DB: tecradar
+    volumes:
+      - postgres:/data/postgres
+      # setup app database
+      - ./docker/db/create_database_and_user.sh:/docker-entrypoint-initdb.d/create_database_and_user.sh
+      - ./docker/db/initial_db_setup.psql:/docker-entrypoint-initdb.d/initial_db_setup.psql
+    ports:
+      - "5432:5432"
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:23.0.0
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./docker/realm-keycloak-angular-sandbox.json:/opt/keycloak/data/import/realm-keycloak-angular-sandbox.json:ro
+      - ./docker:/tmp/export
+    entrypoint: "/opt/keycloak/bin/kc.sh start-dev --import-realm"
+
+volumes:
+  postgres:

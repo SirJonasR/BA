@@ -1,0 +1,39 @@
+<table mat-table [dataSource]="deepExpertList" class="deep-expert-table">
+  >
+  <!-- Technology Column -->
+  <ng-container matColumnDef="technologyName">
+    <th mat-header-cell *matHeaderCellDef>Technologie</th>
+    <td mat-cell *matCellDef="let expert">
+      {{ expert.technologyName }}
+    </td>
+  </ng-container>
+
+  <!-- Expert Column -->
+  <ng-container matColumnDef="expertInformation">
+    <th mat-header-cell *matHeaderCellDef>Expert</th>
+    <td mat-cell *matCellDef="let expert">
+      {{ expert.expertInformation }}
+    </td>
+  </ng-container>
+
+  <!-- Description Column -->
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef>Beschreibung</th>
+    <td mat-cell *matCellDef="let expert">{{ expert.description }}</td>
+  </ng-container>
+
+  <!-- Scope Column -->
+  <ng-container matColumnDef="scope">
+    <th mat-header-cell *matHeaderCellDef>Eingrenzung</th>
+    <td mat-cell *matCellDef="let expert">{{ expert.scope }}</td>
+  </ng-container>
+
+  <!-- Comment Column -->
+  <ng-container matColumnDef="comment">
+    <th mat-header-cell *matHeaderCellDef>Kommentar</th>
+    <td mat-cell *matCellDef="let expert">{{ expert.comment }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

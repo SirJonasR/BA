@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>Lebenszyklus ist nicht definiert</h1>
+<div mat-dialog-content>
+  <p>
+    Der Lebenszyklus der Technologie ist <strong>Undefined</strong><br />
+    und daher erscheint diese nicht im Radar, sondern <br />
+    vorerst nur in der Listenansicht.
+  </p>
+</div>
+<div mat-dialog-actions class="action-buttons">
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="dialogRef.close(true)"
+    cdkFocusInitial
+    data-test-id="delete-confirmation-confirm-button"
+  >
+    Bestätigen
+  </button>
+  <button
+    mat-button
+    (click)="dialogRef.close(false)"
+    data-test-id="undefined-confirmation-abort-button"
+  >
+    Abbrechen
+  </button>
+</div>

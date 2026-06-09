@@ -1,0 +1,192 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "480-add-project",
+        "author": "epi2000",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "project",
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "type": "BIGINT",
+                    "constraints": {
+                      "primaryKey": true,
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "type": "VARCHAR(60)",
+                    "constraints": {
+                      "nullable": false,
+                      "unique": true
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "type": "VARCHAR(300)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "contact_person",
+                    "type": "VARCHAR(60)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "info",
+                    "type": "VARCHAR(300)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "start_date",
+                    "type": "DATE",
+                    "constraints": {
+                      "nullable": true
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "480-create-project_customer",
+        "author": "epi2000",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "project_customer",
+              "columns": [
+                {
+                  "column": {
+                    "name": "project_id",
+                    "type": "BIGINT",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "customer_id",
+                    "type": "BIGINT",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "baseTableName": "project_customer",
+              "baseColumnNames": "project_id",
+              "constraintName": "fk_project_customer_project",
+              "referencedTableName": "project",
+              "referencedColumnNames": "id",
+              "onDelete": "CASCADE"
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "baseTableName": "project_customer",
+              "baseColumnNames": "customer_id",
+              "constraintName": "fk_project_customer_customer",
+              "referencedTableName": "customer",
+              "referencedColumnNames": "id",
+              "onDelete": "CASCADE"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "480-create-project_technology",
+        "author": "epi2000",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "project_technology",
+              "columns": [
+                {
+                  "column": {
+                    "name": "project_id",
+                    "type": "BIGINT",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "technology_id",
+                    "type": "BIGINT",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "baseTableName": "project_technology",
+              "baseColumnNames": "project_id",
+              "constraintName": "fk_project_technology_project",
+              "referencedTableName": "project",
+              "referencedColumnNames": "id",
+              "onDelete": "CASCADE"
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "baseTableName": "project_technology",
+              "baseColumnNames": "technology_id",
+              "constraintName": "fk_project_technology_technology",
+              "referencedTableName": "technology",
+              "referencedColumnNames": "id",
+              "onDelete": "CASCADE"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "480-2",
+        "author": "epi2000",
+        "changes": [
+          {
+            "sql": {
+              "dbms": "postgresql",
+              "sql": "grant select, insert, update, delete on table project, project_customer, project_technology to ${APP_USER};"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

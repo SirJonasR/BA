@@ -1,0 +1,234 @@
+<form
+  #technologyForm="ngForm"
+  (ngSubmit)="onFormSubmit(technologyForm); checkIfSubmitted = true"
+  class="form"
+  data-test-id="technology-form"
+>
+  <mat-error *ngIf="hasError">
+    Beim Speichern der Technologie ist ein unerwarteter Fehler aufgetreten.
+  </mat-error>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <div>
+      <input
+        matInput
+        required
+        name="name"
+        [maxlength]="maxCharactersName"
+        [(ngModel)]="values.name"
+        #name="ngModel"
+        data-test-id="technology-name-input"
+      />
+      <app-current-characters-counter
+        [maxCharacters]="maxCharactersName"
+        [currentCharacterCount]="values.name?.length ?? 0"
+      ></app-current-characters-counter>
+    </div>
+    <mat-hint
+      *ngIf="name.touched && (name.invalid || checkNoWhitespace(values.name!))"
+    >
+      Bitte gib einen gültigen Namen ein.
+    </mat-hint>
+    <mat-hint *ngIf="checkTechnologyNameAlreadyExits()">
+      Technologie existiert bereits.
+    </mat-hint>
+  </mat-form-field>
+
+  <div>
+    <p
+      [style]="
+        (description.touched || checkIfSubmitted) &&
+        (values.description === null ||
+          values.description.length === 0 ||
+          checkValidDescription())
+          ? { color: 'red' }
+          : { color: 'grey' }
+      "
+    >
+      Beschreibung*
+    </p>
+    <md-editor
+      [mode]="'editor'"
+      [maxlength]="maxCharactersDescription"
+      [height]="'250px'"
+      [(ngModel)]="values.description"
+      #description="ngModel"
+      name="description"
+      data-test-id="technology-description-textarea"
+      required
+    >
+    </md-editor>
+    <app-current-characters-counter
+      [maxCharacters]="maxCharactersDescription"
+      [currentCharacterCount]="getCorrectTextLength(values.description!)"
+    ></app-current-characters-counter>
+    <mat-error
+      *ngIf="
+        (description.touched || checkIfSubmitted) &&
+        (values.description === null ||
+          values.description.length === 0 ||
+          checkValidDescription())
+      "
+    >
+      Bitte gib eine gültige Beschreibung ein!
+    </mat-error>
+    <mat-error
+      *ngIf="(values.description?.length ?? 0) > maxCharactersDescription"
+    >
+      Beschreibung ist zu lange!
+    </mat-error>
+  </div>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Kurzbeschreibung</mat-label>
+    <div>
+      <textarea
+        matInput
+        name="shortdescription"
+        [maxlength]="maxCharactersShortDescription"
+        cdkTextareaAutosize
+        cdkAutosizeMinRows="3"
+        cdkAutosizeMaxRows="3"
+        [(ngModel)]="values.shortDescription"
+        #shortdescription="ngModel"
+        data-test-id="technology-short-description-textarea"
+      ></textarea>
+      <app-current-characters-counter
+        [maxCharacters]="maxCharactersShortDescription"
+        [currentCharacterCount]="getCorrectTextLength(values.shortDescription!)"
+      ></app-current-characters-counter>
+    </div>
+    <mat-hint
+      *ngIf="
+        shortdescription.invalid || checkNoWhitespace(values.shortDescription!)
+      "
+    >
+      Bitte gebe nur eine gültige Kurzbeschreibung an.
+    </mat-hint>
+    <mat-hint
+      *ngIf="
+        getCorrectTextLength(values.shortDescription!) >
+        maxCharactersShortDescription
+      "
+    >
+      Die Kurzbeschreibung ist zu lange!
+    </mat-hint>
+  </mat-form-field>
+
+  <span class="text">Logo</span>
+  <div>
+    <input type="file" (change)="onFileSelected($event)" accept=".sv+g" />
+  </div>
+
+  <div [hidden]="previewUrl === null">
+    <h4>Vorschau:</h4>
+    <div class="logo">
+      <img class="picture" [src]="previewUrl" alt="Bildvorschau" />
+      <div id="previewRadar"></div>
+      <button
+        mat-icon-button
+        matTooltip="Bild entfernen"
+        color="warn"
+        aria-label="Delete button"
+        type="button"
+        (click)="clear()"
+      >
+        <mat-icon>clear</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <app-certificate-field
+    [certificates]="values.certificates"
+    (certificateData)="handleCertificateData($event)"
+  >
+  </app-certificate-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Kategorie</mat-label>
+    <mat-select
+      name="categoryId"
+      required
+      [(ngModel)]="values.categoryId"
+      #categoryId="ngModel"
+      data-test-id="technology-category-select"
+    >
+      <mat-option *ngFor="let category of categories" [value]="category.id">
+        {{ category.name }}
+      </mat-option>
+    </mat-select>
+    <mat-hint
+      *ngIf="(categoryId.touched || checkIfSubmitted) && categoryId.invalid"
+    >
+      Bitte wähle eine Kategorie.
+    </mat-hint>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Lebenszyklus</mat-label>
+    <mat-select
+      name="lifecycleId"
+      [(ngModel)]="values.lifecycleId"
+      [disabled]="!isLifecycleChangeable()"
+      #lifecycleId="ngModel"
+      data-test-id="technology-lifecycle-select"
+    >
+      <mat-option *ngFor="let lifecycle of lifecycles" [value]="lifecycle.id">
+        {{ lifecycle.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Tags mit Pflicht -->
+  <app-tags [values]="values"></app-tags>
+  <mat-error
+    *ngIf="(tagsTouched || checkIfSubmitted) && values.tags.length === 0"
+    style="
+      font-size: 12px;
+      display: block;
+      margin-top: -20px;
+      padding: 0 16px;
+      margin-left: -3px;
+    "
+  >
+    Bitte füge mindestens einen Tag hinzu.
+  </mat-error>
+
+  <span *ngIf="isAddingNewProjectAllowed" class="text">
+    Wird in folgendem Projekt verwendet:
+  </span>
+  <app-project-searchfield
+    *ngIf="isAddingNewProjectAllowed"
+    [selectedProjectIds]="values.projectIds"
+  >
+  </app-project-searchfield>
+
+  <span class="text">Wird häufig verwendet mit:</span>
+  <app-tech-searchbar
+    [searchFieldPlaceholder]="'Technologien wählen'"
+    [multipleSelect]="true"
+    [selectedItems]="selectedConnectedTechnologies"
+  ></app-tech-searchbar>
+
+  <div class="button-container">
+    <button
+      mat-raised-button
+      type="submit"
+      color="primary"
+      [disabled]="isSubmitting"
+      data-test-id="form-submit-button"
+    >
+      Speichern
+    </button>
+    <button
+      mat-raised-button
+      type="button"
+      color="secondary"
+      data-test-id="form-cancel-button"
+      (click)="goBackToPrevPage()"
+    >
+      Abbrechen
+    </button>
+  </div>
+</form>

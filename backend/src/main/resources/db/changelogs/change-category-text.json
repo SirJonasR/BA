@@ -1,0 +1,56 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "change-category-text",
+        "author": "ErikM02",
+        "changes": [
+          {
+            "update": {
+              "column": {
+                "name": "description",
+                "value": "Techniques & Methodologies deckt die Methoden und Praktiken ab, die in den Lebenszyklen der Softwareentwicklung und des Projektmanagements angewendet werden. Sie sind entscheidend für die Organisation und Optimierung von Entwicklungsprozessen. Sie beeinflussen die Teamdynamik, die Qualitätssicherung, die Zeit bis zur Markteinführung und die Anpassungsfähigkeit an Veränderungen. Dazu gehören agile Methoden, DevOps-Praktiken, Teststrategien und Design Patterns."
+              },
+              "schemaName": "public",
+              "tableName": "category",
+              "where": "id=-4"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "description",
+                "value": "Plattformen beziehen sich auf die Umgebungen, in denen Anwendungen ausgeführt und verwaltet werden. Plattformen bieten die notwendige Infrastruktur und die Dienste, die für das Hosting, die Skalierung und die Sicherheit von Anwendungen erforderlich sind. Die richtige Plattformwahl unterstützt die Effizienz, Verfügbarkeit und Flexibilität der Systeme. Dazu zählen Betriebssysteme, Cloud-Dienste, Container-Orchestrierungsplattformen, Datenbanken und Webserver."
+              },
+              "schemaName": "public",
+              "tableName": "category",
+              "where": "id=-3"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "description",
+                "value": "Tools werden eingesetzt, um die Effizienz und Produktivität der Entwicklungsprozesse zu steigern, die Qualität des Codes zu verbessern und die Zusammenarbeit im Team zu erleichtern. Dazu gehören Entwicklungsumgebungen, Versionskontrollsysteme, Testwerkzeuge, Build- und Deployment-Tools sowie Monitoring- und Debugging-Tools."
+              },
+              "schemaName": "public",
+              "tableName": "category",
+              "where": "id=-2"
+            }
+          },
+          {
+            "update": {
+              "column": {
+                "name": "description",
+                "value": "In Language & Frameworks werden Programmiersprachen und die zugehörigen Frameworks erfasst. Die Auswahl von Sprachen und Frameworks beeinflusst direkt die Leistung, Skalierbarkeit und Wartbarkeit der Anwendungen. Sprachen bilden die Grundlage für die Softwareentwicklung, während Frameworks spezifische Sets an Tools und Bibliotheken bieten, die gemeinsame Programmieraufgaben vereinfachen."
+              },
+              "schemaName": "public",
+              "tableName": "category",
+              "where": "id=-1"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

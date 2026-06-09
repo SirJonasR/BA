@@ -1,0 +1,79 @@
+/**
+ * Atos light theme
+ * Default atos theme with bright, clean aesthetics
+ * 
+ * NOTE: Theme metadata (name, icon, description) is defined in theme-registry.ts
+ */
+
+[data-theme="atos-light"] {
+  // Typography
+  --app-font-family: "Biennale", "Montserrat", sans-serif;
+
+  // Surface colors
+  --app-background-primary: #ffffff;
+  --app-background-secondary: #00005c;
+  --app-background-tertiary: #f8f9fa;
+  --app-surface: #ffffff;
+  --app-surface-elevated: #ffffff;
+  --app-surface-translucent: rgba(255, 255, 255, 0.95);
+  
+  // Text colors
+  --app-text-primary: #00005c;
+  --app-text-secondary: #666666;
+  --app-text-tertiary: #999999;
+  --app-text-disabled: #cccccc;
+  --app-text-inverse: #ffffff;
+  
+  // Border and divider colors
+  --app-border-color: #cccccc;
+  --app-border-light: #e0e0e0;
+  --app-divider-color: #e0e0e0;
+  
+  // Interactive states
+  --app-hover-bg: #f0f0f0;
+  --app-active-bg: #e0e0e0;
+  --app-selected-bg: #e8f4f8;
+  
+  // Radar visualization specific
+  --radar-background: transparent;
+  --radar-grid: #bbbbbb;
+  --radar-grid-light: #dddddd;
+  --radar-inactive: #dddddd;
+  --radar-text: #00005c;
+  --radar-text-secondary: #666666;
+  
+  // State colors (semantic)
+  --app-success: #3b8243;
+  --app-success-light: #4caf50;
+  --app-error: #d32f2f;
+  --app-error-light: #f44336;
+  --app-warning: #ff9800;
+  --app-warning-light: #ffa726;
+  --app-info: #015365;
+  --app-info-light: #0288d1;
+  
+  // Brand colors (from palette)
+  --brand-primary: #0073e6;
+  --brand-primary-dark: #00005c;
+  --brand-accent: #3dc7ff;
+  --brand-accent-light: #ffffff;
+  
+  // Radar interaction colors
+  --radar-category-hover: #0073e6;
+  
+  // Shadow and elevation
+  --app-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --app-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --app-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --app-shadow-error: 0 0 20px #d50000;
+  
+  // Text shadows for interactive elements
+  --app-text-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --app-text-shadow-accent: 0 1px 3px rgba(1, 83, 101, 0.3);
+  --app-text-shadow-primary: 0 2px 4px rgba(233, 110, 58, 0.3);
+  --app-text-shadow-none: none;
+  
+  // Overlay and backdrop
+  --app-overlay: rgba(0, 0, 0, 0.5);
+  --app-backdrop: rgba(0, 0, 0, 0.32);
+}

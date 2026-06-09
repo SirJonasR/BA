@@ -1,0 +1,10 @@
+<h1>Projekt bearbeiten</h1>
+<div *ngIf="isProjectLoaded">
+  <app-project-form
+    [values]="values"
+    [isSubmitting]="isSubmitting"
+    (submitForm)="onSubmit()"
+    [hasError]="hasError"
+    editContext="edit-existing-project"
+  ></app-project-form>
+</div>

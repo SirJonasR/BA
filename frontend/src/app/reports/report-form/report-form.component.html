@@ -1,0 +1,137 @@
+<form
+  #reportForm="ngForm"
+  (ngSubmit)="onFormSubmit(reportForm)"
+  data-test-id="report-form"
+>
+  <mat-error *ngIf="showError"
+    >Beim Versenden des Reports ist ein unerwarteter Fehler aufgetreten.
+    {{ errorText }}</mat-error
+  >
+
+  <h1>Bericht erstellen</h1>
+  <div class="frame">
+    <mat-form-field appearance="fill">
+      <mat-label>Berichtstyp</mat-label>
+      <mat-select
+        name="reportId"
+        required
+        [(ngModel)]="reportTyp"
+        #reportTypModel="ngModel"
+        data-test-id="report-select"
+      >
+        <mat-option
+          *ngFor="let reportTyp of reportTypList"
+          [value]="reportTyp"
+          >{{ reportTyp }}</mat-option
+        >
+      </mat-select>
+      <mat-error
+        *ngIf="
+          reportTypModel.invalid &&
+          (reportTypModel.dirty ||
+            reportTypModel.touched ||
+            reportForm.submitted)
+        "
+      >
+        Bitte wähle einen Berichtstypen aus.
+      </mat-error>
+    </mat-form-field>
+
+    <app-customer-searchbar
+      class="searchbars"
+      *ngIf="reportTyp === 'Kunden'"
+      [searchFieldPlaceholder]="'Bitte Kunden auswählen*'"
+      [showError]="showError"
+      [multipleSelect]="true"
+      [selectedItems]="selectedCustomers"
+      [validate]="true"
+    >
+    </app-customer-searchbar>
+
+    <ng-container
+      *ngIf="selectedPeriod?.name === 'Benutzerdefiniert'; else otherOptions"
+    >
+      <div class="custom-header">
+        <app-date-picker-range
+          (dateRangeSelected)="onDateRangeSelected($event)"
+        ></app-date-picker-range>
+        <button mat-icon-button (click)="resetSelectedPeriod()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+    </ng-container>
+
+    <ng-template #otherOptions>
+      <mat-form-field *ngIf="reportTyp === 'Technologien'" appearance="fill">
+        <mat-label>Zeitraum</mat-label>
+        <mat-select
+          hideSingleSelectionIndicator
+          name="periodId"
+          required
+          [(ngModel)]="selectedPeriod"
+          #periodModel="ngModel"
+          data-test-id="period-select"
+        >
+          <mat-select-trigger>
+            <div class="custom-mat-option">
+              <span class="period-name">{{ selectedPeriod?.name }}</span>
+              <span class="period-detail">{{
+                selectedPeriod?.periodDetail
+              }}</span>
+            </div>
+          </mat-select-trigger>
+          <mat-option *ngFor="let period of periodList" [value]="period">
+            <div class="custom-mat-option">
+              <span class="period-name">{{ period.name }}</span>
+              <span class="period-detail">{{ period.periodDetail }}</span>
+            </div>
+          </mat-option>
+        </mat-select>
+        <mat-error
+          *ngIf="
+            periodModel.invalid &&
+            (periodModel.dirty || periodModel.touched || reportForm.submitted)
+          "
+        >
+          Bitte wähle einen Zeitraum aus.
+        </mat-error>
+      </mat-form-field>
+    </ng-template>
+
+    <app-tech-searchbar
+      class="searchbars"
+      *ngIf="reportTyp === 'Technologien'"
+      [searchFieldPlaceholder]="'Bitte Technologien wählen*'"
+      [showError]="showError"
+      [multipleSelect]="true"
+      [selectedItems]="selectedTechnologies"
+      [validate]="true"
+    ></app-tech-searchbar>
+  </div>
+
+  <div class="button-container">
+    <button
+      mat-raised-button
+      [disabled]="isSubmitting"
+      type="submit"
+      color="primary"
+      data-test-id="form-submit-button"
+    >
+      Erstellen
+    </button>
+    <div *ngIf="isSubmitting" class="loading-overlay">
+      <mat-progress-spinner
+        diameter="50"
+        mode="indeterminate"
+      ></mat-progress-spinner>
+    </div>
+    <button
+      mat-raised-button
+      type="reset"
+      color="secondary"
+      data-test-id="form-cancel-button"
+    >
+      Abbrechen
+    </button>
+  </div>
+</form>

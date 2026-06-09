@@ -1,0 +1,24 @@
+table {
+  width: 100%;
+}
+
+.mat-row {
+  cursor: pointer;
+}
+
+.name {
+  display: block;
+  width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+tr.row1:hover {
+  background-color: lightgrey;
+  cursor: pointer;
+}
+
+.img {
+  width: 50px;
+  height: 50px;
+}

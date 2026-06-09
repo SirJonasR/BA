@@ -1,0 +1,115 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "create-role-assignment-log-table",
+        "author": "driemtax",
+        "preConditions": {
+          "onFail": "MARK_RAN",
+          "not": {
+            "tableExists": {
+              "tableName": "role_assignment_log"
+            }
+          }
+        },
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "role_assignment_log",
+              "schemaName": "public",
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "type": "BIGINT",
+                    "constraints": {
+                      "primaryKey": true,
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "type": "BIGINT",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "role_name",
+                    "type": "VARCHAR(255)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "role_action",
+                    "type": "VARCHAR(255)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changed_by_id",
+                    "type": "BIGINT",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "changed_at",
+                    "type": "TIMESTAMP",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "baseTableName": "role_assignment_log",
+              "baseColumnNames": "user_id",
+              "referencedTableName": "User",
+              "referencedColumnNames": "id",
+              "constraintName": "fk_role_assignment_log_user_id"
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "baseTableName": "role_assignment_log",
+              "baseColumnNames": "changed_by_id",
+              "referencedTableName": "User",
+              "referencedColumnNames": "id",
+              "constraintName": "fk_role_assignment_log_changed_by_id"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "TEC-56-grant-permissions",
+        "author": "driemtax",
+        "changes": [
+          {
+            "sql": {
+              "dbms": "postgresql",
+              "sql": "grant SELECT, INSERT, UPDATE, DELETE on table role_assignment_log TO ${APP_USER};"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

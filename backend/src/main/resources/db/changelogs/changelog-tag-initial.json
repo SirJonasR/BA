@@ -1,0 +1,23 @@
+{
+  "databaseChangeLog": [
+    {
+      "include": {
+        "file": "changelog-initial.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "changeSet": {
+        "id": "tag-version-1",
+        "author": "whabelitz",
+        "changes": [
+          {
+            "tagDatabase": {
+              "tag": "version_1.1"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

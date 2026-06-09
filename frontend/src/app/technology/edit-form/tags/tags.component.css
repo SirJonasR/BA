@@ -1,0 +1,14 @@
+.form-fields-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+mat-icon {
+  cursor: pointer;
+}
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 4px;
+}

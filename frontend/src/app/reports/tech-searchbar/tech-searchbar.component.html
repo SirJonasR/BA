@@ -1,0 +1,53 @@
+<form>
+  <mat-form-field>
+    <input
+      matInput
+      [formControl]="control"
+      [matAutocomplete]="auto"
+      (focus)="onInputFocus()"
+      data-test-id="searchbar-multiTechnology-input"
+    />
+    <mat-label>{{ searchFieldPlaceholder }}</mat-label>
+    <mat-error
+      *ngIf="
+        validate &&
+        selectedItems.length < 1 &&
+        control.invalid &&
+        (control.dirty || control.touched || showError)
+      "
+    >
+      Bitte wähle mindestens eine Technologie aus.
+    </mat-error>
+    <mat-autocomplete
+      autoActiveFirstOption
+      #auto="matAutocomplete"
+      (optionSelected)="emit($event)"
+      [displayWith]="displayTechnology"
+    >
+      <mat-option
+        *ngFor="let technology of filteredTechnologies | async"
+        [value]="technology"
+        data-test-id="search-option"
+      >
+        <div>
+          <div>{{ technology.name }}</div>
+        </div>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <p *ngIf="selectedItems.length > 0" style="color: grey">
+    Ausgewählte Technologien
+  </p>
+  <div
+    *ngFor="let technology of sortedSelectedItems"
+    class="selected-item-container"
+  >
+    <span class="item-text">
+      {{ technology.name }}
+    </span>
+    <button mat-icon-button (click)="removeItem(technology)">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+</form>

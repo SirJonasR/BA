@@ -1,0 +1,107 @@
+<!-- history-dialog.component.html -->
+<div class="dialog-header">
+  <h1 mat-dialog-title class="dialog-title">Änderungshistorie</h1>
+  <button
+    mat-icon-button
+    class="close-button"
+    (click)="close()"
+    aria-label="Schließen"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+<mat-dialog-content class="history-content">
+  <mat-divider></mat-divider>
+
+  <div *ngIf="data!.comments!.length > 0; else noComments">
+    <mat-card
+      *ngFor="let comment of data.comments"
+      class="comment-card"
+      appearance="outlined"
+    >
+      <mat-card-header>
+        <mat-icon class="avatar-icon" mat-card-avatar>person</mat-icon>
+        <mat-card-title>{{ comment.authorUsername }}</mat-card-title>
+        <mat-card-subtitle>{{
+          comment.date | date: "dd.MM.yyyy, HH:mm"
+        }}</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <p *ngIf="comment.text.length > 0">{{ comment.text }}</p>
+
+        <mat-divider
+          *ngIf="comment.text.length > 0"
+          class="change-divider"
+        ></mat-divider>
+        <h6>Änderungen</h6>
+        <div class="change-container">
+          <div
+            *ngFor="let key of objectKeys(comment.changes)"
+            class="change-row"
+            [ngClass]="{
+              'boolean-row':
+                isBoolean(getBeforeValue(comment.changes[key])) &&
+                isBoolean(getAfterValue(comment.changes[key]))
+            }"
+          >
+            <div class="change-key">{{ key }}</div>
+
+            <div class="chip-container">
+              <!-- BEFORE -->
+              <div *ngIf="getBeforeValue(comment.changes[key]) !== ''">
+                <div
+                  class="chip chip-before"
+                  *ngIf="
+                    !isBoolean(getBeforeValue(comment.changes[key]));
+                    else beforeBool
+                  "
+                >
+                  <span>{{ getBeforeValue(comment.changes[key]) }}</span>
+                </div>
+              </div>
+
+              <ng-template #beforeBool>
+                <mat-slide-toggle
+                  [checked]="getBeforeValue(comment.changes[key])"
+                  disabled
+                ></mat-slide-toggle>
+              </ng-template>
+
+              <span class="chip-arrow">→</span>
+
+              <!-- AFTER -->
+              <div
+                class="chip chip-after"
+                *ngIf="
+                  !isBoolean(getAfterValue(comment.changes[key]));
+                  else afterBool
+                "
+              >
+                <span>{{ getAfterValue(comment.changes[key]) }}</span>
+              </div>
+              <ng-template #afterBool>
+                <mat-slide-toggle
+                  [checked]="getAfterValue(comment.changes[key])"
+                  disabled
+                ></mat-slide-toggle>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <ng-template #noComments>
+    <div class="no-comments-available">
+      <div class="no-comments-box">
+        <mat-icon class="no-comments-icon" color="accent">info</mat-icon>
+        <div class="no-comments-title">Keine Kommentare gefunden</div>
+        <div class="no-comments-desc">
+          Für dieses Element wurden noch keine Änderungs-Kommentare hinterlegt.
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</mat-dialog-content>

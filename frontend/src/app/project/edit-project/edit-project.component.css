@@ -1,0 +1,17 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+mat-form-field {
+  width: 65%;
+  min-width: 350px;
+  max-width: 650px;
+  visibility: hidden;
+}
+.button {
+  width: 65%;
+  display: flex;
+  justify-content: space-between;
+}
