@@ -1,0 +1,346 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "acm:RequestCertificate",
+        "autoscaling:DescribeScheduledActions",
+        "ec2:CreateTags",
+        "ec2:DescribeAccountAttributes",
+        "ec2:DescribeAddresses",
+        "ec2:DescribeAddressesAttribute",
+        "ec2:DescribeAvailabilityZones",
+        "ec2:DescribeImages",
+        "ec2:DescribeInstanceCreditSpecifications",
+        "ec2:DescribeInstanceTypes",
+        "ec2:DescribeInstances",
+        "ec2:DescribeInternetGateways",
+        "ec2:DescribeNatGateways",
+        "ec2:DescribeNetworkAcls",
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:DescribePrefixLists",
+        "ec2:DescribeRouteTables",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeTags",
+        "ec2:DescribeVolumes",
+        "ec2:DescribeVpcEndpoints",
+        "ec2:DescribeVpcs",
+        "ec2:DisassociateAddress",
+        "ec2:DisassociateRouteTable",
+        "ec2:ReleaseAddress",
+        "ecs:DeregisterTaskDefinition",
+        "ecs:DescribeTaskDefinition",
+        "elasticloadbalancing:CreateListener",
+        "elasticloadbalancing:CreateLoadBalancer",
+        "elasticloadbalancing:DescribeListenerAttributes",
+        "elasticloadbalancing:DescribeListenerCertificates",
+        "elasticloadbalancing:DescribeListeners",
+        "elasticloadbalancing:DescribeLoadBalancerAttributes",
+        "elasticloadbalancing:DescribeLoadBalancers",
+        "elasticloadbalancing:DescribeRules",
+        "elasticloadbalancing:DescribeTags",
+        "elasticloadbalancing:DescribeTargetGroupAttributes",
+        "elasticloadbalancing:DescribeTargetGroups",
+        "logs:DescribeLogGroups",
+        "logs:ListTagsForResource",
+        "rds:AddTagsToResource",
+        "rds:ListTagsForResource",
+        "route53:AssociateVPCWithHostedZone",
+        "sts:GetCallerIdentity"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "acm:DeleteCertificate",
+        "acm:DescribeCertificate",
+        "acm:ListTagsForCertificate"
+      ],
+      "Resource": "arn:aws:acm:${Region}:${Account}:certificate/${CertificateId}"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "autoscaling:DeleteScheduledAction",
+      "Resource": "arn:aws:autoscaling:${Region}:${Account}:autoScalingGroup:${GroupId}:autoScalingGroupName/${GroupFriendlyName}"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "cloudwatch:DescribeAlarms",
+      "Resource": "arn:aws:cloudwatch:${Region}:${Account}:alarm:${AlarmName}"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "ec2:AllocateAddress",
+      "Resource": "arn:aws:ec2:${Region}:${Account}:elastic-ip/${AllocationId}"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:DescribeInstanceAttribute",
+        "ec2:GetInstanceUefiData",
+        "ec2:ModifyInstanceAttribute",
+        "ec2:RunInstances",
+        "ec2:TerminateInstances"
+      ],
+      "Resource": "arn:aws:ec2:${Region}:${Account}:instance/${InstanceId}"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:AttachInternetGateway",
+        "ec2:CreateInternetGateway",
+        "ec2:DeleteInternetGateway",
+        "ec2:DetachInternetGateway"
+      ],
+      "Resource": "arn:aws:ec2:${Region}:${Account}:internet-gateway/${InternetGatewayId}"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:CreateNatGateway",
+        "ec2:DeleteNatGateway"
+      ],
+      "Resource": "arn:aws:ec2:${Region}:${Account}:natgateway/${NatGatewayId}"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "ec2:RunInstances",
+      "Resource": "arn:aws:ec2:${Region}:${Account}:network-interface/${NetworkInterfaceId}"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:AssociateRouteTable",
+        "ec2:CreateRoute",
+        "ec2:CreateRouteTable",
+        "ec2:DeleteRoute",
+        "ec2:DeleteRouteTable"
+      ],
+      "Resource": "arn:aws:ec2:${Region}:${Account}:route-table/${RouteTableId}"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:AuthorizeSecurityGroupEgress",
+        "ec2:AuthorizeSecurityGroupIngress",
+        "ec2:CreateSecurityGroup",
+        "ec2:DeleteSecurityGroup",
+        "ec2:RevokeSecurityGroupEgress",
+        "ec2:RunInstances"
+      ],
+      "Resource": "arn:aws:ec2:${Region}:${Account}:security-group/${SecurityGroupId}"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:CreateNatGateway",
+        "ec2:CreateSubnet",
+        "ec2:DeleteSubnet",
+        "ec2:ModifySubnetAttribute",
+        "ec2:RunInstances"
+      ],
+      "Resource": "arn:aws:ec2:${Region}:${Account}:subnet/${SubnetId}"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:CreateVpcEndpoint",
+        "ec2:DeleteVpcEndpoints"
+      ],
+      "Resource": "arn:aws:ec2:${Region}:${Account}:vpc-endpoint/${VpcEndpointId}"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:AttachInternetGateway",
+        "ec2:CreateRouteTable",
+        "ec2:CreateSubnet",
+        "ec2:CreateVpc",
+        "ec2:CreateVpcEndpoint",
+        "ec2:DeleteVpc",
+        "ec2:DescribeVpcAttribute",
+        "ec2:DetachInternetGateway",
+        "ec2:GetSecurityGroupsForVpc",
+        "ec2:ModifyVpcAttribute"
+      ],
+      "Resource": "arn:aws:ec2:${Region}:${Account}:vpc/${VpcId}"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "ec2:RunInstances",
+      "Resource": "arn:aws:ec2:${Region}::image/${ImageId}"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ecr:CreateRepository",
+        "ecr:DescribeRepositories",
+        "ecr:GetLifecyclePolicy",
+        "ecr:ListTagsForResource",
+        "ecr:PutLifecyclePolicy",
+        "ecr:TagResource"
+      ],
+      "Resource": "arn:aws:ecr:${Region}:${Account}:repository/${RepositoryName}"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ecs:CreateCluster",
+        "ecs:DeleteCluster",
+        "ecs:DescribeClusters"
+      ],
+      "Resource": "arn:aws:ecs:${Region}:${Account}:cluster/${ClusterName}"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ecs:CreateService",
+        "ecs:DeleteService",
+        "ecs:DescribeServices",
+        "ecs:UpdateService"
+      ],
+      "Resource": "arn:aws:ecs:${Region}:${Account}:service/${ClusterName}/${ServiceName}"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "ecs:RegisterTaskDefinition",
+      "Resource": "arn:aws:ecs:${Region}:${Account}:task-definition/${TaskDefinitionFamilyName}:${TaskDefinitionRevisionNumber}"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "elasticloadbalancing:DeleteRule",
+      "Resource": "arn:aws:elasticloadbalancing:${Region}:${Account}:listener-rule/app/${LoadBalancerName}/${LoadBalancerId}/${ListenerId}/${ListenerRuleId}"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "elasticloadbalancing:DeleteRule",
+      "Resource": "arn:aws:elasticloadbalancing:${Region}:${Account}:listener-rule/net/${LoadBalancerName}/${LoadBalancerId}/${ListenerId}/${ListenerRuleId}"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "elasticloadbalancing:AddListenerCertificates",
+        "elasticloadbalancing:CreateRule",
+        "elasticloadbalancing:DeleteListener",
+        "elasticloadbalancing:RemoveListenerCertificates"
+      ],
+      "Resource": "arn:aws:elasticloadbalancing:${Region}:${Account}:listener/app/${LoadBalancerName}/${LoadBalancerId}/${ListenerId}"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "elasticloadbalancing:AddListenerCertificates",
+        "elasticloadbalancing:CreateRule",
+        "elasticloadbalancing:DeleteListener",
+        "elasticloadbalancing:RemoveListenerCertificates"
+      ],
+      "Resource": "arn:aws:elasticloadbalancing:${Region}:${Account}:listener/net/${LoadBalancerName}/${LoadBalancerId}/${ListenerId}"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "elasticloadbalancing:AddTags",
+        "elasticloadbalancing:DeleteLoadBalancer",
+        "elasticloadbalancing:ModifyLoadBalancerAttributes"
+      ],
+      "Resource": "arn:aws:elasticloadbalancing:${Region}:${Account}:loadbalancer/${LoadBalancerName}"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "elasticloadbalancing:CreateTargetGroup",
+        "elasticloadbalancing:DeleteTargetGroup",
+        "elasticloadbalancing:ModifyTargetGroupAttributes"
+      ],
+      "Resource": "arn:aws:elasticloadbalancing:${Region}:${Account}:targetgroup/${TargetGroupName}/${TargetGroupId}"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "kms:CreateGrant",
+        "kms:Decrypt",
+        "kms:DescribeKey",
+        "kms:Encrypt",
+        "kms:GenerateDataKey"
+      ],
+      "Resource": "arn:aws:kms:${Region}:${Account}:key/${KeyId}"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "lambda:AddPermission",
+        "lambda:CreateFunction",
+        "lambda:DeleteFunction",
+        "lambda:GetFunction",
+        "lambda:GetFunctionCodeSigningConfig",
+        "lambda:GetPolicy",
+        "lambda:ListVersionsByFunction",
+        "lambda:RemovePermission"
+      ],
+      "Resource": "arn:aws:lambda:${Region}:${Account}:function:${FunctionName}"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:DeleteLogGroup"
+      ],
+      "Resource": "arn:aws:logs:${Region}:${Account}:log-group:${LogGroupName}"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "rds:CreateDBInstance",
+        "rds:CreateDBSnapshot",
+        "rds:CreateTenantDatabase",
+        "rds:DeleteDBInstance",
+        "rds:DeleteTenantDatabase",
+        "rds:DescribeDBInstances"
+      ],
+      "Resource": "arn:aws:rds:${Region}:${Account}:db:${DbInstanceName}"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "rds:CreateDBSnapshot",
+      "Resource": "arn:aws:rds:${Region}:${Account}:snapshot:${SnapshotName}"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "rds:CreateDBSubnetGroup",
+        "rds:DeleteDBSubnetGroup",
+        "rds:DescribeDBSubnetGroups"
+      ],
+      "Resource": "arn:aws:rds:${Region}:${Account}:subgrp:${SubnetGroupName}"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "rds:CreateTenantDatabase",
+        "rds:DeleteTenantDatabase"
+      ],
+      "Resource": "arn:aws:rds:${Region}:${Account}:tenant-database:${TenantResourceId}"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "secretsmanager:CreateSecret",
+        "secretsmanager:DeleteSecret",
+        "secretsmanager:DescribeSecret",
+        "secretsmanager:GetResourcePolicy",
+        "secretsmanager:GetSecretValue",
+        "secretsmanager:PutSecretValue",
+        "secretsmanager:TagResource"
+      ],
+      "Resource": "arn:aws:secretsmanager:${Region}:${Account}:secret:${SecretId}"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "ssm:GetParameters",
+      "Resource": "arn:aws:ssm:${Region}:${Account}:parameter/${ParameterNameWithoutLeadingSlash}"
+    }
+  ]
+}
