@@ -44,6 +44,11 @@ jobs:
           distribution: 'temurin'
           cache: 'maven'
 
+        # NEUER SCHRITT: Ausführungsrechte setzen
+      - name: Make Maven Wrapper executable
+        run: chmod +x ./mvnw
+        working-directory: ./backend
+
       - name: Maven Dependencies lokal auflösen
         run: ./mvnw dependency:go-offline
         working-directory: ./backend
