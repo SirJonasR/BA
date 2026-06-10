@@ -36,6 +36,18 @@ jobs:
           python3 -m pip install semgrep
           semgrep scan --config auto --json --output security-logs/semgrep-report.json || true
 
+      # --- Vorbereitung für Trivy (Verhindert HTTP 429 Rate Limit) ---
+      - name: Set up JDK & Cache Maven
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17' # Tecradar nutzt Quarkus, Java 17 ist hier ein guter Standard
+          distribution: 'temurin'
+          cache: 'maven'
+
+      - name: Maven Dependencies lokal auflösen
+        run: ./mvnw dependency:go-offline
+        working-directory: ./backend
+
       # --- 3. SCA (Trivy) ---
       - name: Trivy (Dependency Scanning)
         run: |
