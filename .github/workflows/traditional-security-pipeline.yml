@@ -1,0 +1,64 @@
+name: Traditional Security Gate (Baseline)
+
+# Wir nutzen workflow_dispatch, damit du den Scan für deine K1-Zeitmessungen
+# manuell und kontrolliert über den GitHub-Browser per Knopfdruck starten kannst.
+on:
+  workflow_dispatch: 
+
+jobs:
+  security-scans:
+    name: Centralized Security Gate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          # 'fetch-depth: 0' ist extrem wichtig für Gitleaks, 
+          # damit die gesamte Git-Historie nach Secrets gescannt wird!
+          fetch-depth: 0 
+
+      - name: Ordner für Logs erstellen
+        run: mkdir -p security-logs
+
+      # --- 1. SECRET SCANNING (Gitleaks) ---
+      - name: Gitleaks (Secrets)
+        run: |
+          wget https://github.com/gitleaks/gitleaks/releases/download/v8.18.2/gitleaks_8.18.2_linux_x64.tar.gz
+          tar -xzf gitleaks_8.18.2_linux_x64.tar.gz
+          # '|| true' stellt sicher, dass die Pipeline bei einem Fund NICHT abbricht,
+          # da wir für deine Auswertung ALLE Logs aller Tools sammeln müssen.
+          ./gitleaks detect --source . --verbose --report-path security-logs/gitleaks-report.json || true
+
+      # --- 2. SAST (Semgrep) ---
+      - name: Semgrep (Statische Codeanalyse)
+        run: |
+          python3 -m pip install semgrep
+          semgrep scan --config auto --json --output security-logs/semgrep-report.json || true
+
+      # --- 3. SCA (Trivy) ---
+      - name: Trivy (Dependency Scanning)
+        run: |
+          curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
+          trivy fs . --format json --output security-logs/trivy-report.json || true
+
+      # --- 4. IaC SCANNING (Checkov) ---
+      - name: Checkov (Infrastruktur as Code)
+        run: |
+          pip3 install checkov
+          checkov -d . --output json > security-logs/checkov-report.json || true
+
+      # --- LOGS SPEICHERN ---
+      - name: Security Logs als lokales Artifact bereitstellen
+        uses: actions/upload-artifact@v4
+        with:
+          name: traditional-pipeline-logs
+          path: security-logs/
+
+
+#Methodische Hinweise zu dieser Pipeline für deine Arbeit:
+#Das || true Statement: Das ist für deine wissenschaftliche Auswertung essenziell. Normalerweise würde z.B. Gitleaks einen Exit-Code > 0 zurückgeben, wenn es ein Secret findet, und die gesamte Pipeline würde sofort abbrechen. Da du aber die Log-Files aller vier Tools zur Analyse brauchst, zwingt || true den Runner dazu, trotz gefundener Fehler weiterzumachen und alle Scans abzuschließen.
+
+#workflow_dispatch: Ich habe den Trigger auf manuell gesetzt. Für die Quantifizierung von K1 (Laufzeit) ist das perfekt: Du gehst in GitHub auf "Actions", wählst die "Traditional Security Gate" aus und drückst auf "Run". Du kannst dann auf die Sekunde genau messen, wie lange dieser massive, traditionelle Scan dauert.
+
+#JSON als Format: Alle Tools sind angewiesen, JSON-Logs auszugeben (--output json). JSON lässt sich maschinell hervorragend auslesen und du kannst für deine Präzisionsmetrik (K4) exakt zählen, wie viele Findings (Bugs, CVEs) die Tools in diesem Vanilla-Tecradar-Projekt werfen.
