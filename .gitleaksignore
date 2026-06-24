@@ -1,0 +1,4 @@
+[allowlist]
+paths = [
+    '''backend/src/main/resources/db/changelogs/.*'''
+]
