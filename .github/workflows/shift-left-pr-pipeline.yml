@@ -1,0 +1,49 @@
+name: Shift-Left PR Gate
+
+# Diese Pipeline startet automatisch, sobald ein Pull Request gegen den main-Branch erstellt wird
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  sast_and_iac:
+    name: SAST, IaC & SCA Scanning
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # --- SAST (Semgrep) ---
+      - name: Semgrep (Statische Codeanalyse)
+        run: |
+          python3 -m pip install semgrep
+          semgrep scan --config auto --error
+
+      # --- IaC SCANNING (Checkov) ---
+      - name: Checkov (Infrastruktur)
+        run: |
+          pip3 install checkov
+          checkov -d . --soft-fail-on-empty-run
+
+      # --- Vorbereitung für Trivy (Verhindert HTTP 429 Rate Limit) ---
+      - name: Set up JDK & Cache Maven
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'maven'
+
+      - name: Make Maven Wrapper executable
+        run: chmod +x ./mvnw
+        working-directory: ./backend
+
+      - name: Maven Dependencies lokal auflösen
+        run: ./mvnw dependency:go-offline
+        working-directory: ./backend
+
+      # --- SCA (Trivy Filesystem) ---
+      - name: Trivy (Dependency Scanning)
+        run: |
+          curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
+          trivy fs . --exit-code 1 --severity CRITICAL,HIGH
