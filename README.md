@@ -61,3 +61,5 @@ After that you will find a `keycloak-angular-sandbox-realm.json` in the `./docke
 4. Merge both pull requests as soon as all GitHub Actions succeed 🚀
 
 Note: If a new env variables is added, adjust kubernetes configuration (tec-radar-cm.yaml)!
+
+Sinnlose änderung, test für PR Pipeline
