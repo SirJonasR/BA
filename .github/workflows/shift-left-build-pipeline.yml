@@ -3,7 +3,7 @@ name: Shift-Left Build Gate (Container Scan)
 # Diese Pipeline läuft, sobald Code in den main-Branch gemergt wird
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "dev","main" ]
   workflow_dispatch: # Damit du sie für Zeitmessungen manuell starten kannst
 
 jobs:
