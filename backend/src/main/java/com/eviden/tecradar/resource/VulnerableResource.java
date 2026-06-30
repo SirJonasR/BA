@@ -19,4 +19,13 @@ public class VulnerableResource {
         String query = "SELECT * FROM users WHERE username = '" + name + "'";
         return em.createNativeQuery(query).getResultList();
     }
+
+    // SECOND GROUND TRUTH: Exclusively for PR Testing
+    @GET
+    @Path("/search-email")
+    public Object searchEmail(@QueryParam("email") String email) {
+        String newQuery = "SELECT * FROM users WHERE email = '" + email + "'";
+        return em.createNativeQuery(newQuery).getResultList();
+    }
+
 }
