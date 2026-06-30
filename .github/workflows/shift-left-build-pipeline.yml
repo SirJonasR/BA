@@ -1,0 +1,28 @@
+name: Shift-Left Build Gate (Container Scan)
+
+# Diese Pipeline läuft, sobald Code in den main-Branch gemergt wird
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch: # Damit du sie für Zeitmessungen manuell starten kannst
+
+jobs:
+  build-and-scan:
+    name: Build & Scan Docker Image
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # 1. Das Docker-Image wird von der Pipeline regulär gebaut
+      - name: Build Backend Docker Image
+        run: |
+          docker build -t tecradar-backend:latest -f backend/src/main/docker/Dockerfile.jvm backend/
+
+      # 2. SHIFT-LEFT SECURITY: Der Container wird VOR dem Deployment gescannt
+      - name: Trivy Container Image Scan
+        run: |
+          curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
+          # Wir suchen nach Betriebssystem-Schwachstellen (OS) und fehlkonfigurierten Containern
+          trivy image --exit-code 1 --severity CRITICAL tecradar-backend:latest
