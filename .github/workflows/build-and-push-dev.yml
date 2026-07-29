@@ -3,7 +3,7 @@ name: Build and push Docker images to GitHub Docker Registry
 on:
   push:
     branches:
-      - "dev"
+      - "devx"
 
 env:
   REGISTRY: ghcr.io
