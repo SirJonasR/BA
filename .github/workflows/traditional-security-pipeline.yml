@@ -72,6 +72,42 @@ jobs:
           name: traditional-pipeline-logs
           path: security-logs/
 
+  build-and-scan:
+    name: Build & Scan Docker Image
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # --- 1. NEU: Build Environment aufsetzen und Java-App kompilieren ---
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'maven'
+
+      - name: Make Maven Wrapper executable
+        run: chmod +x ./mvnw
+        working-directory: ./backend
+
+      - name: Build Java Application (Maven)
+        run: ./mvnw package -DskipTests # Wir überspringen Tests für das Experiment, um K1 klein zu halten
+        working-directory: ./backend
+
+      # --- 2. Docker Image bauen (findet jetzt die /target/ Dateien) ---
+      - name: Build Backend Docker Image
+        run: |
+          docker build -t tecradar-backend:latest -f backend/src/main/docker/Dockerfile.jvm backend/
+
+      # --- 3. SHIFT-LEFT SECURITY: Container scannen ---
+      - name: Trivy Container Image Scan
+        run: |
+          curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
+          # Wir suchen nach Betriebssystem-Schwachstellen (OS)
+          trivy image --exit-code 1 --severity CRITICAL tecradar-backend:latest
+
 
 #Methodische Hinweise zu dieser Pipeline für deine Arbeit:
 #Das || true Statement: Das ist für deine wissenschaftliche Auswertung essenziell. Normalerweise würde z.B. Gitleaks einen Exit-Code > 0 zurückgeben, wenn es ein Secret findet, und die gesamte Pipeline würde sofort abbrechen. Da du aber die Log-Files aller vier Tools zur Analyse brauchst, zwingt || true den Runner dazu, trotz gefundener Fehler weiterzumachen und alle Scans abzuschließen.
