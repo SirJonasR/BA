@@ -62,4 +62,4 @@ After that you will find a `keycloak-angular-sandbox-realm.json` in the `./docke
 
 Note: If a new env variables is added, adjust kubernetes configuration (tec-radar-cm.yaml)!
 
-Sinnlose änderung, test für PR Pipeline  
+Sinnlose änderung, test für PR Pipeline 
