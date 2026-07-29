@@ -57,7 +57,7 @@ jobs:
       - name: Trivy (Dependency Scanning)
         run: |
           curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
-          trivy fs . --format json --output security-logs/trivy-report.json || true
+          trivy fs . --exit-code 1 --severity CRITICAL,HIGH
 
       # --- 4. IaC SCANNING (Checkov) ---
       - name: Checkov (Infrastruktur as Code)
